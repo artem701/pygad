@@ -257,7 +257,7 @@ class GANN:
 
     def update_population_trained_weights(self, population_trained_weights):
         """
-        The `update_population_trained_weights()` method updates the `trained_weights` attribute of each network (check the [documentation of the `pygad.nn.DenseLayer` class](https://github.com/ahmedfgad/NumPyANN#nndenselayer-class) for more information) according to the weights passed in the `population_trained_weights` parameter.
+        The `update_population_trained_weights()` method updates the `trained_weights` attribute of each network (check the [documentation of the `pygad.pygad.nn.DenseLayer` class](https://github.com/ahmedfgad/NumPyANN#nndenselayer-class) for more information) according to the weights passed in the `population_trained_weights` parameter.
 
         population_trained_weights: A list holding the trained weights of all networks as matrices. Such matrices are to be assigned to the 'trained_weights' attribute of all layers of all networks.
         """

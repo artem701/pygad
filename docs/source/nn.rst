@@ -1,46 +1,46 @@
 .. _pygadnn-module:
 
-``pygad.nn`` Module
+``pygad.pygad.nn`` Module
 ===================
 
 This section of the PyGAD's library documentation discusses the
-**pygad.nn** module.
+**pygad.pygad.nn** module.
 
-Using the **pygad.nn** module, artificial neural networks are created.
+Using the **pygad.pygad.nn** module, artificial neural networks are created.
 The purpose of this module is to only implement the **forward pass** of
-a neural network without using a training algorithm. The **pygad.nn**
+a neural network without using a training algorithm. The **pygad.pygad.nn**
 module builds the network layers, implements the activations functions,
 trains the network, makes predictions, and more.
 
-Later, the **pygad.gann** module is used to train the **pygad.nn**
-network using the genetic algorithm built in the **pygad** module.
+Later, the **pygad.pygad.gann** module is used to train the **pygad.pygad.nn**
+network using the genetic algorithm built in the **pygad.pygad** module.
 
 Starting from `PyGAD
-2.7.1 <https://pygad.readthedocs.io/en/latest/Footer.html#pygad-2-7-1>`__,
-the **pygad.nn** module supports both classification and regression
+2.7.1 <https://pygad.pygad.readthedocs.io/en/latest/Footer.html#pygad.pygad-2-7-1>`__,
+the **pygad.pygad.nn** module supports both classification and regression
 problems. For more information, check the ``problem_type`` parameter in
-the ``pygad.nn.train()`` and ``pygad.nn.predict()`` functions.
+the ``pygad.pygad.nn.train()`` and ``pygad.pygad.nn.predict()`` functions.
 
 Supported Layers
 ================
 
-Each layer supported by the **pygad.nn** module has a corresponding
+Each layer supported by the **pygad.pygad.nn** module has a corresponding
 class. The layers and their classes are:
 
-1. **Input**: Implemented using the ``pygad.nn.InputLayer`` class.
+1. **Input**: Implemented using the ``pygad.pygad.nn.InputLayer`` class.
 
 2. **Dense** (Fully Connected): Implemented using the
-   ``pygad.nn.DenseLayer`` class.
+   ``pygad.pygad.nn.DenseLayer`` class.
 
 In the future, more layers will be added. The next subsections discuss
 such layers.
 
 .. _pygadnninputlayer-class:
 
-``pygad.nn.InputLayer`` Class
+``pygad.pygad.nn.InputLayer`` Class
 -----------------------------
 
-The ``pygad.nn.InputLayer`` class creates the input layer for the neural
+The ``pygad.pygad.nn.InputLayer`` class creates the input layer for the neural
 network. For each network, there is only a single input layer. The
 network architecture must start with an input layer.
 
@@ -54,10 +54,10 @@ input layer with 20 neurons.
 
 .. code:: python
 
-   input_layer = pygad.nn.InputLayer(num_neurons=20)
+   input_layer = pygad.pygad.nn.InputLayer(num_neurons=20)
 
 Here is how the single attribute ``num_neurons`` within the instance of
-the ``pygad.nn.InputLayer`` class can be accessed.
+the ``pygad.pygad.nn.InputLayer`` class can be accessed.
 
 .. code:: python
 
@@ -69,10 +69,10 @@ This is everything about the input layer.
 
 .. _pygadnndenselayer-class:
 
-``pygad.nn.DenseLayer`` Class
+``pygad.pygad.nn.DenseLayer`` Class
 -----------------------------
 
-Using the ``pygad.nn.DenseLayer`` class, dense (fully-connected) layers
+Using the ``pygad.pygad.nn.DenseLayer`` class, dense (fully-connected) layers
 can be created. To create a dense layer, just create a new instance of
 the class. The constructor accepts the following parameters:
 
@@ -109,7 +109,7 @@ the ``previous_layer`` parameter is assigned to the input layer
 
 .. code:: python
 
-   dense_layer = pygad.nn.DenseLayer(num_neurons=12,
+   dense_layer = pygad.pygad.nn.DenseLayer(num_neurons=12,
                                      previous_layer=input_layer,
                                      activation_function="relu")
 
@@ -138,7 +138,7 @@ attribute points to the previously created dense layer.
 
 .. code:: python
 
-   dense_layer2 = pygad.nn.DenseLayer(num_neurons=5,
+   dense_layer2 = pygad.pygad.nn.DenseLayer(num_neurons=5,
                                       previous_layer=dense_layer,
                                       activation_function="relu")
 
@@ -172,7 +172,7 @@ regarded as the output layer.
 ``previous_layer`` Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The ``previous_layer`` attribute in the ``pygad.nn.DenseLayer`` class
+The ``previous_layer`` attribute in the ``pygad.pygad.nn.DenseLayer`` class
 creates a one way linked list between all the layers in the network
 architecture as described by the next figure.
 
@@ -213,12 +213,12 @@ is the input layer.
 Functions to Manipulate Neural Networks
 =======================================
 
-There are a number of functions existing in the ``pygad.nn`` module that
+There are a number of functions existing in the ``pygad.pygad.nn`` module that
 helps to manipulate the neural network.
 
 .. _pygadnnlayersweights:
 
-``pygad.nn.layers_weights()``
+``pygad.pygad.nn.layers_weights()``
 -----------------------------
 
 Creates and returns a list holding the weights matrices of all layers in
@@ -244,7 +244,7 @@ weights or the trained weights are returned based on where the
 
 .. _pygadnnlayersweightsasvector:
 
-``pygad.nn.layers_weights_as_vector()``
+``pygad.pygad.nn.layers_weights_as_vector()``
 ---------------------------------------
 
 Creates and returns a list holding the weights **vectors** of all layers
@@ -274,7 +274,7 @@ weights or the trained weights are returned based on where the
 
 .. _pygadnnlayersweightsasmatrix:
 
-``pygad.nn.layers_weights_as_matrix()``
+``pygad.pygad.nn.layers_weights_as_matrix()``
 ---------------------------------------
 
 Converts the network weights from vectors to matrices.
@@ -300,7 +300,7 @@ vector of the layer into a matrix.
 
 .. _pygadnnlayersactivations:
 
-``pygad.nn.layers_activations()``
+``pygad.pygad.nn.layers_activations()``
 ---------------------------------
 
 Creates and returns a list holding the names of the activation functions
@@ -318,7 +318,7 @@ activation function used is returned using the layer's
 
 .. _pygadnnsigmoid:
 
-``pygad.nn.sigmoid()``
+``pygad.pygad.nn.sigmoid()``
 ----------------------
 
 Applies the sigmoid function and returns its result.
@@ -329,7 +329,7 @@ Accepts the following parameters:
 
 .. _pygadnnrelu:
 
-``pygad.nn.relu()``
+``pygad.pygad.nn.relu()``
 -------------------
 
 Applies the rectified linear unit (ReLU) function and returns its
@@ -341,7 +341,7 @@ Accepts the following parameters:
 
 .. _pygadnnsoftmax:
 
-``pygad.nn.softmax()``
+``pygad.pygad.nn.softmax()``
 ----------------------
 
 Applies the softmax function and returns its result.
@@ -352,7 +352,7 @@ Accepts the following parameters:
 
 .. _pygadnntrain:
 
-``pygad.nn.train()``
+``pygad.pygad.nn.train()``
 --------------------
 
 Trains the neural network.
@@ -382,7 +382,7 @@ network.
 
 .. _pygadnnupdateweights:
 
-``pygad.nn.update_weights()``
+``pygad.pygad.nn.update_weights()``
 -----------------------------
 
 Calculates and returns the updated weights. Even no training algorithm
@@ -400,7 +400,7 @@ Accepts the following parameters:
 
 .. _pygadnnupdatelayerstrainedweights:
 
-``pygad.nn.update_layers_trained_weights()``
+``pygad.pygad.nn.update_layers_trained_weights()``
 --------------------------------------------
 
 After the network weights are trained, this function updates the
@@ -427,7 +427,7 @@ the ``final_weights`` parameter.
 
 .. _pygadnnpredict:
 
-``pygad.nn.predict()``
+``pygad.pygad.nn.predict()``
 ----------------------
 
 Uses the trained weights for predicting the samples' outputs. It returns
@@ -449,12 +449,12 @@ All the data samples are fed to the network to return their predictions.
 Helper Functions
 ================
 
-There are functions in the ``pygad.nn`` module that does not directly
+There are functions in the ``pygad.pygad.nn`` module that does not directly
 manipulate the neural networks.
 
 .. _pygadnntovector:
 
-``pygad.nn.to_vector()``
+``pygad.pygad.nn.to_vector()``
 ------------------------
 
 Converts a passed NumPy array (of any dimensionality) to its ``array``
@@ -466,7 +466,7 @@ Accepts the following parameters:
 
 .. _pygadnntoarray:
 
-``pygad.nn.to_array()``
+``pygad.pygad.nn.to_array()``
 -----------------------
 
 Converts a passed vector to its ``vector`` parameter into a NumPy array
@@ -483,17 +483,17 @@ Supported Activation Functions
 
 The supported activation functions are:
 
-1. Sigmoid: Implemented using the ``pygad.nn.sigmoid()`` function.
+1. Sigmoid: Implemented using the ``pygad.pygad.nn.sigmoid()`` function.
 
 2. Rectified Linear Unit (ReLU): Implemented using the
-   ``pygad.nn.relu()`` function.
+   ``pygad.pygad.nn.relu()`` function.
 
-3. Softmax: Implemented using the ``pygad.nn.softmax()`` function.
+3. Softmax: Implemented using the ``pygad.pygad.nn.softmax()`` function.
 
 Steps to Build a Neural Network
 ===============================
 
-This section discusses how to use the ``pygad.nn`` module for building a
+This section discusses how to use the ``pygad.pygad.nn`` module for building a
 neural network. The summary of the steps are as follows:
 
 -  Reading the Data
@@ -616,16 +616,16 @@ After the data is prepared, next is to create the network architecture.
 Building the Network Architecture
 ---------------------------------
 
-The input layer is created by instantiating the ``pygad.nn.InputLayer``
+The input layer is created by instantiating the ``pygad.pygad.nn.InputLayer``
 class according to the next code. A network can only have a single input
 layer.
 
 .. code:: python
 
-   import pygad.nn
+   import pygad.pygad.nn
    num_inputs = data_inputs.shape[1]
 
-   input_layer = pygad.nn.InputLayer(num_inputs)
+   input_layer = pygad.pygad.nn.InputLayer(num_inputs)
 
 After the input layer is created, next is to create a number of dense
 layers according to the next code. Normally, the last dense layer is
@@ -634,8 +634,8 @@ neurons equal to the number of classes in the dataset which is 4.
 
 .. code:: python
 
-   hidden_layer = pygad.nn.DenseLayer(num_neurons=HL2_neurons, previous_layer=input_layer, activation_function="relu")
-   output_layer = pygad.nn.DenseLayer(num_neurons=4, previous_layer=hidden_layer2, activation_function="softmax")
+   hidden_layer = pygad.pygad.nn.DenseLayer(num_neurons=HL2_neurons, previous_layer=input_layer, activation_function="relu")
+   output_layer = pygad.pygad.nn.DenseLayer(num_neurons=4, previous_layer=hidden_layer2, activation_function="softmax")
 
 After both the data and the network architecture are prepared, the next
 step is to train the network.
@@ -643,11 +643,11 @@ step is to train the network.
 Training the Network
 --------------------
 
-Here is an example of using the ``pygad.nn.train()`` function.
+Here is an example of using the ``pygad.pygad.nn.train()`` function.
 
 .. code:: python
 
-   pygad.nn.train(num_epochs=10,
+   pygad.pygad.nn.train(num_epochs=10,
                   last_layer=output_layer,
                   data_inputs=data_inputs,
                   data_outputs=data_outputs,
@@ -658,12 +658,12 @@ After training the network, the next step is to make predictions.
 Making Predictions
 ------------------
 
-The ``pygad.nn.predict()`` function uses the trained network for making
+The ``pygad.pygad.nn.predict()`` function uses the trained network for making
 predictions. Here is an example.
 
 .. code:: python
 
-   predictions = pygad.nn.predict(last_layer=output_layer, data_inputs=data_inputs)
+   predictions = pygad.pygad.nn.predict(last_layer=output_layer, data_inputs=data_inputs)
 
 It is not expected to have high accuracy in the predictions because no
 training algorithm is used.
@@ -686,14 +686,14 @@ addition to the classification accuracy.
 
 It is very important to note that it is not expected that the
 classification accuracy is high because no training algorithm is used.
-Please check the documentation of the ``pygad.gann`` module for training
+Please check the documentation of the ``pygad.pygad.gann`` module for training
 the network using the genetic algorithm.
 
 Examples
 ========
 
 This section gives the complete code of some examples that build neural
-networks using ``pygad.nn``. Each subsection builds a different network.
+networks using ``pygad.pygad.nn``. Each subsection builds a different network.
 
 XOR Classification
 ------------------
@@ -706,7 +706,7 @@ has 2 neurons, one for each class.
 .. code:: python
 
    import numpy
-   import pygad.nn
+   import pygad.pygad.nn
 
    # Preparing the NumPy array of the inputs.
    data_inputs = numpy.array([[1, 1],
@@ -728,19 +728,19 @@ has 2 neurons, one for each class.
    HL1_neurons = 2
 
    # Building the network architecture.
-   input_layer = pygad.nn.InputLayer(num_inputs)
-   hidden_layer1 = pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
-   output_layer = pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="softmax")
+   input_layer = pygad.pygad.nn.InputLayer(num_inputs)
+   hidden_layer1 = pygad.pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
+   output_layer = pygad.pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="softmax")
 
    # Training the network.
-   pygad.nn.train(num_epochs=10,
+   pygad.pygad.nn.train(num_epochs=10,
                   last_layer=output_layer,
                   data_inputs=data_inputs,
                   data_outputs=data_outputs,
                   learning_rate=0.01)
 
    # Using the trained network for predictions.
-   predictions = pygad.nn.predict(last_layer=output_layer, data_inputs=data_inputs)
+   predictions = pygad.pygad.nn.predict(last_layer=output_layer, data_inputs=data_inputs)
 
    # Calculating some statistics
    num_wrong = numpy.where(predictions != data_outputs)[0]
@@ -765,7 +765,7 @@ files before running this code.
 .. code:: python
 
    import numpy
-   import pygad.nn
+   import pygad.pygad.nn
 
    # Reading the data features. Check the 'extract_features.py' script for extracting the features & preparing the outputs of the dataset.
    data_inputs = numpy.load("dataset_features.npy") # Download from https://github.com/ahmedfgad/NumPyANN/blob/master/dataset_features.npy
@@ -786,20 +786,20 @@ files before running this code.
    HL2_neurons = 60
 
    # Building the network architecture.
-   input_layer = pygad.nn.InputLayer(num_inputs)
-   hidden_layer1 = pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
-   hidden_layer2 = pygad.nn.DenseLayer(num_neurons=HL2_neurons, previous_layer=hidden_layer1, activation_function="relu")
-   output_layer = pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer2, activation_function="softmax")
+   input_layer = pygad.pygad.nn.InputLayer(num_inputs)
+   hidden_layer1 = pygad.pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
+   hidden_layer2 = pygad.pygad.nn.DenseLayer(num_neurons=HL2_neurons, previous_layer=hidden_layer1, activation_function="relu")
+   output_layer = pygad.pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer2, activation_function="softmax")
 
    # Training the network.
-   pygad.nn.train(num_epochs=10,
+   pygad.pygad.nn.train(num_epochs=10,
                   last_layer=output_layer,
                   data_inputs=data_inputs,
                   data_outputs=data_outputs,
                   learning_rate=0.01)
 
    # Using the trained network for predictions.
-   predictions = pygad.nn.predict(last_layer=output_layer, data_inputs=data_inputs)
+   predictions = pygad.pygad.nn.predict(last_layer=output_layer, data_inputs=data_inputs)
 
    # Calculating some statistics
    num_wrong = numpy.where(predictions != data_outputs)[0]
@@ -815,15 +815,15 @@ Regression Example 1
 The next code listing builds a neural network for regression. Here is
 what to do to make the code works for regression:
 
-1. Set the ``problem_type`` parameter in the ``pygad.nn.train()`` and
-   ``pygad.nn.predict()`` functions to the string ``"regression"``.
+1. Set the ``problem_type`` parameter in the ``pygad.pygad.nn.train()`` and
+   ``pygad.pygad.nn.predict()`` functions to the string ``"regression"``.
 
 .. code:: python
 
-   pygad.nn.train(...,
+   pygad.pygad.nn.train(...,
                   problem_type="regression")
 
-   predictions = pygad.nn.predict(..., 
+   predictions = pygad.pygad.nn.predict(..., 
                                   problem_type="regression")
 
 1. Set the activation function for the output layer to the string
@@ -831,7 +831,7 @@ what to do to make the code works for regression:
 
 .. code:: python
 
-   output_layer = pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
+   output_layer = pygad.pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
 
 1. Calculate the prediction error according to your preferred error
    function. Here is how the mean absolute error is calculated.
@@ -843,13 +843,13 @@ what to do to make the code works for regression:
 
 Here is the complete code. Yet, there is no algorithm used to train the
 network and thus the network is expected to give bad results. Later, the
-``pygad.gann`` module is used to train either a regression or
+``pygad.pygad.gann`` module is used to train either a regression or
 classification networks.
 
 .. code:: python
 
    import numpy
-   import pygad.nn
+   import pygad.pygad.nn
 
    # Preparing the NumPy array of the inputs.
    data_inputs = numpy.array([[2, 5, -3, 0.1],
@@ -867,12 +867,12 @@ classification networks.
    HL1_neurons = 2
 
    # Building the network architecture.
-   input_layer = pygad.nn.InputLayer(num_inputs)
-   hidden_layer1 = pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
-   output_layer = pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
+   input_layer = pygad.pygad.nn.InputLayer(num_inputs)
+   hidden_layer1 = pygad.pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
+   output_layer = pygad.pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
 
    # Training the network.
-   pygad.nn.train(num_epochs=100,
+   pygad.pygad.nn.train(num_epochs=100,
                   last_layer=output_layer,
                   data_inputs=data_inputs,
                   data_outputs=data_outputs,
@@ -880,7 +880,7 @@ classification networks.
                   problem_type="regression")
 
    # Using the trained network for predictions.
-   predictions = pygad.nn.predict(last_layer=output_layer, 
+   predictions = pygad.pygad.nn.predict(last_layer=output_layer, 
                             data_inputs=data_inputs, 
                             problem_type="regression")
 
@@ -896,7 +896,7 @@ This example uses the Fish Market Dataset available at Kaggle
 dataset from `this
 link <https://www.kaggle.com/aungpyaeap/fish-market/download>`__
 (https://www.kaggle.com/aungpyaeap/fish-market/download). The dataset is
-also available at the `GitHub project of the pygad.nn
+also available at the `GitHub project of the pygad.pygad.nn
 module <https://github.com/ahmedfgad/NumPyANN>`__:
 https://github.com/ahmedfgad/NumPyANN
 
@@ -919,10 +919,10 @@ column is used as output.
    data_outputs = numpy.asarray(data[:, 1], dtype=numpy.float32) # Fish Weight
 
 Note how the activation function at the last layer is set to ``"None"``.
-Moreover, the ``problem_type`` parameter in the ``pygad.nn.train()`` and
-``pygad.nn.predict()`` functions is set to ``"regression"``.
+Moreover, the ``problem_type`` parameter in the ``pygad.pygad.nn.train()`` and
+``pygad.pygad.nn.predict()`` functions is set to ``"regression"``.
 
-After the ``pygad.nn.train()`` function completes, the mean absolute
+After the ``pygad.pygad.nn.train()`` function completes, the mean absolute
 error is calculated.
 
 .. code:: python
@@ -935,7 +935,7 @@ Here is the complete code.
 .. code:: python
 
    import numpy
-   import pygad.nn
+   import pygad.pygad.nn
    import pandas
 
    data = numpy.array(pandas.read_csv("Fish.csv"))
@@ -954,12 +954,12 @@ Here is the complete code.
    HL1_neurons = 2
 
    # Building the network architecture.
-   input_layer = pygad.nn.InputLayer(num_inputs)
-   hidden_layer1 = pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
-   output_layer = pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
+   input_layer = pygad.pygad.nn.InputLayer(num_inputs)
+   hidden_layer1 = pygad.pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
+   output_layer = pygad.pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
 
    # Training the network.
-   pygad.nn.train(num_epochs=100,
+   pygad.pygad.nn.train(num_epochs=100,
                   last_layer=output_layer,
                   data_inputs=data_inputs,
                   data_outputs=data_outputs,
@@ -967,7 +967,7 @@ Here is the complete code.
                   problem_type="regression")
 
    # Using the trained network for predictions.
-   predictions = pygad.nn.predict(last_layer=output_layer, 
+   predictions = pygad.pygad.nn.predict(last_layer=output_layer, 
                             data_inputs=data_inputs, 
                             problem_type="regression")
 

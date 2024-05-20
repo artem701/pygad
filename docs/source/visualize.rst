@@ -1,10 +1,10 @@
 .. _pygadvisualize-module:
 
-``pygad.visualize`` Module
+``pygad.pygad.visualize`` Module
 ==========================
 
 This section of the PyGAD's library documentation discusses the
-**pygad.visualize** module. It offers the methods for results
+**pygad.pygad.visualize** module. It offers the methods for results
 visualization in PyGAD.
 
 This section discusses the different options to visualize the results in
@@ -22,7 +22,7 @@ code runs for only 10 generations.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4, -2, 3.5, 8, -2, 3.5, 8]
@@ -33,7 +33,7 @@ code runs for only 10 generations.
        fitness = 1.0 / (numpy.abs(output - desired_output) + 0.000001)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=10,
                           num_parents_mating=5,
                           num_genes=len(equation_inputs),
@@ -190,7 +190,7 @@ The next figure shows that, for example, generation 6 has the least
 number of new solutions which is 4. The number of new solutions in the
 first generation is always equal to the number of solutions in the
 population (i.e. the value assigned to the ``sol_per_pop`` parameter in
-the constructor of the ``pygad.GA`` class) which is 10 in this example.
+the constructor of the ``pygad.pygad.GA`` class) which is 10 in this example.
 
 .. image:: https://user-images.githubusercontent.com/16560492/122475815-3322e880-cf93-11eb-9648-bf66f823234b.png
    :alt: 
@@ -308,10 +308,10 @@ solutions in the population or from just the best solutions.
 An exception is raised if:
 
 -  ``solutions="all"`` while ``save_solutions=False`` in the constructor
-   of the ``pygad.GA`` class. .
+   of the ``pygad.pygad.GA`` class. .
 
 -  ``solutions="best"`` while ``save_best_solutions=False`` in the
-   constructor of the ``pygad.GA`` class. .
+   constructor of the ``pygad.pygad.GA`` class. .
 
 .. _graphtypeplot:
 

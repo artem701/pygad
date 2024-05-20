@@ -1,10 +1,10 @@
 .. _pygadhelper-module:
 
-``pygad.helper`` Module
+``pygad.pygad.helper`` Module
 =======================
 
 This section of the PyGAD's library documentation discusses the
-**pygad.helper** module.
+**pygad.pygad.helper** module.
 
 Yet, this module has a submodule called ``unique`` that has a class
 named ``Unique`` with the following helper methods. Such methods help to

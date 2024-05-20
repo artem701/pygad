@@ -1,5 +1,5 @@
 import numpy
-import pygad.cnn
+import pygad.pygad.cnn
 
 """
 Convolutional neural network implementation using NumPy
@@ -16,43 +16,43 @@ train_outputs = numpy.load("../data/dataset_outputs.npy")
 sample_shape = train_inputs.shape[1:]
 num_classes = 4
 
-input_layer = pygad.cnn.Input2D(input_shape=sample_shape)
-conv_layer1 = pygad.cnn.Conv2D(num_filters=2,
+input_layer = pygad.pygad.cnn.Input2D(input_shape=sample_shape)
+conv_layer1 = pygad.pygad.cnn.Conv2D(num_filters=2,
                                kernel_size=3,
                                previous_layer=input_layer,
                                activation_function=None)
-relu_layer1 = pygad.cnn.Sigmoid(previous_layer=conv_layer1)
-average_pooling_layer = pygad.cnn.AveragePooling2D(pool_size=2, 
+relu_layer1 = pygad.pygad.cnn.Sigmoid(previous_layer=conv_layer1)
+average_pooling_layer = pygad.pygad.cnn.AveragePooling2D(pool_size=2, 
                                                    previous_layer=relu_layer1,
                                                    stride=2)
 
-conv_layer2 = pygad.cnn.Conv2D(num_filters=3,
+conv_layer2 = pygad.pygad.cnn.Conv2D(num_filters=3,
                                kernel_size=3,
                                previous_layer=average_pooling_layer,
                                activation_function=None)
-relu_layer2 = pygad.cnn.ReLU(previous_layer=conv_layer2)
-max_pooling_layer = pygad.cnn.MaxPooling2D(pool_size=2, 
+relu_layer2 = pygad.pygad.cnn.ReLU(previous_layer=conv_layer2)
+max_pooling_layer = pygad.pygad.cnn.MaxPooling2D(pool_size=2, 
                                            previous_layer=relu_layer2,
                                            stride=2)
 
-conv_layer3 = pygad.cnn.Conv2D(num_filters=1,
+conv_layer3 = pygad.pygad.cnn.Conv2D(num_filters=1,
                                kernel_size=3,
                                previous_layer=max_pooling_layer,
                                activation_function=None)
-relu_layer3 = pygad.cnn.ReLU(previous_layer=conv_layer3)
-pooling_layer = pygad.cnn.AveragePooling2D(pool_size=2, 
+relu_layer3 = pygad.pygad.cnn.ReLU(previous_layer=conv_layer3)
+pooling_layer = pygad.pygad.cnn.AveragePooling2D(pool_size=2, 
                                            previous_layer=relu_layer3,
                                            stride=2)
 
-flatten_layer = pygad.cnn.Flatten(previous_layer=pooling_layer)
-dense_layer1 = pygad.cnn.Dense(num_neurons=100, 
+flatten_layer = pygad.pygad.cnn.Flatten(previous_layer=pooling_layer)
+dense_layer1 = pygad.pygad.cnn.Dense(num_neurons=100, 
                                previous_layer=flatten_layer,
                                activation_function="relu")
-dense_layer2 = pygad.cnn.Dense(num_neurons=num_classes, 
+dense_layer2 = pygad.pygad.cnn.Dense(num_neurons=num_classes, 
                                previous_layer=dense_layer1,
                                activation_function="softmax")
 
-model = pygad.cnn.Model(last_layer=dense_layer2,
+model = pygad.pygad.cnn.Model(last_layer=dense_layer2,
                         epochs=1,
                         learning_rate=0.01)
 

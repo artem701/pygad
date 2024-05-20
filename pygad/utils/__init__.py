@@ -1,6 +1,6 @@
-from pygad.utils import parent_selection
-from pygad.utils import crossover
-from pygad.utils import mutation
-from pygad.utils import nsga2
+from pygad.pygad.utils import parent_selection
+from pygad.pygad.utils import crossover
+from pygad.pygad.utils import mutation
+from pygad.pygad.utils import nsga2
 
 __version__ = "1.1.0"

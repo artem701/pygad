@@ -1,10 +1,10 @@
 """
-The pygad.visualize.plot module has methods to create plots.
+The pygad.pygad.visualize.plot module has methods to create plots.
 """
 
 import numpy
 import matplotlib.pyplot
-import pygad
+import pygad.pygad
 
 class Plot:
 
@@ -46,7 +46,7 @@ class Plot:
         fig = matplotlib.pyplot.figure()
         if type(self.best_solutions_fitness[0]) in [list, tuple, numpy.ndarray] and len(self.best_solutions_fitness[0]) > 1:
             # Multi-objective optimization problem.
-            if type(linewidth) in pygad.GA.supported_int_float_types:
+            if type(linewidth) in pygad.pygad.GA.supported_int_float_types:
                 linewidth = [linewidth]
                 linewidth.extend([linewidth[0]]*len(self.best_solutions_fitness[0]))
             elif type(linewidth) in [list, tuple, numpy.ndarray]:
@@ -126,7 +126,7 @@ class Plot:
                                save_dir=None):
 
         """
-        Creates, shows, and returns a figure that summarizes the rate of exploring new solutions. This method works only when save_solutions=True in the constructor of the pygad.GA class.
+        Creates, shows, and returns a figure that summarizes the rate of exploring new solutions. This method works only when save_solutions=True in the constructor of the pygad.pygad.GA class.
 
         Accepts the following:
             title: Figure title.
@@ -146,8 +146,8 @@ class Plot:
             raise RuntimeError("The plot_new_solution_rate() method can only be called after completing at least 1 generation but ({self.generations_completed}) is completed.")
 
         if self.save_solutions == False:
-            self.logger.error("The plot_new_solution_rate() method works only when save_solutions=True in the constructor of the pygad.GA class.")
-            raise RuntimeError("The plot_new_solution_rate() method works only when save_solutions=True in the constructor of the pygad.GA class.")
+            self.logger.error("The plot_new_solution_rate() method works only when save_solutions=True in the constructor of the pygad.pygad.GA class.")
+            raise RuntimeError("The plot_new_solution_rate() method works only when save_solutions=True in the constructor of the pygad.pygad.GA class.")
 
         unique_solutions = set()
         num_unique_solutions_per_generation = []
@@ -199,7 +199,7 @@ class Plot:
 
         """
         Creates, shows, and returns a figure with number of subplots equal to the number of genes. Each subplot shows the gene value for each generation. 
-        This method works only when save_solutions=True in the constructor of the pygad.GA class. 
+        This method works only when save_solutions=True in the constructor of the pygad.pygad.GA class. 
         It also works only after completing at least 1 generation. If no generation is completed, an exception is raised.
 
         Accepts the following:
@@ -227,14 +227,14 @@ class Plot:
                 if self.save_solutions:
                     solutions_to_plot = numpy.array(self.solutions)
                 else:
-                    self.logger.error("The plot_genes() method with solutions='all' can only be called if 'save_solutions=True' in the pygad.GA class constructor.")
-                    raise RuntimeError("The plot_genes() method with solutions='all' can only be called if 'save_solutions=True' in the pygad.GA class constructor.")
+                    self.logger.error("The plot_genes() method with solutions='all' can only be called if 'save_solutions=True' in the pygad.pygad.GA class constructor.")
+                    raise RuntimeError("The plot_genes() method with solutions='all' can only be called if 'save_solutions=True' in the pygad.pygad.GA class constructor.")
             elif solutions == 'best':
                 if self.save_best_solutions:
                     solutions_to_plot = self.best_solutions
                 else:
-                    self.logger.error("The plot_genes() method with solutions='best' can only be called if 'save_best_solutions=True' in the pygad.GA class constructor.")
-                    raise RuntimeError("The plot_genes() method with solutions='best' can only be called if 'save_best_solutions=True' in the pygad.GA class constructor.")
+                    self.logger.error("The plot_genes() method with solutions='best' can only be called if 'save_best_solutions=True' in the pygad.pygad.GA class constructor.")
+                    raise RuntimeError("The plot_genes() method with solutions='best' can only be called if 'save_best_solutions=True' in the pygad.pygad.GA class constructor.")
             else:
                 self.logger.error("The solutions parameter can be either 'all' or 'best' but {solutions} found.")
                 raise RuntimeError("The solutions parameter can be either 'all' or 'best' but {solutions} found.")

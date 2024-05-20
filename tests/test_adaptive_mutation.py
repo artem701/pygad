@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 import random
 import numpy
 
@@ -39,7 +39,7 @@ def output_adaptive_mutation(gene_space=None,
     else:
         fitness_func = fitness_func_batch
 
-    ga_instance = pygad.GA(num_generations=num_generations,
+    ga_instance = pygad.pygad.GA(num_generations=num_generations,
                            num_parents_mating=5,
                            fitness_func=fitness_func,
                            sol_per_pop=10,

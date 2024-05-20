@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 import numpy
 
 """
@@ -7,7 +7,7 @@ This script gives an example of using custom user-defined functions for the 3 op
     2) Crossover.
     3) Mutation.
 For more information, check the User-Defined Crossover, Mutation, and Parent Selection Operators section in the documentation:
-    https://pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html#user-defined-crossover-mutation-and-parent-selection-operators
+    https://pygad.pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html#user-defined-crossover-mutation-and-parent-selection-operators
 """
 
 equation_inputs = [4,-2,3.5]
@@ -61,7 +61,7 @@ def mutation_func(offspring, ga_instance):
 
     return offspring
 
-ga_instance = pygad.GA(num_generations=10,
+ga_instance = pygad.pygad.GA(num_generations=10,
                        sol_per_pop=5,
                        num_parents_mating=2,
                        num_genes=len(equation_inputs),

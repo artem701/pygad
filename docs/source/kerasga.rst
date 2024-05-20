@@ -1,13 +1,13 @@
 .. _pygadkerasga-module:
 
-``pygad.kerasga`` Module
+``pygad.pygad.kerasga`` Module
 ========================
 
 This section of the PyGAD's library documentation discusses the
-`pygad.kerasga <https://pygad.readthedocs.io/en/latest/kerasga.html>`__
+`pygad.pygad.kerasga <https://pygad.pygad.readthedocs.io/en/latest/kerasga.html>`__
 module.
 
-The ``pygad.kerarsga`` module has helper a class and 2 functions to
+The ``pygad.pygad.kerarsga`` module has helper a class and 2 functions to
 train Keras models using the genetic algorithm (PyGAD). The Keras model
 can be built either using the `Sequential
 Model <https://keras.io/guides/sequential_model>`__ or the `Functional
@@ -37,13 +37,13 @@ follows:
 
 1. Create a Keras model.
 
-2. Create an instance of the ``pygad.kerasga.KerasGA`` class.
+2. Create an instance of the ``pygad.pygad.kerasga.KerasGA`` class.
 
 3. Prepare the training data.
 
 4. Build the fitness function.
 
-5. Create an instance of the ``pygad.GA`` class.
+5. Create an instance of the ``pygad.pygad.GA`` class.
 
 6. Run the genetic algorithm.
 
@@ -95,10 +95,10 @@ Feel free to add the layers of your choice.
 
 .. _pygadkerasgakerasga-class:
 
-``pygad.kerasga.KerasGA`` Class
+``pygad.pygad.kerasga.KerasGA`` Class
 ===============================
 
-The ``pygad.kerasga`` module has a class named ``KerasGA`` for creating
+The ``pygad.pygad.kerasga`` module has a class named ``KerasGA`` for creating
 an initial population for the genetic algorithm based on a Keras model.
 The constructor, methods, and attributes within the class are discussed
 in this section.
@@ -108,7 +108,7 @@ in this section.
 ``__init__()``
 --------------
 
-The ``pygad.kerasga.KerasGA`` class constructor accepts the following
+The ``pygad.pygad.kerasga.KerasGA`` class constructor accepts the following
 parameters:
 
 -  ``model``: An instance of the Keras model.
@@ -119,7 +119,7 @@ parameters:
 Instance Attributes
 -------------------
 
-All parameters in the ``pygad.kerasga.KerasGA`` class constructor are
+All parameters in the ``pygad.pygad.kerasga.KerasGA`` class constructor are
 used as instance attributes in addition to adding a new attribute called
 ``population_weights``.
 
@@ -136,7 +136,7 @@ Methods in the ``KerasGA`` Class
 --------------------------------
 
 This section discusses the methods available for instances of the
-``pygad.kerasga.KerasGA`` class.
+``pygad.pygad.kerasga.KerasGA`` class.
 
 .. _createpopulation:
 
@@ -150,14 +150,14 @@ different model parameters. The list of networks is assigned to the
 
 .. _functions-in-the-pygadkerasga-module:
 
-Functions in the ``pygad.kerasga`` Module
+Functions in the ``pygad.pygad.kerasga`` Module
 =========================================
 
-This section discusses the functions in the ``pygad.kerasga`` module.
+This section discusses the functions in the ``pygad.pygad.kerasga`` module.
 
 .. _pygadkerasgamodelweightsasvector:
 
-``pygad.kerasga.model_weights_as_vector()`` 
+``pygad.pygad.kerasga.model_weights_as_vector()`` 
 --------------------------------------------
 
 The ``model_weights_as_vector()`` function accepts a single parameter
@@ -180,7 +180,7 @@ It returns a 1D vector holding the model weights.
 
 .. _pygadkerasgamodelweightsasmatrix:
 
-``pygad.kerasga.model_weights_as_matrix()``
+``pygad.pygad.kerasga.model_weights_as_matrix()``
 -------------------------------------------
 
 The ``model_weights_as_matrix()`` function accepts the following
@@ -194,7 +194,7 @@ It returns the restored model weights after reshaping the vector.
 
 .. _pygadkerasgapredict:
 
-``pygad.kerasga.predict()``
+``pygad.pygad.kerasga.predict()``
 ---------------------------
 
 The ``predict()`` function makes a prediction based on a solution. It
@@ -236,14 +236,14 @@ subsections discuss each part in the code.
 .. code:: python
 
    import tensorflow.keras
-   import pygad.kerasga
+   import pygad.pygad.kerasga
    import numpy
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, keras_ga, model
 
-       predictions = pygad.kerasga.predict(model=model,
+       predictions = pygad.pygad.kerasga.predict(model=model,
                                            solution=solution,
                                            data=data_inputs)
 
@@ -263,7 +263,7 @@ subsections discuss each part in the code.
 
    model = tensorflow.keras.Model(inputs=input_layer, outputs=output_layer)
 
-   keras_ga = pygad.kerasga.KerasGA(model=model,
+   keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                     num_solutions=10)
 
    # Data inputs
@@ -278,12 +278,12 @@ subsections discuss each part in the code.
                                [1.3],
                                [2.5]])
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 250 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = keras_ga.population_weights # Initial population of network weights
 
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -300,7 +300,7 @@ subsections discuss each part in the code.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make prediction based on the best solution.
-   predictions = pygad.kerasga.predict(model=model,
+   predictions = pygad.pygad.kerasga.predict(model=model,
                                        solution=solution,
                                        data=data_inputs)
    print(f"Predictions : \n{predictions}")
@@ -341,18 +341,18 @@ The model can also be build using the Keras Sequential Model API.
 
 .. _create-an-instance-of-the-pygadkerasgakerasga-class:
 
-Create an Instance of the ``pygad.kerasga.KerasGA`` Class
+Create an Instance of the ``pygad.pygad.kerasga.KerasGA`` Class
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The second step is to create an instance of the
-``pygad.kerasga.KerasGA`` class. There are 10 solutions per population.
+``pygad.pygad.kerasga.KerasGA`` class. There are 10 solutions per population.
 Change this number according to your needs.
 
 .. code:: python
 
-   import pygad.kerasga
+   import pygad.pygad.kerasga
 
-   keras_ga = pygad.kerasga.KerasGA(model=model,
+   keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                     num_solutions=10)
 
 Prepare the Training Data
@@ -396,7 +396,7 @@ Feel free to use any other loss function to calculate the fitness value.
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, keras_ga, model
 
-       predictions = pygad.kerasga.predict(model=model,
+       predictions = pygad.pygad.kerasga.predict(model=model,
                                            solution=solution,
                                            data=data_inputs)
 
@@ -408,24 +408,24 @@ Feel free to use any other loss function to calculate the fitness value.
 
 .. _create-an-instance-of-the-pygadga-class:
 
-Create an Instance of the ``pygad.GA`` Class
+Create an Instance of the ``pygad.pygad.GA`` Class
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The fifth step is to instantiate the ``pygad.GA`` class. Note how the
+The fifth step is to instantiate the ``pygad.pygad.GA`` class. Note how the
 ``initial_population`` parameter is assigned to the initial weights of
 the Keras models.
 
 For more information, please check the `parameters this class
-accepts <https://pygad.readthedocs.io/en/latest/pygad.html#init>`__.
+accepts <https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#init>`__.
 
 .. code:: python
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 250 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = keras_ga.population_weights # Initial population of network weights
 
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -475,7 +475,7 @@ return the model predictions based on the best solution.
 .. code:: python
 
    # Fetch the parameters of the best solution.
-   predictions = pygad.kerasga.predict(model=model,
+   predictions = pygad.pygad.kerasga.predict(model=model,
                                        solution=solution,
                                        data=data_inputs)
    print(f"Predictions : \n{predictions}")
@@ -510,14 +510,14 @@ previous example.
 .. code:: python
 
    import tensorflow.keras
-   import pygad.kerasga
+   import pygad.pygad.kerasga
    import numpy
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, keras_ga, model
 
-       predictions = pygad.kerasga.predict(model=model,
+       predictions = pygad.pygad.kerasga.predict(model=model,
                                            solution=solution,
                                            data=data_inputs)
 
@@ -537,8 +537,8 @@ previous example.
 
    model = tensorflow.keras.Model(inputs=input_layer, outputs=output_layer)
 
-   # Create an instance of the pygad.kerasga.KerasGA class to build the initial population.
-   keras_ga = pygad.kerasga.KerasGA(model=model,
+   # Create an instance of the pygad.pygad.kerasga.KerasGA class to build the initial population.
+   keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                     num_solutions=10)
 
    # XOR problem inputs
@@ -553,13 +553,13 @@ previous example.
                                [0, 1],
                                [1, 0]])
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 250 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = keras_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -577,7 +577,7 @@ previous example.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make predictions based on the best solution.
-   predictions = pygad.kerasga.predict(model=model,
+   predictions = pygad.pygad.kerasga.predict(model=model,
                                        solution=solution,
                                        data=data_inputs)
    print(f"Predictions : \n{predictions}")
@@ -663,14 +663,14 @@ Here is the code.
 .. code:: python
 
    import tensorflow.keras
-   import pygad.kerasga
+   import pygad.pygad.kerasga
    import numpy
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, keras_ga, model
 
-       predictions = pygad.kerasga.predict(model=model,
+       predictions = pygad.pygad.kerasga.predict(model=model,
                                            solution=solution,
                                            data=data_inputs)
 
@@ -690,8 +690,8 @@ Here is the code.
 
    model = tensorflow.keras.Model(inputs=input_layer, outputs=output_layer)
 
-   # Create an instance of the pygad.kerasga.KerasGA class to build the initial population.
-   keras_ga = pygad.kerasga.KerasGA(model=model,
+   # Create an instance of the pygad.pygad.kerasga.KerasGA class to build the initial population.
+   keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                       num_solutions=10)
 
    # Data inputs
@@ -701,13 +701,13 @@ Here is the code.
    data_outputs = numpy.load("../data/outputs.npy")
    data_outputs = tensorflow.keras.utils.to_categorical(data_outputs)
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 100 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = keras_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -725,7 +725,7 @@ Here is the code.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make predictions based on the best solution.
-   predictions = pygad.kerasga.predict(model=model,
+   predictions = pygad.pygad.kerasga.predict(model=model,
                                        solution=solution,
                                        data=data_inputs)
    # print(f"Predictions : \n{predictions}")
@@ -810,14 +810,14 @@ Here is the complete code.
 .. code:: python
 
    import tensorflow.keras
-   import pygad.kerasga
+   import pygad.pygad.kerasga
    import numpy
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, keras_ga, model
 
-       predictions = pygad.kerasga.predict(model=model,
+       predictions = pygad.pygad.kerasga.predict(model=model,
                                            solution=solution,
                                            data=data_inputs)
 
@@ -846,8 +846,8 @@ Here is the complete code.
 
    model = tensorflow.keras.Model(inputs=input_layer, outputs=output_layer)
 
-   # Create an instance of the pygad.kerasga.KerasGA class to build the initial population.
-   keras_ga = pygad.kerasga.KerasGA(model=model,
+   # Create an instance of the pygad.pygad.kerasga.KerasGA class to build the initial population.
+   keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                     num_solutions=10)
 
    # Data inputs
@@ -857,13 +857,13 @@ Here is the complete code.
    data_outputs = numpy.load("../data/dataset_outputs.npy")
    data_outputs = tensorflow.keras.utils.to_categorical(data_outputs)
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 200 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = keras_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -881,7 +881,7 @@ Here is the complete code.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make predictions based on the best solution.
-   predictions = pygad.kerasga.predict(model=model,
+   predictions = pygad.pygad.kerasga.predict(model=model,
                                        solution=solution,
                                        data=data_inputs)
    # print(f"Predictions : \n{predictions}")
@@ -937,8 +937,8 @@ The data consists of 4 classes of images. The image shape is
 ``(100, 100, 3)`` and there are 20 images per class for a total of 80
 training samples. For more information about the dataset, check the
 `Reading the
-Data <https://pygad.readthedocs.io/en/latest/cnn.html#reading-the-data>`__
-section of the ``pygad.cnn`` module.
+Data <https://pygad.pygad.readthedocs.io/en/latest/cnn.html#reading-the-data>`__
+section of the ``pygad.pygad.cnn`` module.
 
 Simply download these 2 files and read them according to the next code.
 Note that the class labels are one-hot encoded using the
@@ -994,13 +994,13 @@ more computational time.
 
    import tensorflow as tf
    import tensorflow.keras
-   import pygad.kerasga
-   import pygad
+   import pygad.pygad.kerasga
+   import pygad.pygad
 
    def fitness_func(ga_instanse, solution, sol_idx):
        global train_generator, data_outputs, keras_ga, model
 
-       predictions = pygad.kerasga.predict(model=model,
+       predictions = pygad.pygad.kerasga.predict(model=model,
                                            solution=solution,
                                            data=train_generator)
 
@@ -1028,8 +1028,8 @@ more computational time.
    model.add(tf.keras.layers.Dropout(rate=0.2))
    model.add(tf.keras.layers.Dense(num_classes, activation="softmax"))
 
-   # Create an instance of the pygad.kerasga.KerasGA class to build the initial population.
-   keras_ga = pygad.kerasga.KerasGA(model=model,
+   # Create an instance of the pygad.pygad.kerasga.KerasGA class to build the initial population.
+   keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                     num_solutions=10)
 
    data_generator = tf.keras.preprocessing.image.ImageDataGenerator()
@@ -1041,11 +1041,11 @@ more computational time.
    # train_generator.class_indices
    data_outputs = tf.keras.utils.to_categorical(train_generator.labels)
 
-   # Check the documentation for more information about the parameters: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Check the documentation for more information about the parameters: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    initial_population = keras_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=10, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=10, 
                           num_parents_mating=5, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -1062,7 +1062,7 @@ more computational time.
    print(f"Fitness value of the best solution = {solution_fitness}")
    print(f"Index of the best solution : {solution_idx}")
 
-   predictions = pygad.kerasga.predict(model=model,
+   predictions = pygad.pygad.kerasga.predict(model=model,
                                        solution=solution,
                                        data=train_generator)
    # print(f"Predictions : \n{predictions}")

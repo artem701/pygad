@@ -1,18 +1,18 @@
 .. _pygadtorchga-module:
 
-``pygad.torchga`` Module
+``pygad.pygad.torchga`` Module
 ========================
 
 This section of the PyGAD's library documentation discusses the
-**pygad.utils** module.
+**pygad.pygad.utils** module.
 
 PyGAD supports different types of operators for selecting the parents,
 applying the crossover, and mutation. More features will be added in the
 future. To ask for a new feature, please check the `Ask for
-Feature <https://pygad.readthedocs.io/en/latest/releases.html#ask-for-feature>`__
+Feature <https://pygad.pygad.readthedocs.io/en/latest/releases.html#ask-for-feature>`__
 section.
 
-The submodules in the ``pygad.utils`` module are:
+The submodules in the ``pygad.pygad.utils`` module are:
 
 1. ``crossover``: Has the ``Crossover`` class that implements the
    crossover operators.
@@ -26,18 +26,18 @@ The submodules in the ``pygad.utils`` module are:
 4. ``nsga2``: Has the ``NSGA2`` class that implements the Non-Dominated
    Sorting Genetic Algorithm II (NSGA-II).
 
-Note that the ``pygad.GA`` class extends all of these classes. So, the
+Note that the ``pygad.pygad.GA`` class extends all of these classes. So, the
 user can access any of the methods in such classes directly by the
-instance/object of the ``pygad.GA`` class.
+instance/object of the ``pygad.pygad.GA`` class.
 
 The next sections discuss each submodule.
 
 .. _pygadutilscrossover-submodule:
 
-``pygad.utils.crossover`` Submodule
+``pygad.pygad.utils.crossover`` Submodule
 ===================================
 
-The ``pygad.utils.crossover`` module has a class named ``Crossover``
+The ``pygad.pygad.utils.crossover`` module has a class named ``Crossover``
 with the supported crossover operations which are:
 
 1. Single point: Implemented using the ``single_point_crossover()``
@@ -57,10 +57,10 @@ All crossover methods accept this parameter:
 
 .. _pygadutilsmutation-submodule:
 
-``pygad.utils.mutation`` Submodule
+``pygad.pygad.utils.mutation`` Submodule
 ==================================
 
-The ``pygad.utils.mutation`` module has a class named ``Mutation`` with
+The ``pygad.pygad.utils.mutation`` module has a class named ``Mutation`` with
 the supported mutation operations which are:
 
 1. Random: Implemented using the ``random_mutation()`` method.
@@ -141,11 +141,11 @@ Use Adaptive Mutation in PyGAD
 ------------------------------
 
 In `PyGAD
-2.10.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-10-0>`__,
+2.10.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-10-0>`__,
 adaptive mutation is supported. To use it, just follow the following 2
 simple steps:
 
-1. In the constructor of the ``pygad.GA`` class, set
+1. In the constructor of the ``pygad.pygad.GA`` class, set
    ``mutation_type="adaptive"`` to specify that the type of mutation is
    adaptive.
 
@@ -154,7 +154,7 @@ simple steps:
    ``mutation_probability``, ``mutation_num_genes``, and
    ``mutation_percent_genes``. Please check the `documentation of each
    of these
-   parameters <https://pygad.readthedocs.io/en/latest/pygad.html#init>`__
+   parameters <https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#init>`__
    for more information.
 
 When adaptive mutation is used, then the value assigned to any of the 3
@@ -214,7 +214,7 @@ Here is an example that uses adaptive mutation.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    function_inputs = [4,-2,3.5,5,-11,-4.7] # Function inputs.
@@ -228,7 +228,7 @@ Here is an example that uses adaptive mutation.
        return fitness
 
    # Creating an instance of the GA class inside the ga module. Some parameters are initialized within the constructor.
-   ga_instance = pygad.GA(num_generations=200,
+   ga_instance = pygad.pygad.GA(num_generations=200,
                           fitness_func=fitness_func,
                           num_parents_mating=10,
                           sol_per_pop=20,
@@ -243,10 +243,10 @@ Here is an example that uses adaptive mutation.
 
 .. _pygadutilsparentselection-submodule:
 
-``pygad.utils.parent_selection`` Submodule
+``pygad.pygad.utils.parent_selection`` Submodule
 ==========================================
 
-The ``pygad.utils.parent_selection`` module has a class named
+The ``pygad.pygad.utils.parent_selection`` module has a class named
 ``ParentSelection`` with the supported parent selection operations which
 are:
 
@@ -278,10 +278,10 @@ All parent selection methods accept these parameters:
 
 .. _pygadutilsnsga2-submodule:
 
-``pygad.utils.nsga2`` Submodule
+``pygad.pygad.utils.nsga2`` Submodule
 ===============================
 
-The ``pygad.utils.nsga2`` module has a class named ``NSGA2`` that
+The ``pygad.pygad.utils.nsga2`` module has a class named ``NSGA2`` that
 implements NSGA-II. The methods inside this class are:
 
 1. ``non_dominated_sorting()``: Returns all the pareto fronts by
@@ -304,7 +304,7 @@ User-Defined Crossover, Mutation, and Parent Selection Operators
 
 Previously, the user can select the the type of the crossover, mutation,
 and parent selection operators by assigning the name of the operator to
-the following parameters of the ``pygad.GA`` class's constructor:
+the following parameters of the ``pygad.pygad.GA`` class's constructor:
 
 1. ``crossover_type``
 
@@ -316,17 +316,17 @@ This way, the user can only use the built-in functions for each of these
 operators.
 
 Starting from `PyGAD
-2.16.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-16-0>`__,
+2.16.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-16-0>`__,
 the user can create a custom crossover, mutation, and parent selection
 operators and assign these functions to the above parameters. Thus, a
 new operator can be plugged easily into the `PyGAD
-Lifecycle <https://pygad.readthedocs.io/en/latest/pygad.html#life-cycle-of-pygad>`__.
+Lifecycle <https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#life-cycle-of-pygad.pygad>`__.
 
 This is a sample code that does not use any custom function.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4,-2,3.5]
@@ -337,7 +337,7 @@ This is a sample code that does not use any custom function.
        fitness = 1.0 / (numpy.abs(output - desired_output) + 0.000001)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -348,7 +348,7 @@ This is a sample code that does not use any custom function.
 
 This section describes the expected input parameters and outputs. For
 simplicity, all of these custom functions all accept the instance of the
-``pygad.GA`` class as the last parameter.
+``pygad.pygad.GA`` class as the last parameter.
 
 User-Defined Crossover Operator
 -------------------------------
@@ -361,7 +361,7 @@ parameters:
 2. The size of the offspring as a tuple of 2 numbers: (the offspring
    size, number of genes).
 
-3. The instance from the ``pygad.GA`` class. This instance helps to
+3. The instance from the ``pygad.pygad.GA`` class. This instance helps to
    retrieve any property like ``population``, ``gene_type``,
    ``gene_space``, etc.
 
@@ -405,14 +405,14 @@ second parent.
        return numpy.array(offspring)
 
 To use this user-defined function, simply assign its name to the
-``crossover_type`` parameter in the constructor of the ``pygad.GA``
+``crossover_type`` parameter in the constructor of the ``pygad.pygad.GA``
 class. The next code gives an example. In this case, the custom function
 will be called in each generation rather than calling the built-in
 crossover functions defined in PyGAD.
 
 .. code:: python
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -428,7 +428,7 @@ function that accepts 2 parameters:
 
 1. The offspring to be mutated.
 
-2. The instance from the ``pygad.GA`` class. This instance helps to
+2. The instance from the ``pygad.pygad.GA`` class. This instance helps to
    retrieve any property like ``population``, ``gene_type``,
    ``gene_space``, etc.
 
@@ -462,7 +462,7 @@ parameter.
 
 .. code:: python
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -509,7 +509,7 @@ function. Just create a Python function that accepts 3 parameters:
 
 2. The number of parents needed.
 
-3. The instance from the ``pygad.GA`` class. This instance helps to
+3. The instance from the ``pygad.pygad.GA`` class. This instance helps to
    retrieve any property like ``population``, ``gene_type``,
    ``gene_space``, etc.
 
@@ -556,7 +556,7 @@ Finally, the defined function is assigned to the
 
 .. code:: python
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -573,7 +573,7 @@ previous 3 user-defined functions instead of the built-in functions.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4,-2,3.5]
@@ -625,7 +625,7 @@ previous 3 user-defined functions instead of the built-in functions.
 
        return offspring
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -641,7 +641,7 @@ This is the same example but using methods instead of functions.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4,-2,3.5]
@@ -694,7 +694,7 @@ This is the same example but using methods instead of functions.
        
            return offspring
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),

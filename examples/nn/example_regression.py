@@ -1,5 +1,5 @@
 import numpy
-import pygad.nn
+import pygad.pygad.nn
 
 """
 This example creates a neural network for regression where the architecture has input and dense layers only. More layers will be added in the future. 
@@ -24,12 +24,12 @@ num_outputs = 1
 HL1_neurons = 2
 
 # Building the network architecture.
-input_layer = pygad.nn.InputLayer(num_inputs)
-hidden_layer1 = pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
-output_layer = pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
+input_layer = pygad.pygad.nn.InputLayer(num_inputs)
+hidden_layer1 = pygad.pygad.nn.DenseLayer(num_neurons=HL1_neurons, previous_layer=input_layer, activation_function="relu")
+output_layer = pygad.pygad.nn.DenseLayer(num_neurons=num_outputs, previous_layer=hidden_layer1, activation_function="None")
 
 # Training the network.
-pygad.nn.train(num_epochs=100,
+pygad.pygad.nn.train(num_epochs=100,
                last_layer=output_layer,
                data_inputs=data_inputs,
                data_outputs=data_outputs,
@@ -37,7 +37,7 @@ pygad.nn.train(num_epochs=100,
                problem_type="regression")
 
 # Using the trained network for predictions.
-predictions = pygad.nn.predict(last_layer=output_layer, 
+predictions = pygad.pygad.nn.predict(last_layer=output_layer, 
                          data_inputs=data_inputs, 
                          problem_type="regression")
 

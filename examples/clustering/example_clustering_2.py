@@ -1,6 +1,6 @@
 import numpy
 import matplotlib.pyplot
-import pygad
+import pygad.pygad
 
 cluster1_num_samples = 10
 cluster1_x1_start = 0
@@ -94,7 +94,7 @@ def fitness_func(ga_instance, solution, solution_idx):
 num_clusters = 2
 num_genes = num_clusters * data.shape[1]
 
-ga_instance = pygad.GA(num_generations=100,
+ga_instance = pygad.pygad.GA(num_generations=100,
                        sol_per_pop=10,
                        num_parents_mating=5,
                        init_range_low=-6,

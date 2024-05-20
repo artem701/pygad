@@ -1,5 +1,5 @@
 """
-The pygad.utils.parent_selection module has all the built-in parent selection operators.
+The pygad.pygad.utils.parent_selection module has all the built-in parent selection operators.
 """
 
 import numpy

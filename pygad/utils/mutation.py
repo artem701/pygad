@@ -1,11 +1,11 @@
 """
-The pygad.utils.mutation module has all the built-in mutation operators.
+The pygad.pygad.utils.mutation module has all the built-in mutation operators.
 """
 
 import numpy
 import random
 
-import pygad
+import pygad.pygad
 
 class Mutation:
 
@@ -71,7 +71,7 @@ class Mutation:
                         curr_gene_space = self.gene_space[gene_idx]
 
                     # If the gene space has only a single value, use it as the new gene value.
-                    if type(curr_gene_space) in pygad.GA.supported_int_float_types:
+                    if type(curr_gene_space) in pygad.pygad.GA.supported_int_float_types:
                         value_from_space = curr_gene_space
                     # If the gene space is None, apply mutation by adding a random value between the range defined by the 2 parameters 'random_mutation_min_val' and 'random_mutation_max_val'.
                     elif curr_gene_space is None:
@@ -190,7 +190,7 @@ class Mutation:
                             curr_gene_space = self.gene_space[gene_idx]
         
                         # If the gene space has only a single value, use it as the new gene value.
-                        if type(curr_gene_space) in pygad.GA.supported_int_float_types:
+                        if type(curr_gene_space) in pygad.pygad.GA.supported_int_float_types:
                             value_from_space = curr_gene_space
                         # If the gene space is None, apply mutation by adding a random value between the range defined by the 2 parameters 'random_mutation_min_val' and 'random_mutation_max_val'.
                         elif curr_gene_space is None:
@@ -600,7 +600,7 @@ class Mutation:
                         curr_gene_space = self.gene_space[gene_idx]
 
                     # If the gene space has only a single value, use it as the new gene value.
-                    if type(curr_gene_space) in pygad.GA.supported_int_float_types:
+                    if type(curr_gene_space) in pygad.pygad.GA.supported_int_float_types:
                         value_from_space = curr_gene_space
                     # If the gene space is None, apply mutation by adding a random value between the range defined by the 2 parameters 'random_mutation_min_val' and 'random_mutation_max_val'.
                     elif curr_gene_space is None:
@@ -815,7 +815,7 @@ class Mutation:
                             curr_gene_space = self.gene_space[gene_idx]
         
                         # If the gene space has only a single value, use it as the new gene value.
-                        if type(curr_gene_space) in pygad.GA.supported_int_float_types:
+                        if type(curr_gene_space) in pygad.pygad.GA.supported_int_float_types:
                             value_from_space = curr_gene_space
                         # If the gene space is None, apply mutation by adding a random value between the range defined by the 2 parameters 'random_mutation_min_val' and 'random_mutation_max_val'.
                         elif curr_gene_space is None:

@@ -1,11 +1,11 @@
 """
-The pygad.helper.unique module has helper methods to solve duplicate genes and make sure every gene is unique.
+The pygad.pygad.helper.unique module has helper methods to solve duplicate genes and make sure every gene is unique.
 """
 
 import numpy
 import warnings
 import random
-import pygad
+import pygad.pygad
 
 class Unique:
 
@@ -43,7 +43,7 @@ class Unique:
                 for duplicate_index in not_unique_indices:
                     for trial_index in range(num_trials):
                         if self.gene_type_single == True:
-                            if gene_type[0] in pygad.GA.supported_int_types:
+                            if gene_type[0] in pygad.pygad.GA.supported_int_types:
                                 temp_val = self.unique_int_gene_from_range(solution=new_solution, 
                                                                            gene_index=duplicate_index, 
                                                                            min_val=min_val, 
@@ -59,7 +59,7 @@ class Unique:
                                 else:
                                     temp_val = new_solution[duplicate_index] + temp_val
                         else:
-                            if gene_type[duplicate_index][0] in pygad.GA.supported_int_types:
+                            if gene_type[duplicate_index][0] in pygad.pygad.GA.supported_int_types:
                                 temp_val = self.unique_int_gene_from_range(solution=new_solution, 
                                                                            gene_index=duplicate_index, 
                                                                            min_val=min_val, 
@@ -75,7 +75,7 @@ class Unique:
                                 else:
                                     temp_val = new_solution[duplicate_index] + temp_val
 
-                        # Similar to the round_genes() method in the pygad module,
+                        # Similar to the round_genes() method in the pygad.pygad module,
                         # Create a round_gene() method to round a single gene.
                         if self.gene_type_single == True:
                             if not gene_type[1] is None:
@@ -316,12 +316,12 @@ class Unique:
                     curr_gene_space = self.gene_space[gene_idx]
 
                 # If the gene space has only a single value, use it as the new gene value.
-                if type(curr_gene_space) in pygad.GA.supported_int_float_types:
+                if type(curr_gene_space) in pygad.pygad.GA.supported_int_float_types:
                     value_from_space = curr_gene_space
                     # If the gene space is None, apply mutation by adding a random value between the range defined by the 2 parameters 'random_mutation_min_val' and 'random_mutation_max_val'.
                 elif curr_gene_space is None:
                     if self.gene_type_single == True:
-                        if gene_type[0] in pygad.GA.supported_int_types:
+                        if gene_type[0] in pygad.pygad.GA.supported_int_types:
                             if build_initial_pop == True:
                                 # If we are building the initial population, then use the range of the initial population.
                                 min_val = self.init_range_low
@@ -354,7 +354,7 @@ class Unique:
                             # else:
                             #     value_from_space = solution[gene_idx] + value_from_space
                     else:
-                        if gene_type[gene_idx][0] in pygad.GA.supported_int_types:
+                        if gene_type[gene_idx][0] in pygad.pygad.GA.supported_int_types:
                             if build_initial_pop == True:
                                 min_val = self.init_range_low
                                 max_val = self.init_range_high
@@ -387,7 +387,7 @@ class Unique:
     
                 elif type(curr_gene_space) is dict:
                     if self.gene_type_single == True:
-                        if gene_type[0] in pygad.GA.supported_int_types:
+                        if gene_type[0] in pygad.pygad.GA.supported_int_types:
                             if 'step' in curr_gene_space.keys():
                                 step = curr_gene_space['step']
                             else:
@@ -417,7 +417,7 @@ class Unique:
                             #     value_from_space = solution[gene_idx] + value_from_space
                     else:
                         # Use index 0 to return the type from the list (e.g. [int, None] or [float, 2]).
-                        if gene_type[gene_idx][0] in pygad.GA.supported_int_types:
+                        if gene_type[gene_idx][0] in pygad.pygad.GA.supported_int_types:
                             if 'step' in curr_gene_space.keys():
                                 step = curr_gene_space['step']
                             else:
@@ -480,7 +480,7 @@ class Unique:
                 # Selecting a value randomly from the global gene space in the 'gene_space' attribute.
                 if type(self.gene_space) is dict:
                     if self.gene_type_single == True:
-                        if gene_type[0] in pygad.GA.supported_int_types:
+                        if gene_type[0] in pygad.pygad.GA.supported_int_types:
                             if 'step' in self.gene_space.keys():
                                 step = self.gene_space['step']
                             else:
@@ -510,7 +510,7 @@ class Unique:
                             # else:
                             #     value_from_space = solution[gene_idx] + value_from_space
                     else:
-                        if gene_type[gene_idx][0] in pygad.GA.supported_int_types:
+                        if gene_type[gene_idx][0] in pygad.pygad.GA.supported_int_types:
                             if 'step' in self.gene_space.keys():
                                 step = self.gene_space['step']
                             else:
@@ -564,7 +564,7 @@ class Unique:
                                                         high=high,
                                                         size=1)[0]
 
-            # Similar to the round_genes() method in the pygad module,
+            # Similar to the round_genes() method in the pygad.pygad module,
             # Create a round_gene() method to round a single gene.
             if self.gene_type_single == True:
                 if not gene_type[1] is None:
@@ -662,7 +662,7 @@ class Unique:
         elif self.gene_space_nested == True:
             gene_space_unpacked = self.gene_space.copy()
             for space_idx, space in enumerate(gene_space_unpacked):
-                if type(space) in pygad.GA.supported_int_float_types:
+                if type(space) in pygad.pygad.GA.supported_int_float_types:
                     gene_space_unpacked[space_idx] = [space]
                 elif space is None:
                     # Randomly generate the value using the mutation range.
@@ -675,7 +675,7 @@ class Unique:
                     # Create a list of values using the dict range.
                     # Use numpy.linspace()
                     if self.gene_type_single == True: # self.gene_type_single
-                        if self.gene_type[0] in pygad.GA.supported_int_types:
+                        if self.gene_type[0] in pygad.pygad.GA.supported_int_types:
                             if 'step' in space.keys():
                                 step = space['step']
                             else:
@@ -695,7 +695,7 @@ class Unique:
                                                                                 num=num_values_from_inf_range,
                                                                                 endpoint=False)
                     else:
-                        if self.gene_type[space_idx][0] in pygad.GA.supported_int_types:
+                        if self.gene_type[space_idx][0] in pygad.pygad.GA.supported_int_types:
                             if 'step' in space.keys():
                                 step = space['step']
                             else:

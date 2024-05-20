@@ -3,7 +3,7 @@ This script is identical to the test_gene_space_allow_duplicate_genes.py script 
     Setting allow_duplicate_genes=True instead of False.
 """
 
-import pygad
+import pygad.pygad
 import random
 import numpy
 
@@ -37,7 +37,7 @@ def number_respect_gene_space(gene_space=None,
     def fitness_func(ga, solution, idx):
         return random.random()
 
-    ga_instance = pygad.GA(num_generations=num_generations,
+    ga_instance = pygad.pygad.GA(num_generations=num_generations,
                            num_parents_mating=5,
                            fitness_func=fitness_func,
                            sol_per_pop=10,

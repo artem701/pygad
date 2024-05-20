@@ -1,5 +1,5 @@
 import numpy
-import pygad
+import pygad.pygad
 
 class NSGA2:
 
@@ -259,7 +259,7 @@ class NSGA2:
                 crowding_dist_pop_sorted_indices = list(crowding_dist_pop_sorted_indices)
                 # Append the sorted solutions into the list.
                 solutions_sorted.extend(crowding_dist_pop_sorted_indices)
-        elif type(fitness[0]) in pygad.GA.supported_int_float_types:
+        elif type(fitness[0]) in pygad.pygad.GA.supported_int_float_types:
             # Single-objective optimization problem.
             solutions_sorted = sorted(range(len(fitness)), key=lambda k: fitness[k])
             # Reverse the sorted solutions so that the best solution comes first.

@@ -11,7 +11,7 @@ PyGAD 1.0.17
 
 Release Date: 15 April 2020
 
-1. The **pygad.GA** class accepts a new argument named ``fitness_func``
+1. The **pygad.pygad.GA** class accepts a new argument named ``fitness_func``
    which accepts a function to be used for calculating the fitness
    values for the solutions. This allows the project to be customized to
    any problem by building the right fitness function.
@@ -23,12 +23,12 @@ PyGAD 1.0.20
 
 Release Date: 4 May 2020
 
-1. The **pygad.GA** attributes are moved from the class scope to the
+1. The **pygad.pygad.GA** attributes are moved from the class scope to the
    instance scope.
 
 2. Raising an exception for incorrect values of the passed parameters.
 
-3. Two new parameters are added to the **pygad.GA** class constructor
+3. Two new parameters are added to the **pygad.pygad.GA** class constructor
    (``init_range_low`` and ``init_range_high``) allowing the user to
    customize the range from which the genes values in the initial
    population are selected.
@@ -46,7 +46,7 @@ Release Date: 13 May 2020
 1. The fitness function accepts a new argument named ``sol_idx``
    representing the index of the solution within the population.
 
-2. A new parameter to the **pygad.GA** class constructor named
+2. A new parameter to the **pygad.pygad.GA** class constructor named
    ``initial_population`` is supported to allow the user to use a custom
    initial population to be used by the genetic algorithm. If not None,
    then the passed population will be used. If ``None``, then the
@@ -57,8 +57,8 @@ Release Date: 13 May 2020
    to ``None`` by default.
 
 4. A new parameter named ``callback_generation`` is introduced in the
-   **pygad.GA** class constructor. It accepts a function with a single
-   parameter representing the **pygad.GA** class instance. This function
+   **pygad.pygad.GA** class constructor. It accepts a function with a single
+   parameter representing the **pygad.pygad.GA** class instance. This function
    is called after each generation. This helps the user to do
    post-processing or debugging operations after each generation.
 
@@ -69,7 +69,7 @@ PyGAD 2.1.0
 
 Release Date: 14 May 2020
 
-1. The ``best_solution()`` method in the **pygad.GA** class returns a
+1. The ``best_solution()`` method in the **pygad.pygad.GA** class returns a
    new output representing the index of the best solution within the
    population. Now, it returns a total of 3 outputs and their order is:
    best solution, best solution fitness, and best solution index. Here
@@ -83,7 +83,7 @@ Release Date: 14 May 2020
    print("Index of the best solution :", solution_idx, "\n")
 
 1. | A new attribute named ``best_solution_generation`` is added to the
-     instances of the **pygad.GA** class. it holds the generation number
+     instances of the **pygad.pygad.GA** class. it holds the generation number
      at which the best solution is reached. It is only assigned the
      generation number after the ``run()`` method completes. Otherwise,
      its value is -1.
@@ -105,7 +105,7 @@ PyGAD 2.2.1
 
 Release Date: 17 May 2020
 
-1. Adding 2 extra modules (pygad.nn and pygad.gann) for building and
+1. Adding 2 extra modules (pygad.pygad.nn and pygad.pygad.gann) for building and
    training neural networks with the genetic algorithm.
 
 .. _pygad-222:
@@ -116,10 +116,10 @@ PyGAD 2.2.2
 Release Date: 18 May 2020
 
 1. The initial value of the ``generations_completed`` attribute of
-   instances from the pygad.GA class is ``0`` rather than ``None``.
+   instances from the pygad.pygad.GA class is ``0`` rather than ``None``.
 
 2. An optional bool parameter named ``mutation_by_replacement`` is added
-   to the constructor of the pygad.GA class. It works only when the
+   to the constructor of the pygad.pygad.GA class. It works only when the
    selected type of mutation is random (``mutation_type="random"``). In
    this case, setting ``mutation_by_replacement=True`` means replace the
    gene by the randomly generated value. If ``False``, then it has no
@@ -139,7 +139,7 @@ the generated random value (e.g. 0.1) will replace the gene value. The
 new gene value is **0.1**.
 
 1. ``None`` value could be assigned to the ``mutation_type`` and
-   ``crossover_type`` parameters of the pygad.GA class constructor. When
+   ``crossover_type`` parameters of the pygad.pygad.GA class constructor. When
    ``None``, this means the step is bypassed and has no action.
 
 .. _pygad-230:
@@ -149,23 +149,23 @@ PyGAD 2.3.0
 
 Release date: 1 June 2020
 
-1. A new module named ``pygad.cnn`` is supported for building
+1. A new module named ``pygad.pygad.cnn`` is supported for building
    convolutional neural networks.
 
-2. A new module named ``pygad.gacnn`` is supported for training
+2. A new module named ``pygad.pygad.gacnn`` is supported for training
    convolutional neural networks using the genetic algorithm.
 
-3. The ``pygad.plot_result()`` method has 3 optional parameters named
+3. The ``pygad.pygad.plot_result()`` method has 3 optional parameters named
    ``title``, ``xlabel``, and ``ylabel`` to customize the plot title,
    x-axis label, and y-axis label, respectively.
 
-4. The ``pygad.nn`` module supports the softmax activation function.
+4. The ``pygad.pygad.nn`` module supports the softmax activation function.
 
-5. The name of the ``pygad.nn.predict_outputs()`` function is changed to
-   ``pygad.nn.predict()``.
+5. The name of the ``pygad.pygad.nn.predict_outputs()`` function is changed to
+   ``pygad.pygad.nn.predict()``.
 
-6. The name of the ``pygad.nn.train_network()`` function is changed to
-   ``pygad.nn.train()``.
+6. The name of the ``pygad.pygad.nn.train_network()`` function is changed to
+   ``pygad.pygad.nn.train()``.
 
 .. _pygad-240:
 
@@ -180,14 +180,14 @@ Release date: 5 July 2020
    defaults to ``0.0`` which means no delay after the generation.
 
 2. The passed function to the ``callback_generation`` parameter of the
-   pygad.GA class constructor can terminate the execution of the genetic
+   pygad.pygad.GA class constructor can terminate the execution of the genetic
    algorithm if it returns the string ``stop``. This causes the
    ``run()`` method to stop.
 
 One important use case for that feature is to stop the genetic algorithm
 when a condition is met before passing though all the generations. The
 user may assigned a value of 100 to the ``num_generations`` parameter of
-the pygad.GA class constructor. Assuming that at generation 50, for
+the pygad.pygad.GA class constructor. Assuming that at generation 50, for
 example, a condition is met and the user wants to stop the execution
 before waiting the remaining 50 generations. To do that, just make the
 function passed to the ``callback_generation`` parameter to return the
@@ -213,7 +213,7 @@ PyGAD 2.5.0
 Release date: 19 July 2020
 
 1. | 2 new optional parameters added to the constructor of the
-     ``pygad.GA`` class which are ``crossover_probability`` and
+     ``pygad.pygad.GA`` class which are ``crossover_probability`` and
      ``mutation_probability``.
    | While applying the crossover operation, each parent has a random
      value generated between 0.0 and 1.0. If this random value is less
@@ -245,12 +245,12 @@ Release date: 19 July 2020
    solution.
 
 5. A new optional parameter named ``gene_space`` as added to the
-   ``pygad.GA`` class constructor. It is used to specify the possible
+   ``pygad.pygad.GA`` class constructor. It is used to specify the possible
    values for each gene in case the user wants to restrict the gene
    values. It is useful if the gene space is restricted to a certain
    range or to discrete values. For more information, check the `More
    about the ``gene_space``
-   Parameter <https://pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-space-parameter>`__
+   Parameter <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-space-parameter>`__
    section. Thanks to `Prof. Tamer A.
    Farrag <https://github.com/tfarrag2000>`__ for requesting this useful
    feature.
@@ -280,12 +280,12 @@ PyGAD 2.7.0
 
 Release Date: 11 September 2020
 
-1. The ``learning_rate`` parameter in the ``pygad.nn.train()`` function
+1. The ``learning_rate`` parameter in the ``pygad.pygad.nn.train()`` function
    defaults to **0.01**.
 
 2. Added support of building neural networks for regression using the
    new parameter named ``problem_type``. It is added as a parameter to
-   both ``pygad.nn.train()`` and ``pygad.nn.predict()`` functions. The
+   both ``pygad.pygad.nn.train()`` and ``pygad.pygad.nn.predict()`` functions. The
    value of this parameter can be either **classification** or
    **regression** to define the problem type. It defaults to
    **classification**.
@@ -295,33 +295,33 @@ Release Date: 11 September 2020
    layer. As a result, the supported values for the activation function
    are ``"sigmoid"``, ``"relu"``, ``"softmax"``, and ``"None"``.
 
-To build a regression network using the ``pygad.nn`` module, just do the
+To build a regression network using the ``pygad.pygad.nn`` module, just do the
 following:
 
-1. Set the ``problem_type`` parameter in the ``pygad.nn.train()`` and
-   ``pygad.nn.predict()`` functions to the string ``"regression"``.
+1. Set the ``problem_type`` parameter in the ``pygad.pygad.nn.train()`` and
+   ``pygad.pygad.nn.predict()`` functions to the string ``"regression"``.
 
 2. Set the activation function for the output layer to the string
    ``"None"``. This sets no limits on the range of the outputs as it
    will be from ``-infinity`` to ``+infinity``. If you are sure that all
    outputs will be nonnegative values, then use the ReLU function.
 
-Check the documentation of the ``pygad.nn`` module for an example that
+Check the documentation of the ``pygad.pygad.nn`` module for an example that
 builds a neural network for regression. The regression example is also
 available at `this GitHub
 project <https://github.com/ahmedfgad/NumPyANN>`__:
 https://github.com/ahmedfgad/NumPyANN
 
-To build and train a regression network using the ``pygad.gann`` module,
+To build and train a regression network using the ``pygad.pygad.gann`` module,
 do the following:
 
-1. Set the ``problem_type`` parameter in the ``pygad.nn.train()`` and
-   ``pygad.nn.predict()`` functions to the string ``"regression"``.
+1. Set the ``problem_type`` parameter in the ``pygad.pygad.nn.train()`` and
+   ``pygad.pygad.nn.predict()`` functions to the string ``"regression"``.
 
 2. Set the ``output_activation`` parameter in the constructor of the
-   ``pygad.gann.GANN`` class to ``"None"``.
+   ``pygad.pygad.gann.GANN`` class to ``"None"``.
 
-Check the documentation of the ``pygad.gann`` module for an example that
+Check the documentation of the ``pygad.pygad.gann`` module for an example that
 builds and trains a neural network for regression. The regression
 example is also available at `this GitHub
 project <https://github.com/ahmedfgad/NeuralGenetic>`__:
@@ -410,13 +410,13 @@ PyGAD 2.10.0
 
 Release Date: 03 January 2021
 
-1.  Support of a new module ``pygad.torchga`` to train PyTorch models
+1.  Support of a new module ``pygad.pygad.torchga`` to train PyTorch models
     using PyGAD. Check `its
-    documentation <https://pygad.readthedocs.io/en/latest/torchga.html>`__.
+    documentation <https://pygad.pygad.readthedocs.io/en/latest/torchga.html>`__.
 
 2.  Support of adaptive mutation where the mutation rate is determined
     by the fitness value of each solution. Read the `Adaptive
-    Mutation <https://pygad.readthedocs.io/en/latest/pygad_more.html#adaptive-mutation>`__
+    Mutation <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#adaptive-mutation>`__
     section for more details. Also, read this paper: `Libelli, S.
     Marsili, and P. Alba. "Adaptive mutation in genetic algorithms."
     Soft computing 4.2 (2000):
@@ -450,7 +450,7 @@ Release Date: 03 January 2021
     rather than just using the ``print()`` function.
 
 9.  A new ``bool`` parameter called ``suppress_warnings`` is added to
-    the constructor of the ``pygad.GA`` class. It allows the user to
+    the constructor of the ``pygad.pygad.GA`` class. It allows the user to
     control whether the warning messages are printed or not. It defaults
     to ``False`` which means the messages are printed.
 
@@ -485,7 +485,7 @@ Release Date: 10 January 2021
 3. The ``numpy.uint`` data type is supported for the parameters that
    accept integer values.
 
-4. In the ``pygad.kerasga`` module, the ``model_weights_as_vector()``
+4. In the ``pygad.pygad.kerasga`` module, the ``model_weights_as_vector()``
    function uses the ``trainable`` attribute of the model's layers to
    only return the trainable weights in the network. So, only the
    trainable layers with their ``trainable`` attribute set to ``True``
@@ -525,7 +525,7 @@ Release Date: 16 February 2021
    to 5 (exclusive) while the second one has values between 0.2
    (inclusive) and 0.85 (exclusive). For more information, please check
    the `Limit the Gene Value
-   Range <https://pygad.readthedocs.io/en/latest/pygad_more.html#limit-the-gene-value-range>`__
+   Range <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#limit-the-gene-value-range>`__
    section of the documentation.
 
 2. The ``plot_result()`` method returns the figure so that the user can
@@ -594,7 +594,7 @@ Release Date: 12 March 2021
    solution/chromosome may have duplicate gene values. If ``False``,
    then each gene will have a unique value in its solution. Check the
    `Prevent Duplicates in Gene
-   Values <https://pygad.readthedocs.io/en/latest/pygad_more.html#prevent-duplicates-in-gene-values>`__
+   Values <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#prevent-duplicates-in-gene-values>`__
    section for more details.
 
 2. The ``last_generation_fitness`` is updated at the end of each
@@ -624,7 +624,7 @@ Release Date: 19 May 2021
    Previously, the ``gene_type`` can be assigned only to a single data
    type that is applied for all genes. For more information, check the
    `More about the ``gene_type``
-   Parameter <https://pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-type-parameter>`__
+   Parameter <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-type-parameter>`__
    section. Thanks to `Rainer
    Engel <https://www.linkedin.com/in/rainer-matthias-engel-5ba47a9>`__
    for asking about this feature in `this
@@ -632,7 +632,7 @@ Release Date: 19 May 2021
    https://github.com/ahmedfgad/GeneticAlgorithmPython/discussions/43
 
 3. A new ``bool`` attribute named ``gene_type_single`` is added to the
-   ``pygad.GA`` class. It is ``True`` when there is a single data type
+   ``pygad.pygad.GA`` class. It is ``True`` when there is a single data type
    assigned to the ``gene_type`` parameter. When the ``gene_type``
    parameter is assigned a ``list/tuple/numpy.ndarray``, then
    ``gene_type_single`` is set to ``False``.
@@ -721,12 +721,12 @@ Release Date: 17 June 2021
     ``{"low": 0, "high": 30, "step": 2}`` to have only even values for
     the gene(s) starting from 0 to 30. For more information, check the
     `More about the ``gene_space``
-    Parameter <https://pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-space-parameter>`__
+    Parameter <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-space-parameter>`__
     section.
     https://github.com/ahmedfgad/GeneticAlgorithmPython/discussions/48
 
 6.  A new function called ``predict()`` is added in both the
-    ``pygad.kerasga`` and ``pygad.torchga`` modules to make predictions.
+    ``pygad.pygad.kerasga`` and ``pygad.pygad.torchga`` modules to make predictions.
     This makes it easier than using custom code each time a prediction
     is to be made.
 
@@ -746,7 +746,7 @@ Release Date: 17 June 2021
     https://github.com/ahmedfgad/GeneticAlgorithmPython/discussions/44
 
 8.  A new bool parameter, defaults to ``False``, named
-    ``save_solutions`` is added to the constructor of the ``pygad.GA``
+    ``save_solutions`` is added to the constructor of the ``pygad.pygad.GA``
     class. If ``True``, then all solutions in each generation are
     appended into an attribute called ``solutions`` which is NumPy
     array.
@@ -756,7 +756,7 @@ Release Date: 17 June 2021
     in the future.
 
 10. Four new optional parameters are added to the ``plot_fitness()``
-    function in the ``pygad.GA`` class which are ``font_size=14``,
+    function in the ``pygad.pygad.GA`` class which are ``font_size=14``,
     ``save_dir=None``, ``color="#3870FF"``, and ``plot_type="plot"``.
     Use ``font_size`` to change the font of the plot title and labels.
     ``save_dir`` accepts the directory to which the figure is saved. It
@@ -774,7 +774,7 @@ Release Date: 17 June 2021
     returns a figure showing the rate of new/unique solutions explored
     in each generation. It accepts the same parameters as in the
     ``plot_fitness()`` method. This method only works when
-    ``save_solutions=True`` in the ``pygad.GA`` class's constructor.
+    ``save_solutions=True`` in the ``pygad.pygad.GA`` class's constructor.
 
 13. A new method named ``plot_genes()`` creates, shows, and returns a
     figure to show how each gene changes per each generation. It accepts
@@ -794,7 +794,7 @@ Release Date: 17 June 2021
     ``[float, 2]`` forces a gene with a value like ``0.1234`` to be
     ``0.12``. For more information, check the `More about the
     ``gene_type``
-    Parameter <https://pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-type-parameter>`__
+    Parameter <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#more-about-the-gene-type-parameter>`__
     section.
 
 .. _pygad-2151:
@@ -826,10 +826,10 @@ Release Date: 19 June 2021
 
 1. A user-defined function can be passed to the ``mutation_type``,
    ``crossover_type``, and ``parent_selection_type`` parameters in the
-   ``pygad.GA`` class to create a custom mutation, crossover, and parent
+   ``pygad.pygad.GA`` class to create a custom mutation, crossover, and parent
    selection operators. Check the `User-Defined Crossover, Mutation, and
    Parent Selection
-   Operators <https://pygad.readthedocs.io/en/latest/pygad_more.html#user-defined-crossover-mutation-and-parent-selection-operators>`__
+   Operators <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#user-defined-crossover-mutation-and-parent-selection-operators>`__
    section for more details.
    https://github.com/ahmedfgad/GeneticAlgorithmPython/discussions/50
 
@@ -845,7 +845,7 @@ Release Date: 28 September 2021
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
    import tqdm
 
@@ -859,7 +859,7 @@ Release Date: 28 September 2021
 
    num_generations = 10000
    with tqdm.tqdm(total=num_generations) as pbar:
-       ga_instance = pygad.GA(num_generations=num_generations,
+       ga_instance = pygad.pygad.GA(num_generations=num_generations,
                               sol_per_pop=5,
                               num_parents_mating=2,
                               num_genes=len(equation_inputs),
@@ -884,7 +884,7 @@ progress bar.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
    import tqdm
 
@@ -901,7 +901,7 @@ progress bar.
 
    num_generations = 100
    with tqdm.tqdm(total=num_generations) as pbar:
-       ga_instance = pygad.GA(num_generations=num_generations,
+       ga_instance = pygad.pygad.GA(num_generations=num_generations,
                               sol_per_pop=5,
                               num_parents_mating=2,
                               num_genes=len(equation_inputs),
@@ -939,7 +939,7 @@ PyGAD 2.16.2
 Release Date: 2 February 2022
 
 1. A new instance attribute called ``previous_generation_fitness`` added
-   in the ``pygad.GA`` class. It holds the fitness values of one
+   in the ``pygad.pygad.GA`` class. It holds the fitness values of one
    generation before the fitness values saved in the
    ``last_generation_fitness``.
 
@@ -989,12 +989,12 @@ Release Date: 8 July 2022
 
 5. Parallel processing is supported. This is by the introduction of a
    new parameter named ``parallel_processing`` in the constructor of the
-   ``pygad.GA`` class. Thanks to
+   ``pygad.pygad.GA`` class. Thanks to
    `@windowshopr <https://github.com/windowshopr>`__ for opening the
    issue
    `#78 <https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/78>`__
    at GitHub. Check the `Parallel Processing in
-   PyGAD <https://pygad.readthedocs.io/en/latest/pygad_more.html#parallel-processing-in-pygad>`__
+   PyGAD <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#parallel-processing-in-pygad.pygad>`__
    section for more information and examples.
 
 .. _pygad-2180:
@@ -1021,13 +1021,13 @@ Release Date: 9 September 2022
    the ``run()`` method is called, as the old fitness value are shown on
    the graph alongside with the new fitness values. Read more in this
    section: `Continue without Loosing
-   Progress <https://pygad.readthedocs.io/en/latest/pygad_more.html#continue-without-loosing-progress>`__
+   Progress <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#continue-without-loosing-progress>`__
 
 4. Thanks `Prof. Fernando Jiménez
    Barrionuevo <http://webs.um.es/fernan>`__ (Dept. of Information and
    Communications Engineering, University of Murcia, Murcia, Spain) for
    editing this
-   `comment <https://github.com/ahmedfgad/GeneticAlgorithmPython/blob/5315bbec02777df96ce1ec665c94dece81c440f4/pygad.py#L73>`__
+   `comment <https://github.com/ahmedfgad/GeneticAlgorithmPython/blob/5315bbec02777df96ce1ec665c94dece81c440f4/pygad.pygad.py#L73>`__
    in the code.
    https://github.com/ahmedfgad/GeneticAlgorithmPython/commit/5315bbec02777df96ce1ec665c94dece81c440f4
 
@@ -1037,7 +1037,7 @@ Release Date: 9 September 2022
    ``keep_elitism``. It defaults to 1 which means for each generation
    keep only the best solution in the next generation. If assigned 0,
    then it has no effect. Read more in this section: `Elitism
-   Selection <https://pygad.readthedocs.io/en/latest/pygad_more.html#elitism-selection>`__.
+   Selection <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#elitism-selection>`__.
    https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/74
 
 7. A new instance attribute named ``last_generation_elitism`` added to
@@ -1048,9 +1048,9 @@ Release Date: 9 September 2022
    https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/70 and
    `Prof. Fernando Jiménez Barrionuevo <http://webs.um.es/fernan>`__.
    Read more in this section: `Random
-   Seed <https://pygad.readthedocs.io/en/latest/pygad_more.html#random-seed>`__.
+   Seed <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#random-seed>`__.
 
-9. Editing the ``pygad.TorchGA`` module to make sure the tensor data is
+9. Editing the ``pygad.pygad.TorchGA`` module to make sure the tensor data is
    moved from GPU to CPU. Thanks to Rasmus Johansson for opening this
    pull request: https://github.com/ahmedfgad/TorchGA/pull/2
 
@@ -1117,7 +1117,7 @@ Release Date: 22 February 2023
 
 3.  The ``cloudpickle`` library
     (https://github.com/cloudpipe/cloudpickle) is used instead of the
-    ``pickle`` library to pickle the ``pygad.GA`` objects. This solves
+    ``pickle`` library to pickle the ``pygad.pygad.GA`` objects. This solves
     the issue of having to redefine the functions (e.g. fitness
     function). The ``cloudpickle`` library is added as a dependency in
     the ``requirements.txt`` file.
@@ -1199,50 +1199,50 @@ PyGAD 3.0.0
 Release Date 8 April 2023
 
 1.  The structure of the library is changed and some methods defined in
-    the ``pygad.py`` module are moved to the ``pygad.utils``,
-    ``pygad.helper``, and ``pygad.visualize`` submodules.
+    the ``pygad.pygad.py`` module are moved to the ``pygad.pygad.utils``,
+    ``pygad.pygad.helper``, and ``pygad.pygad.visualize`` submodules.
 
-2.  The ``pygad.utils.parent_selection`` module has a class named
+2.  The ``pygad.pygad.utils.parent_selection`` module has a class named
     ``ParentSelection`` where all the parent selection operators exist.
-    The ``pygad.GA`` class extends this class.
+    The ``pygad.pygad.GA`` class extends this class.
 
-3.  The ``pygad.utils.crossover`` module has a class named ``Crossover``
-    where all the crossover operators exist. The ``pygad.GA`` class
+3.  The ``pygad.pygad.utils.crossover`` module has a class named ``Crossover``
+    where all the crossover operators exist. The ``pygad.pygad.GA`` class
     extends this class.
 
-4.  The ``pygad.utils.mutation`` module has a class named ``Mutation``
-    where all the mutation operators exist. The ``pygad.GA`` class
+4.  The ``pygad.pygad.utils.mutation`` module has a class named ``Mutation``
+    where all the mutation operators exist. The ``pygad.pygad.GA`` class
     extends this class.
 
-5.  The ``pygad.helper.unique`` module has a class named ``Unique`` some
+5.  The ``pygad.pygad.helper.unique`` module has a class named ``Unique`` some
     helper methods exist to solve duplicate genes and make sure every
-    gene is unique. The ``pygad.GA`` class extends this class.
+    gene is unique. The ``pygad.pygad.GA`` class extends this class.
 
-6.  The ``pygad.visualize.plot`` module has a class named ``Plot`` where
-    all the methods that create plots exist. The ``pygad.GA`` class
+6.  The ``pygad.pygad.visualize.plot`` module has a class named ``Plot`` where
+    all the methods that create plots exist. The ``pygad.pygad.GA`` class
     extends this class.
 
 7.  Support of using the ``logging`` module to log the outputs to both
     the console and text file instead of using the ``print()`` function.
     This is by assigning the ``logging.Logger`` to the new ``logger``
     parameter. Check the `Logging
-    Outputs <https://pygad.readthedocs.io/en/latest/pygad_more.html#logging-outputs>`__
+    Outputs <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#logging-outputs>`__
     for more information.
 
 8.  A new instance attribute called ``logger`` to save the logger.
 
 9.  The function/method passed to the ``fitness_func`` parameter accepts
-    a new parameter that refers to the instance of the ``pygad.GA``
+    a new parameter that refers to the instance of the ``pygad.pygad.GA``
     class. Check this for an example: `Use Functions and Methods to
     Build Fitness Function and
-    Callbacks <https://pygad.readthedocs.io/en/latest/pygad_more.html#use-functions-and-methods-to-build-fitness-and-callbacks>`__.
+    Callbacks <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#use-functions-and-methods-to-build-fitness-and-callbacks>`__.
     https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/163
 
 10. Update the documentation to include an example of using functions
     and methods to calculate the fitness and build callbacks. Check this
     for more details: `Use Functions and Methods to Build Fitness
     Function and
-    Callbacks <https://pygad.readthedocs.io/en/latest/pygad_more.html#use-functions-and-methods-to-build-fitness-and-callbacks>`__.
+    Callbacks <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#use-functions-and-methods-to-build-fitness-and-callbacks>`__.
     https://github.com/ahmedfgad/GeneticAlgorithmPython/pull/92#issuecomment-1443635003
 
 11. Validate the value passed to the ``initial_population`` parameter.
@@ -1326,12 +1326,12 @@ Release Date 20 June 2023
 7.  Formatting the strings using f-string instead of the ``format()``
     method. https://github.com/ahmedfgad/GeneticAlgorithmPython/pull/189
 
-8.  In the ``__init__()`` of the ``pygad.GA`` class, the logged error
+8.  In the ``__init__()`` of the ``pygad.pygad.GA`` class, the logged error
     messages are handled using a ``try-except`` block instead of
     repeating the ``logger.error()`` command.
     https://github.com/ahmedfgad/GeneticAlgorithmPython/pull/189
 
-9.  A new class named ``CustomLogger`` is created in the ``pygad.cnn``
+9.  A new class named ``CustomLogger`` is created in the ``pygad.pygad.cnn``
     module to create a default logger using the ``logging`` module
     assigned to the ``logger`` attribute. This class is extended in all
     other classes in the module. The constructors of these classes have
@@ -1339,7 +1339,7 @@ Release Date 20 June 2023
     logger is passed, then the default logger in the ``CustomLogger``
     class is used.
 
-10. Except for the ``pygad.nn`` module, the ``print()`` function in all
+10. Except for the ``pygad.pygad.nn`` module, the ``print()`` function in all
     other modules are replaced by the ``logging`` module to log
     messages.
 
@@ -1362,7 +1362,7 @@ Release Date 20 June 2023
     value of one gene by another gene. This release tries to solve such
     duplicates by looking for a third gene that will help in solving the
     duplicates. Check `this
-    section <https://pygad.readthedocs.io/en/latest/pygad_more.html#prevent-duplicates-in-gene-values>`__
+    section <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#prevent-duplicates-in-gene-values>`__
     for more information.
 
 14. Use probabilities to select parents using the rank parent selection
@@ -1382,11 +1382,11 @@ Release Date 20 June 2023
     individual gene when creating the initial population.
 
 17. The ``data`` parameter in the ``predict()`` function of the
-    ``pygad.kerasga`` module can be assigned a data generator.
+    ``pygad.pygad.kerasga`` module can be assigned a data generator.
     https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/115
     https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/207
 
-18. The ``predict()`` function of the ``pygad.kerasga`` module accepts 3
+18. The ``predict()`` function of the ``pygad.pygad.kerasga`` module accepts 3
     optional parameters: 1) ``batch_size=None``, ``verbose=0``, and
     ``steps=None``. Check documentation of the `Keras
     Model.predict() <https://keras.io/api/models/model_training_apis>`__
@@ -1396,7 +1396,7 @@ Release Date 20 June 2023
 19. The documentation is updated to explain how mutation works when
     ``gene_space`` is used with ``int`` or ``float`` data types. Check
     `this
-    section <https://pygad.readthedocs.io/en/latest/pygad_more.html#limit-the-gene-value-range-using-the-gene-space-parameter>`__.
+    section <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#limit-the-gene-value-range-using-the-gene-space-parameter>`__.
     https://github.com/ahmedfgad/GeneticAlgorithmPython/discussions/198
 
 .. _pygad-320:
@@ -1406,42 +1406,42 @@ PyGAD 3.2.0
 
 Release Date 7 September 2023
 
-1.  A new module ``pygad.utils.nsga2`` is created that has the ``NSGA2``
+1.  A new module ``pygad.pygad.utils.nsga2`` is created that has the ``NSGA2``
     class that includes the functionalities of NSGA-II. The class has
     these methods: 1) ``get_non_dominated_set()`` 2)
     ``non_dominated_sorting()`` 3) ``crowding_distance()`` 4)
     ``sort_solutions_nsga2()``. Check `this
-    section <https://pygad.readthedocs.io/en/latest/pygad_more.html#multi-objective-optimization>`__
+    section <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#multi-objective-optimization>`__
     for an example.
 
 2.  Support of multi-objective optimization using Non-Dominated Sorting
     Genetic Algorithm II (NSGA-II) using the ``NSGA2`` class in the
-    ``pygad.utils.nsga2`` module. Just return a ``list``, ``tuple``, or
+    ``pygad.pygad.utils.nsga2`` module. Just return a ``list``, ``tuple``, or
     ``numpy.ndarray`` from the fitness function and the library will
     consider the problem as multi-objective optimization. All the
     objectives are expected to be maximization. Check `this
-    section <https://pygad.readthedocs.io/en/latest/pygad_more.html#multi-objective-optimization>`__
+    section <https://pygad.pygad.readthedocs.io/en/latest/pygad_more.html#multi-objective-optimization>`__
     for an example.
 
 3.  The parent selection methods and adaptive mutation are edited to
     support multi-objective optimization.
 
 4.  Two new NSGA-II parent selection methods are supported in the
-    ``pygad.utils.parent_selection`` module: 1) Tournament selection for
+    ``pygad.pygad.utils.parent_selection`` module: 1) Tournament selection for
     NSGA-II 2) NSGA-II selection.
 
-5.  The ``plot_fitness()`` method in the ``pygad.plot`` module has a new
+5.  The ``plot_fitness()`` method in the ``pygad.pygad.plot`` module has a new
     optional parameter named ``label`` to accept the label of the plots.
     This is only used for multi-objective problems. Otherwise, it is
     ignored. It defaults to ``None`` and accepts a ``list``, ``tuple``,
     or ``numpy.ndarray``. The labels are used in a legend inside the
     plot.
 
-6.  The default color in the methods of the ``pygad.plot`` module is
+6.  The default color in the methods of the ``pygad.pygad.plot`` module is
     changed to the greenish ``#64f20c`` color.
 
 7.  A new instance attribute named ``pareto_fronts`` added to the
-    ``pygad.GA`` instances that holds the pareto fronts when solving a
+    ``pygad.pygad.GA`` instances that holds the pareto fronts when solving a
     multi-objective problem.
 
 8.  The ``gene_type`` accepts a ``list``, ``tuple``, or
@@ -1458,9 +1458,9 @@ Release Date 7 September 2023
 10. The value ``99999999999`` is replaced by ``float('inf')`` in the 2
     methods ``wheel_cumulative_probs()`` and
     ``stochastic_universal_selection()`` inside the
-    ``pygad.utils.parent_selection.ParentSelection`` class.
+    ``pygad.pygad.utils.parent_selection.ParentSelection`` class.
 
-11. The ``plot_result()`` method in the ``pygad.visualize.plot.Plot``
+11. The ``plot_result()`` method in the ``pygad.pygad.visualize.plot.Plot``
     class is removed. Instead, please use the ``plot_fitness()`` if you
     did not upgrade yet.
 
@@ -1468,7 +1468,7 @@ PyGAD Projects at GitHub
 ========================
 
 The PyGAD library is available at PyPI at this page
-https://pypi.org/project/pygad. PyGAD is built out of a number of
+https://pypi.org/project/pygad.pygad. PyGAD is built out of a number of
 open-source GitHub projects. A brief note about these projects is given
 in the next subsections.
 
@@ -1546,27 +1546,27 @@ uses the
 `GeneticAlgorithmPython <https://github.com/ahmedfgad/GeneticAlgorithmPython>`__
 project for building the genetic algorithm.
 
-`pygad.torchga <https://github.com/ahmedfgad/TorchGA>`__:
+`pygad.pygad.torchga <https://github.com/ahmedfgad/TorchGA>`__:
 https://github.com/ahmedfgad/TorchGA
 
 Stackoverflow Questions about PyGAD
 ===================================
 
-.. _how-do-i-proceed-to-load-a-gainstance-as-pkl-format-in-pygad:
+.. _how-do-i-proceed-to-load-a-gainstance-as-pkl-format-in-pygad.pygad:
 
-`How do I proceed to load a ga_instance as “.pkl” format in PyGad? <https://stackoverflow.com/questions/67424181/how-do-i-proceed-to-load-a-ga-instance-as-pkl-format-in-pygad>`__
+`How do I proceed to load a ga_instance as “.pkl” format in PyGad? <https://stackoverflow.com/questions/67424181/how-do-i-proceed-to-load-a-ga-instance-as-pkl-format-in-pygad.pygad>`__
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-`Binary Classification NN Model Weights not being Trained in PyGAD <https://stackoverflow.com/questions/67276696/binary-classification-nn-model-weights-not-being-trained-in-pygad>`__
+`Binary Classification NN Model Weights not being Trained in PyGAD <https://stackoverflow.com/questions/67276696/binary-classification-nn-model-weights-not-being-trained-in-pygad.pygad>`__
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-`How to solve TSP problem using pyGAD package? <https://stackoverflow.com/questions/66298595/how-to-solve-tsp-problem-using-pygad-package>`__
+`How to solve TSP problem using pyGAD package? <https://stackoverflow.com/questions/66298595/how-to-solve-tsp-problem-using-pygad.pygad-package>`__
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
 `How can I save a matplotlib plot that is the output of a function in jupyter? <https://stackoverflow.com/questions/66055330/how-can-i-save-a-matplotlib-plot-that-is-the-output-of-a-function-in-jupyter>`__
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-`How do I query the best solution of a pyGAD GA instance? <https://stackoverflow.com/questions/65757722/how-do-i-query-the-best-solution-of-a-pygad-ga-instance>`__
+`How do I query the best solution of a pyGAD GA instance? <https://stackoverflow.com/questions/65757722/how-do-i-query-the-best-solution-of-a-pygad.pygad-ga-instance>`__
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 `Multi-Input Multi-Output in Genetic algorithm (python) <https://stackoverflow.com/questions/64943711/multi-input-multi-output-in-genetic-algorithm-python>`__
@@ -1582,9 +1582,9 @@ https://python.plainenglish.io/validation-of-a-short-term-parametric-trading-mod
 
 https://ichi.pro/ko/pygadwa-hamkke-yujeon-algolijeum-eul-sayonghayeo-keras-model-eul-hunlyeonsikineun-bangbeob-173299286377169
 
-https://ichi.pro/tr/pygad-ile-genetik-algoritmayi-kullanarak-keras-modelleri-nasil-egitilir-173299286377169
+https://ichi.pro/tr/pygad.pygad-ile-genetik-algoritmayi-kullanarak-keras-modelleri-nasil-egitilir-173299286377169
 
-https://ichi.pro/ru/kak-obucit-modeli-keras-s-pomos-u-geneticeskogo-algoritma-s-pygad-173299286377169
+https://ichi.pro/ru/kak-obucit-modeli-keras-s-pomos-u-geneticeskogo-algoritma-s-pygad.pygad-173299286377169
 
 https://blog.csdn.net/sinat_38079265/article/details/108449614
 
@@ -1601,7 +1601,7 @@ into this GitHub project
 in case something is not working properly or to ask for questions.
 
 If this is not a proper option for you, then check the `Contact
-Us <https://pygad.readthedocs.io/en/latest/Footer.html#contact-us>`__
+Us <https://pygad.pygad.readthedocs.io/en/latest/Footer.html#contact-us>`__
 section for more contact details.
 
 Ask for Feature
@@ -1618,7 +1618,7 @@ into this GitHub project
 or send an e-mail to ahmed.f.gad@gmail.com.
 
 Also check the `Contact
-Us <https://pygad.readthedocs.io/en/latest/Footer.html#contact-us>`__
+Us <https://pygad.pygad.readthedocs.io/en/latest/Footer.html#contact-us>`__
 section for more contact details.
 
 Projects Built using PyGAD
@@ -1629,7 +1629,7 @@ mentioning this project here in PyGAD's documentation.
 
 To do that, please send a message at ahmed.f.gad@gmail.com or check the
 `Contact
-Us <https://pygad.readthedocs.io/en/latest/Footer.html#contact-us>`__
+Us <https://pygad.pygad.readthedocs.io/en/latest/Footer.html#contact-us>`__
 section for more contact details.
 
 Within your message, please send the following details:
@@ -1648,7 +1648,7 @@ Tutorials about PyGAD
 
 In this tutorial, we’ll see why mutation with a fixed number of genes is
 bad, and how to replace it with adaptive mutation. Using the `PyGAD
-Python 3 library <https://pygad.readthedocs.io/>`__, we’ll discuss a few
+Python 3 library <https://pygad.pygad.readthedocs.io/>`__, we’ll discuss a few
 examples that use both random and adaptive mutation.
 
 `Clustering Using the Genetic Algorithm in Python <https://blog.paperspace.com/clustering-using-the-genetic-algorithm>`__
@@ -1660,7 +1660,7 @@ clusters are found. We'll start by briefly revising the K-means
 clustering algorithm to point out its weak points, which are later
 solved by the genetic algorithm. The code examples in this tutorial are
 implemented in Python using the `PyGAD
-library <https://pygad.readthedocs.io/>`__.
+library <https://pygad.pygad.readthedocs.io/>`__.
 
 `Working with Different Genetic Algorithm Representations in Python <https://blog.paperspace.com/working-with-different-genetic-algorithm-representations-python>`__
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1673,12 +1673,12 @@ to the decimal GA, for which we can use different formats like float or
 integer, and limited or unlimited ranges.
 
 This tutorial discusses how the
-`PyGAD <https://pygad.readthedocs.io/>`__ library supports the two GA
+`PyGAD <https://pygad.pygad.readthedocs.io/>`__ library supports the two GA
 representations, binary and decimal.
 
-.. _5-genetic-algorithm-applications-using-pygad:
+.. _5-genetic-algorithm-applications-using-pygad.pygad:
 
-`5 Genetic Algorithm Applications Using PyGAD <https://blog.paperspace.com/genetic-algorithm-applications-using-pygad>`__
+`5 Genetic Algorithm Applications Using PyGAD <https://blog.paperspace.com/genetic-algorithm-applications-using-pygad.pygad>`__
 -------------------------------------------------------------------------------------------------------------------------
 
 This tutorial introduces PyGAD, an open-source Python library for
@@ -1689,7 +1689,7 @@ algorithm for various applications.
 Within this tutorial we'll discuss 5 different applications of the
 genetic algorithm and build them using PyGAD.
 
-`Train Neural Networks Using a Genetic Algorithm in Python with PyGAD <https://heartbeat.fritz.ai/train-neural-networks-using-a-genetic-algorithm-in-python-with-pygad-862905048429?gi=ba58ee6b4bbd>`__
+`Train Neural Networks Using a Genetic Algorithm in Python with PyGAD <https://heartbeat.fritz.ai/train-neural-networks-using-a-genetic-algorithm-in-python-with-pygad.pygad-862905048429?gi=ba58ee6b4bbd>`__
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 The genetic algorithm (GA) is a biologically-inspired optimization
@@ -1709,9 +1709,9 @@ both are biologically-inspired techniques. This similarity motivates us
 to create a hybrid of both to see whether a GA can train NNs with high
 accuracy.
 
-This tutorial uses `PyGAD <https://pygad.readthedocs.io/>`__, a Python
+This tutorial uses `PyGAD <https://pygad.pygad.readthedocs.io/>`__, a Python
 library that supports building and training NNs using a GA.
-`PyGAD <https://pygad.readthedocs.io/>`__ offers both classification and
+`PyGAD <https://pygad.pygad.readthedocs.io/>`__ offers both classification and
 regression NNs.
 
 `Building a Game-Playing Agent for CoinTex Using the Genetic Algorithm <https://blog.paperspace.com/building-agent-for-cointex-using-genetic-algorithm>`__
@@ -1729,7 +1729,7 @@ GitHub <https://github.com/ahmedfgad/CoinTex>`__.
 The genetic algorithm is the only AI used here; there is no other
 machine/deep learning model used with it. We'll implement the genetic
 algorithm using
-`PyGad <https://blog.paperspace.com/genetic-algorithm-applications-using-pygad/>`__.
+`PyGad <https://blog.paperspace.com/genetic-algorithm-applications-using-pygad.pygad/>`__.
 This tutorial starts with a quick overview of CoinTex followed by a
 brief explanation of the genetic algorithm, and how it can be used to
 create the playing agent. Finally, we'll see how to implement these
@@ -1740,7 +1740,7 @@ The source code of the genetic algorithm agent is available
 and you can download the code used in this tutorial from
 `here <https://github.com/ahmedfgad/CoinTex/tree/master/PlayerGA/TutorialProject>`__.
 
-`How To Train Keras Models Using the Genetic Algorithm with PyGAD <https://blog.paperspace.com/train-keras-models-using-genetic-algorithm-with-pygad>`__
+`How To Train Keras Models Using the Genetic Algorithm with PyGAD <https://blog.paperspace.com/train-keras-models-using-genetic-algorithm-with-pygad.pygad>`__
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 PyGAD is an open-source Python library for building the genetic
@@ -1766,19 +1766,19 @@ model parameters, creating an appropriate fitness function, and more.
 
 |image1|
 
-`Train PyTorch Models Using Genetic Algorithm with PyGAD <https://neptune.ai/blog/train-pytorch-models-using-genetic-algorithm-with-pygad>`__
+`Train PyTorch Models Using Genetic Algorithm with PyGAD <https://neptune.ai/blog/train-pytorch-models-using-genetic-algorithm-with-pygad.pygad>`__
 ---------------------------------------------------------------------------------------------------------------------------------------------
 
-`PyGAD <https://pygad.readthedocs.io/>`__ is a genetic algorithm Python
+`PyGAD <https://pygad.pygad.readthedocs.io/>`__ is a genetic algorithm Python
 3 library for solving optimization problems. One of these problems is
 training machine learning algorithms.
 
 PyGAD has a module called
-`pygad.kerasga <https://github.com/ahmedfgad/KerasGA>`__. It trains
+`pygad.pygad.kerasga <https://github.com/ahmedfgad/KerasGA>`__. It trains
 Keras models using the genetic algorithm. On January 3rd, 2021, a new
-release of `PyGAD 2.10.0 <https://pygad.readthedocs.io/>`__ brought a
+release of `PyGAD 2.10.0 <https://pygad.pygad.readthedocs.io/>`__ brought a
 new module called
-`pygad.torchga <https://github.com/ahmedfgad/TorchGA>`__ to train
+`pygad.pygad.torchga <https://github.com/ahmedfgad/TorchGA>`__ to train
 PyTorch models. It’s very easy to use, but there are a few tricky steps.
 
 So, in this tutorial, we’ll explore how to use PyGAD to train PyTorch
@@ -1854,12 +1854,12 @@ Korean
 Turkish
 -------
 
-`PyGAD ile Genetik Algoritmayı Kullanarak Keras Modelleri Nasıl Eğitilir <https://erencan34.medium.com/pygad-ile-genetik-algoritmay%C4%B1-kullanarak-keras-modelleri-nas%C4%B1l-e%C4%9Fitilir-cf92639a478c>`__
+`PyGAD ile Genetik Algoritmayı Kullanarak Keras Modelleri Nasıl Eğitilir <https://erencan34.medium.com/pygad.pygad-ile-genetik-algoritmay%C4%B1-kullanarak-keras-modelleri-nas%C4%B1l-e%C4%9Fitilir-cf92639a478c>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a translation of an original English tutorial published at
 Paperspace: `How To Train Keras Models Using the Genetic Algorithm with
-PyGAD <https://blog.paperspace.com/train-keras-models-using-genetic-algorithm-with-pygad>`__
+PyGAD <https://blog.paperspace.com/train-keras-models-using-genetic-algorithm-with-pygad.pygad>`__
 
 PyGAD, genetik algoritma oluşturmak ve makine öğrenimi algoritmalarını
 eğitmek için kullanılan açık kaynaklı bir Python kitaplığıdır. Genetik
@@ -1889,7 +1889,7 @@ fazlasını içerir.
 Hungarian
 ---------
 
-.. _tensorflow-alapozó-10-neurális-hálózatok-tenyésztése-genetikus-algoritmussal-pygad-és-openai-gym-használatával:
+.. _tensorflow-alapozó-10-neurális-hálózatok-tenyésztése-genetikus-algoritmussal-pygad.pygad-és-openai-gym-használatával:
 
 `Tensorflow alapozó 10. Neurális hálózatok tenyésztése genetikus algoritmussal PyGAD és OpenAI Gym használatával <https://thebojda.medium.com/tensorflow-alapoz%C3%B3-10-24f7767d4a2c>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1900,7 +1900,7 @@ neurális hálók tanításának általános módszere. Az erről írt cikkemet 
 tudjátok elolvasni.
 
 A hálózatok tenyésztéséhez a
-`PyGAD <https://pygad.readthedocs.io/en/latest/>`__ nevű
+`PyGAD <https://pygad.pygad.readthedocs.io/en/latest/>`__ nevű
 programkönyvtárat használjuk, így mindenek előtt ezt kell telepítenünk,
 valamint a Tensorflow-t és a Gym-et, amit Colabban már eleve telepítve
 kapunk.
@@ -1921,7 +1921,7 @@ initial_population paraméterben.
 Russian
 -------
 
-`PyGAD: библиотека для имплементации генетического алгоритма <https://neurohive.io/ru/frameworki/pygad-biblioteka-dlya-implementacii-geneticheskogo-algoritma>`__
+`PyGAD: библиотека для имплементации генетического алгоритма <https://neurohive.io/ru/frameworki/pygad.pygad-biblioteka-dlya-implementacii-geneticheskogo-algoritma>`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PyGAD — это библиотека для имплементации генетического алгоритма. Кроме
@@ -2020,7 +2020,7 @@ A number of research papers used PyGAD and here are some of them:
 More Links
 ==========
 
-https://rodriguezanton.com/identifying-contact-states-for-2d-objects-using-pygad-and/
+https://rodriguezanton.com/identifying-contact-states-for-2d-objects-using-pygad.pygad-and/
 
 https://torvaney.github.io/projects/t9-optimised
 
@@ -2196,9 +2196,9 @@ Thank you for using
 `PyGAD <https://github.com/ahmedfgad/GeneticAlgorithmPython>`__ :)
 
 .. |image1| image:: https://user-images.githubusercontent.com/16560492/111009628-2b372500-8362-11eb-90cf-01b47d831624.png
-   :target: https://blog.paperspace.com/train-keras-models-using-genetic-algorithm-with-pygad
+   :target: https://blog.paperspace.com/train-keras-models-using-genetic-algorithm-with-pygad.pygad
 .. |image2| image:: https://user-images.githubusercontent.com/16560492/111009678-5457b580-8362-11eb-899a-39e2f96984df.png
-   :target: https://neptune.ai/blog/train-pytorch-models-using-genetic-algorithm-with-pygad
+   :target: https://neptune.ai/blog/train-pytorch-models-using-genetic-algorithm-with-pygad.pygad
 .. |image3| image:: https://user-images.githubusercontent.com/16560492/111009275-3178d180-8361-11eb-9e86-7fb1519acde7.png
    :target: https://www.hebergementwebs.com/nouvelles/comment-les-algorithmes-genetiques-peuvent-rivaliser-avec-la-descente-de-gradient-et-le-backprop
 .. |image4| image:: https://user-images.githubusercontent.com/16560492/111009257-232ab580-8361-11eb-99a5-7226efbc3065.png
@@ -2206,11 +2206,11 @@ Thank you for using
 .. |image5| image:: https://user-images.githubusercontent.com/16560492/108586306-85bd0280-731b-11eb-874c-7ac4ce1326cd.jpg
    :target: https://data-newbie.tistory.com/m/685
 .. |image6| image:: https://user-images.githubusercontent.com/16560492/108586601-85be0200-731d-11eb-98a4-161c75a1f099.jpg
-   :target: https://erencan34.medium.com/pygad-ile-genetik-algoritmay%C4%B1-kullanarak-keras-modelleri-nas%C4%B1l-e%C4%9Fitilir-cf92639a478c
+   :target: https://erencan34.medium.com/pygad.pygad-ile-genetik-algoritmay%C4%B1-kullanarak-keras-modelleri-nas%C4%B1l-e%C4%9Fitilir-cf92639a478c
 .. |image7| image:: https://user-images.githubusercontent.com/16560492/101267295-c74c0180-375f-11eb-9ad0-f8e37bd796ce.png
    :target: https://thebojda.medium.com/tensorflow-alapoz%C3%B3-10-24f7767d4a2c
 .. |image8| image:: https://user-images.githubusercontent.com/16560492/101267295-c74c0180-375f-11eb-9ad0-f8e37bd796ce.png
-   :target: https://neurohive.io/ru/frameworki/pygad-biblioteka-dlya-implementacii-geneticheskogo-algoritma
+   :target: https://neurohive.io/ru/frameworki/pygad.pygad-biblioteka-dlya-implementacii-geneticheskogo-algoritma
 .. |image9| image:: https://user-images.githubusercontent.com/16560492/78830052-a3c19300-79e7-11ea-8b9b-4b343ea4049c.png
    :target: https://www.linkedin.com/pulse/genetic-algorithm-implementation-python-ahmed-gad
 .. |image10| image:: https://user-images.githubusercontent.com/16560492/82078259-26252d00-96e1-11ea-9a02-52a99e1054b9.jpg

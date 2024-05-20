@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(  
-    name="pygad",  
+    name="pygad.pygad",  
     version="3.2.0",  
     author="Ahmed Fawzy Gad",
     install_requires=["numpy", "matplotlib", "cloudpickle",],

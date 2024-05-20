@@ -1,5 +1,5 @@
 """
-The pygad.utils.crossover module has all the built-in crossover operators.
+The pygad.pygad.utils.crossover module has all the built-in crossover operators.
 """
 
 import numpy

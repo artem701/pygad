@@ -6,12 +6,12 @@ import warnings
 import concurrent.futures
 import inspect
 import logging
-from pygad import utils
-from pygad import helper
-from pygad import visualize
+from pygad.pygad import utils
+from pygad.pygad import helper
+from pygad.pygad import visualize
 import sys
 
-# Extend all the classes so that they can be referenced by just the `self` object of the `pygad.GA` class.
+# Extend all the classes so that they can be referenced by just the `self` object of the `pygad.pygad.GA` class.
 class GA(utils.parent_selection.ParentSelection,
          utils.crossover.Crossover,
          utils.mutation.Mutation,
@@ -72,7 +72,7 @@ class GA(utils.parent_selection.ParentSelection,
         num_generations: Number of generations.
         num_parents_mating: Number of solutions to be selected as parents in the mating pool.
 
-        fitness_func: Accepts a function/method and returns the fitness value of the solution. In PyGAD 2.20.0, a third parameter is passed referring to the 'pygad.GA' instance. If method, then it must accept 4 parameters where the fourth one refers to the method's object.
+        fitness_func: Accepts a function/method and returns the fitness value of the solution. In PyGAD 2.20.0, a third parameter is passed referring to the 'pygad.pygad.GA' instance. If method, then it must accept 4 parameters where the fourth one refers to the method's object.
         fitness_batch_size: Added in PyGAD 2.19.0. Supports calculating the fitness in batches. If the value is 1 or None, then the fitness function is called for each invidiaul solution. If given another value X where X is neither 1 nor None (e.g. X=3), then the fitness function is called once for each X (3) solutions.
 
         initial_population: A user-defined initial population. It is useful when the user wants to start the generations with a custom initial population. It defaults to None which means no initial population is specified by the user. In this case, PyGAD creates an initial population using the 'sol_per_pop' and 'num_genes' parameters. An exception is raised if the 'initial_population' is None while any of the 2 parameters ('sol_per_pop' or 'num_genes') is also None.
@@ -402,7 +402,7 @@ class GA(utils.parent_selection.ParentSelection,
                 self.valid_parameters = False
                 raise ValueError(f"The value passed to the 'gene_type' parameter must be either a single integer, floating-point, list, tuple, or numpy.ndarray but ({gene_type}) of type {type(gene_type)} found.")
 
-            # Call the unpack_gene_space() method in the pygad.helper.unique.Unique class.
+            # Call the unpack_gene_space() method in the pygad.pygad.helper.unique.Unique class.
             self.gene_space_unpacked = self.unpack_gene_space(range_min=self.init_range_low,
                                                               range_max=self.init_range_high)
 
@@ -585,7 +585,7 @@ class GA(utils.parent_selection.ParentSelection,
                     self.crossover = crossover_type
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"When 'crossover_type' is assigned to a method, then this crossover method must accept 4 parameters:\n1) Expected to be the 'self' object.\n2) The selected parents.\n3) The size of the offspring to be produced.\n4) The instance from the pygad.GA class.\n\nThe passed crossover method named '{crossover_type.__code__.co_name}' accepts {crossover_type.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"When 'crossover_type' is assigned to a method, then this crossover method must accept 4 parameters:\n1) Expected to be the 'self' object.\n2) The selected parents.\n3) The size of the offspring to be produced.\n4) The instance from the pygad.pygad.GA class.\n\nThe passed crossover method named '{crossover_type.__code__.co_name}' accepts {crossover_type.__code__.co_argcount} parameter(s).")
             elif callable(crossover_type):
                 # Check if the crossover_type is a function that accepts 2 paramaters.
                 if (crossover_type.__code__.co_argcount == 3):
@@ -593,7 +593,7 @@ class GA(utils.parent_selection.ParentSelection,
                     self.crossover = crossover_type
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"When 'crossover_type' is assigned to a function, then this crossover function must accept 3 parameters:\n1) The selected parents.\n2) The size of the offspring to be produced.3) The instance from the pygad.GA class to retrieve any property like population, gene data type, gene space, etc.\n\nThe passed crossover function named '{crossover_type.__code__.co_name}' accepts {crossover_type.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"When 'crossover_type' is assigned to a function, then this crossover function must accept 3 parameters:\n1) The selected parents.\n2) The size of the offspring to be produced.3) The instance from the pygad.pygad.GA class to retrieve any property like population, gene data type, gene space, etc.\n\nThe passed crossover function named '{crossover_type.__code__.co_name}' accepts {crossover_type.__code__.co_argcount} parameter(s).")
             elif not (type(crossover_type) is str):
                 self.valid_parameters = False
                 raise TypeError(f"The expected type of the 'crossover_type' parameter is either callable or str but {type(crossover_type)} found.")
@@ -638,7 +638,7 @@ class GA(utils.parent_selection.ParentSelection,
                     self.mutation = mutation_type
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"When 'mutation_type' is assigned to a method, then it must accept 3 parameters:\n1) Expected to be the 'self' object.\n2) The offspring to be mutated.\n3) The instance from the pygad.GA class.\n\nThe passed mutation method named '{mutation_type.__code__.co_name}' accepts {mutation_type.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"When 'mutation_type' is assigned to a method, then it must accept 3 parameters:\n1) Expected to be the 'self' object.\n2) The offspring to be mutated.\n3) The instance from the pygad.pygad.GA class.\n\nThe passed mutation method named '{mutation_type.__code__.co_name}' accepts {mutation_type.__code__.co_argcount} parameter(s).")
             elif callable(mutation_type):
                 # Check if the mutation_type is a function that accepts 2 paramater.
                 if (mutation_type.__code__.co_argcount == 2):
@@ -646,7 +646,7 @@ class GA(utils.parent_selection.ParentSelection,
                     self.mutation = mutation_type
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"When 'mutation_type' is assigned to a function, then this mutation function must accept 2 parameters:\n1) The offspring to be mutated.\n2) The instance from the pygad.GA class to retrieve any property like population, gene data type, gene space, etc.\n\nThe passed mutation function named '{mutation_type.__code__.co_name}' accepts {mutation_type.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"When 'mutation_type' is assigned to a function, then this mutation function must accept 2 parameters:\n1) The offspring to be mutated.\n2) The instance from the pygad.pygad.GA class to retrieve any property like population, gene data type, gene space, etc.\n\nThe passed mutation function named '{mutation_type.__code__.co_name}' accepts {mutation_type.__code__.co_argcount} parameter(s).")
             elif not (type(mutation_type) is str):
                 self.valid_parameters = False
                 raise TypeError(f"The expected type of the 'mutation_type' parameter is either callable or str but {type(mutation_type)} found.")
@@ -846,7 +846,7 @@ class GA(utils.parent_selection.ParentSelection,
                     self.select_parents = parent_selection_type
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"When 'parent_selection_type' is assigned to a method, then it must accept 4 parameters:\n1) Expected to be the 'self' object.\n2) The fitness values of the current population.\n3) The number of parents needed.\n4) The instance from the pygad.GA class.\n\nThe passed parent selection method named '{parent_selection_type.__code__.co_name}' accepts {parent_selection_type.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"When 'parent_selection_type' is assigned to a method, then it must accept 4 parameters:\n1) Expected to be the 'self' object.\n2) The fitness values of the current population.\n3) The number of parents needed.\n4) The instance from the pygad.pygad.GA class.\n\nThe passed parent selection method named '{parent_selection_type.__code__.co_name}' accepts {parent_selection_type.__code__.co_argcount} parameter(s).")
             elif callable(parent_selection_type):
                 # Check if the parent_selection_type is a function that accepts 3 paramaters.
                 if (parent_selection_type.__code__.co_argcount == 3):
@@ -855,7 +855,7 @@ class GA(utils.parent_selection.ParentSelection,
                     self.select_parents = parent_selection_type
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"When 'parent_selection_type' is assigned to a user-defined function, then this parent selection function must accept 3 parameters:\n1) The fitness values of the current population.\n2) The number of parents needed.\n3) The instance from the pygad.GA class to retrieve any property like population, gene data type, gene space, etc.\n\nThe passed parent selection function named '{parent_selection_type.__code__.co_name}' accepts {parent_selection_type.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"When 'parent_selection_type' is assigned to a user-defined function, then this parent selection function must accept 3 parameters:\n1) The fitness values of the current population.\n2) The number of parents needed.\n3) The instance from the pygad.pygad.GA class to retrieve any property like population, gene data type, gene space, etc.\n\nThe passed parent selection function named '{parent_selection_type.__code__.co_name}' accepts {parent_selection_type.__code__.co_argcount} parameter(s).")
             elif not (type(parent_selection_type) is str):
                 self.valid_parameters = False
                 
@@ -934,21 +934,21 @@ class GA(utils.parent_selection.ParentSelection,
 
             # Check if the fitness_func is a method.
             # In PyGAD 2.19.0, a method can be passed to the fitness function. If function is passed, then it accepts 2 parameters. If method, then it accepts 3 parameters.
-            # In PyGAD 2.20.0, a new parameter is passed referring to the instance of the `pygad.GA` class. So, the function accepts 3 parameters and the method accepts 4 parameters.
+            # In PyGAD 2.20.0, a new parameter is passed referring to the instance of the `pygad.pygad.GA` class. So, the function accepts 3 parameters and the method accepts 4 parameters.
             if inspect.ismethod(fitness_func):
                 # If the fitness is calculated through a method, not a function, then there is a fourth 'self` paramaters.
                 if (fitness_func.__code__.co_argcount == 4):
                     self.fitness_func = fitness_func
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"In PyGAD 2.20.0, if a method is used to calculate the fitness value, then it must accept 4 parameters\n1) Expected to be the 'self' object.\n2) The instance of the 'pygad.GA' class.\n3) A solution to calculate its fitness value.\n4) The solution's index within the population.\n\nThe passed fitness method named '{fitness_func.__code__.co_name}' accepts {fitness_func.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"In PyGAD 2.20.0, if a method is used to calculate the fitness value, then it must accept 4 parameters\n1) Expected to be the 'self' object.\n2) The instance of the 'pygad.pygad.GA' class.\n3) A solution to calculate its fitness value.\n4) The solution's index within the population.\n\nThe passed fitness method named '{fitness_func.__code__.co_name}' accepts {fitness_func.__code__.co_argcount} parameter(s).")
             elif callable(fitness_func):
                 # Check if the fitness function accepts 2 paramaters.
                 if (fitness_func.__code__.co_argcount == 3):
                     self.fitness_func = fitness_func
                 else:
                     self.valid_parameters = False
-                    raise ValueError(f"In PyGAD 2.20.0, the fitness function must accept 3 parameters:\n1) The instance of the 'pygad.GA' class.\n2) A solution to calculate its fitness value.\n3) The solution's index within the population.\n\nThe passed fitness function named '{fitness_func.__code__.co_name}' accepts {fitness_func.__code__.co_argcount} parameter(s).")
+                    raise ValueError(f"In PyGAD 2.20.0, the fitness function must accept 3 parameters:\n1) The instance of the 'pygad.pygad.GA' class.\n2) A solution to calculate its fitness value.\n3) The solution's index within the population.\n\nThe passed fitness function named '{fitness_func.__code__.co_name}' accepts {fitness_func.__code__.co_argcount} parameter(s).")
             else:
                 self.valid_parameters = False
                 

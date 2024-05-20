@@ -1,13 +1,13 @@
 import tensorflow as tf
 import tensorflow.keras
-import pygad.kerasga
-import pygad
+import pygad.pygad.kerasga
+import pygad.pygad
 import numpy
 
 def fitness_func(ga_instanse, solution, sol_idx):
     global train_data, data_outputs, keras_ga, model
 
-    predictions = pygad.kerasga.predict(model=model,
+    predictions = pygad.pygad.kerasga.predict(model=model,
                                         solution=solution,
                                         data=train_data)
 
@@ -35,8 +35,8 @@ model.add(tf.keras.layers.Flatten())
 model.add(tf.keras.layers.Dropout(rate=0.2))
 model.add(tf.keras.layers.Dense(num_classes, activation="softmax"))
 
-# Create an instance of the pygad.kerasga.KerasGA class to build the initial population.
-keras_ga = pygad.kerasga.KerasGA(model=model,
+# Create an instance of the pygad.pygad.kerasga.KerasGA class to build the initial population.
+keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                  num_solutions=10)
 
 train_data = tf.keras.utils.image_dataset_from_directory(
@@ -53,11 +53,11 @@ for x, y in train_data:
     data_outputs = numpy.concatenate([data_outputs, numpy.argmax(y.numpy(), axis=-1)])
 data_outputs = tf.keras.utils.to_categorical(data_outputs)
 
-# Check the documentation for more information about the parameters: https://pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html#pygad-ga-class
+# Check the documentation for more information about the parameters: https://pygad.pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html#pygad.pygad-ga-class
 initial_population = keras_ga.population_weights # Initial population of network weights.
 
-# Create an instance of the pygad.GA class
-ga_instance = pygad.GA(num_generations=10, 
+# Create an instance of the pygad.pygad.GA class
+ga_instance = pygad.pygad.GA(num_generations=10, 
                        num_parents_mating=5, 
                        initial_population=initial_population,
                        fitness_func=fitness_func,
@@ -74,7 +74,7 @@ solution, solution_fitness, solution_idx = ga_instance.best_solution(ga_instance
 print(f"Fitness value of the best solution = {solution_fitness}")
 print(f"Index of the best solution : {solution_idx}")
 
-predictions = pygad.kerasga.predict(model=model,
+predictions = pygad.pygad.kerasga.predict(model=model,
                                     solution=solution,
                                     data=train_data)
 # print("Predictions : \n", predictions)

@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 import numpy
 
 function_inputs = [4,-2,3.5,5,-11,-4.7]
@@ -32,7 +32,7 @@ def on_generation(ga_instance):
 def on_stop(ga_instance, last_population_fitness):
     print("on_stop")
 
-ga_instance = pygad.GA(num_generations=3,
+ga_instance = pygad.pygad.GA(num_generations=3,
                        num_parents_mating=5,
                        fitness_func=fitness_function,
                        sol_per_pop=10,

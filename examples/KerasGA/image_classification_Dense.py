@@ -1,12 +1,12 @@
 import tensorflow.keras
-import pygad.kerasga
+import pygad.pygad.kerasga
 import numpy
-import pygad
+import pygad.pygad
 
 def fitness_func(ga_instanse, solution, sol_idx):
     global data_inputs, data_outputs, keras_ga, model
 
-    predictions = pygad.kerasga.predict(model=model,
+    predictions = pygad.pygad.kerasga.predict(model=model,
                                         solution=solution,
                                         data=data_inputs)
 
@@ -26,8 +26,8 @@ output_layer = tensorflow.keras.layers.Dense(4, activation="softmax")(dense_laye
 
 model = tensorflow.keras.Model(inputs=input_layer, outputs=output_layer)
 
-# Create an instance of the pygad.kerasga.KerasGA class to build the initial population.
-keras_ga = pygad.kerasga.KerasGA(model=model,
+# Create an instance of the pygad.pygad.kerasga.KerasGA class to build the initial population.
+keras_ga = pygad.pygad.kerasga.KerasGA(model=model,
                                    num_solutions=10)
 
 # Data inputs
@@ -37,13 +37,13 @@ data_inputs = numpy.load("../data/dataset_features.npy")
 data_outputs = numpy.load("../data/outputs.npy")
 data_outputs = tensorflow.keras.utils.to_categorical(data_outputs)
 
-# Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html#pygad-ga-class
+# Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/README_pygad_ReadTheDocs.html#pygad.pygad-ga-class
 num_generations = 100 # Number of generations.
 num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
 initial_population = keras_ga.population_weights # Initial population of network weights.
 
-# Create an instance of the pygad.GA class
-ga_instance = pygad.GA(num_generations=num_generations, 
+# Create an instance of the pygad.pygad.GA class
+ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                        num_parents_mating=num_parents_mating, 
                        initial_population=initial_population,
                        fitness_func=fitness_func,
@@ -61,7 +61,7 @@ print(f"Fitness value of the best solution = {solution_fitness}")
 print(f"Index of the best solution : {solution_idx}")
 
 # Fetch the parameters of the best solution.
-predictions = pygad.kerasga.predict(model=model,
+predictions = pygad.pygad.kerasga.predict(model=model,
                                     solution=solution,
                                     data=data_inputs)
 # print("Predictions : \n", predictions)

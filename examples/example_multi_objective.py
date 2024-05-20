@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 import numpy
 
 """
@@ -42,7 +42,7 @@ def on_generation(ga_instance):
     print(f"Change     = {ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)[1] - last_fitness}")
     last_fitness = ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)[1]
 
-ga_instance = pygad.GA(num_generations=num_generations,
+ga_instance = pygad.pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating,
                        sol_per_pop=sol_per_pop,
                        num_genes=num_genes,

@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 
 num_generations = 100
 
@@ -43,7 +43,7 @@ def number_lifecycle_callback_functions_calls(stop_criteria=None,
         nonlocal actual_num_callbacks_calls
         actual_num_callbacks_calls = actual_num_callbacks_calls + 1
 
-    ga_instance = pygad.GA(num_generations=num_generations,
+    ga_instance = pygad.pygad.GA(num_generations=num_generations,
                            num_parents_mating=5,
                            fitness_func=fitness_func,
                            sol_per_pop=10,
@@ -122,7 +122,7 @@ def number_lifecycle_callback_methods_calls(stop_criteria=None,
             actual_num_callbacks_calls = actual_num_callbacks_calls + 1
 
     Callbacks_obj = Callbacks()
-    ga_instance = pygad.GA(num_generations=num_generations,
+    ga_instance = pygad.pygad.GA(num_generations=num_generations,
                            num_parents_mating=5,
                            fitness_func=Callbacks_obj.fitness_func,
                            sol_per_pop=10,

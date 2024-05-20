@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 
 actual_num_fitness_calls_default_keep = 0
 actual_num_fitness_calls_no_keep = 0
@@ -22,7 +22,7 @@ def number_calls_fitness_function(keep_elitism=1,
         actual_num_fitness_calls = actual_num_fitness_calls + 1
         return 1
 
-    ga_optimizer = pygad.GA(num_generations=num_generations,
+    ga_optimizer = pygad.pygad.GA(num_generations=num_generations,
                             sol_per_pop=sol_per_pop,
                             num_genes=6,
                             num_parents_mating=num_parents_mating,

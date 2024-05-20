@@ -69,7 +69,7 @@ class GACNN:
         The constructor of the GACNN class creates an initial population of multiple CNNs using the create_population() method.
         The population returned holds references to instances of the cnn.Model class.
 
-        model: An instance of the pygad.cnn.Model class representing the architecture of all solutions in the population.
+        model: An instance of the pygad.pygad.cnn.Model class representing the architecture of all solutions in the population.
         num_solutions: Number of CNNs (i.e. solutions) in the population. Based on the value passed to this parameter, a number of identical CNNs are created where their parameters are optimized using the genetic algorithm.
         """
         

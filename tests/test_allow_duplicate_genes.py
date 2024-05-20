@@ -1,4 +1,4 @@
-import pygad
+import pygad.pygad
 import random
 import numpy
 
@@ -29,7 +29,7 @@ def number_duplicate_genes(gene_space=None,
     def fitness_func(ga, solution, idx):
         return random.random()
 
-    ga_instance = pygad.GA(num_generations=num_generations,
+    ga_instance = pygad.pygad.GA(num_generations=num_generations,
                            num_parents_mating=5,
                            fitness_func=fitness_func,
                            sol_per_pop=10,

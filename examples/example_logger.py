@@ -1,5 +1,5 @@
 import logging
-import pygad
+import pygad.pygad
 import numpy
 
 level = logging.DEBUG
@@ -32,7 +32,7 @@ def on_generation(ga_instance):
     ga_instance.logger.info(f"Generation = {ga_instance.generations_completed}")
     ga_instance.logger.info(f"Fitness    = {ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)[1]}")
 
-ga_instance = pygad.GA(num_generations=10,
+ga_instance = pygad.pygad.GA(num_generations=10,
                        sol_per_pop=40,
                        num_parents_mating=2,
                        keep_parents=2,

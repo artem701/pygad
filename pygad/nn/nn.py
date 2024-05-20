@@ -305,7 +305,7 @@ def predict(last_layer, data_inputs, problem_type="classification"):
 
     predictions = []
     for sample_idx in range(data_inputs.shape[0]):
-        r1 = data_inputs[sample_idx, :]
+        r1 = numpy.concatenate((data_inputs[sample_idx, :], [1]))
         for curr_weights, activation in zip(weights, activations):
             r1 = numpy.matmul(r1, curr_weights)
             if activation == "relu":
@@ -392,7 +392,7 @@ class DenseLayer:
         # Initializing the weights of the layer.
         self.initial_weights = numpy.random.uniform(low=-0.1,
                                                     high=0.1,
-                                                    size=(previous_layer.num_neurons, num_neurons))
+                                                    size=(previous_layer.num_neurons + 1, num_neurons))
 
         # The trained weights of the layer. Only assigned a value after the network is trained (i.e. the train() function completes).
         # Just initialized to be equal to the initial weights

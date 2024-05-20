@@ -1,12 +1,12 @@
 .. _pygadtorchga-module:
 
-``pygad.torchga`` Module
+``pygad.pygad.torchga`` Module
 ========================
 
 This section of the PyGAD's library documentation discusses the
-**pygad.torchga** module.
+**pygad.pygad.torchga** module.
 
-The ``pygad.torchga`` module has a helper class and 2 functions to train
+The ``pygad.pygad.torchga`` module has a helper class and 2 functions to train
 PyTorch models using the genetic algorithm (PyGAD).
 
 The contents of this module are:
@@ -33,13 +33,13 @@ follows:
 
 1. Create a PyTorch model.
 
-2. Create an instance of the ``pygad.torchga.TorchGA`` class.
+2. Create an instance of the ``pygad.pygad.torchga.TorchGA`` class.
 
 3. Prepare the training data.
 
 4. Build the fitness function.
 
-5. Create an instance of the ``pygad.GA`` class.
+5. Create an instance of the ``pygad.pygad.GA`` class.
 
 6. Run the genetic algorithm.
 
@@ -69,10 +69,10 @@ Feel free to add the layers of your choice.
 
 .. _pygadtorchgatorchga-class:
 
-``pygad.torchga.TorchGA`` Class
+``pygad.pygad.torchga.TorchGA`` Class
 ===============================
 
-The ``pygad.torchga`` module has a class named ``TorchGA`` for creating
+The ``pygad.pygad.torchga`` module has a class named ``TorchGA`` for creating
 an initial population for the genetic algorithm based on a PyTorch
 model. The constructor, methods, and attributes within the class are
 discussed in this section.
@@ -82,7 +82,7 @@ discussed in this section.
 ``__init__()``
 --------------
 
-The ``pygad.torchga.TorchGA`` class constructor accepts the following
+The ``pygad.pygad.torchga.TorchGA`` class constructor accepts the following
 parameters:
 
 -  ``model``: An instance of the PyTorch model.
@@ -93,7 +93,7 @@ parameters:
 Instance Attributes
 -------------------
 
-All parameters in the ``pygad.torchga.TorchGA`` class constructor are
+All parameters in the ``pygad.pygad.torchga.TorchGA`` class constructor are
 used as instance attributes in addition to adding a new attribute called
 ``population_weights``.
 
@@ -110,7 +110,7 @@ Methods in the ``TorchGA`` Class
 --------------------------------
 
 This section discusses the methods available for instances of the
-``pygad.torchga.TorchGA`` class.
+``pygad.pygad.torchga.TorchGA`` class.
 
 .. _createpopulation:
 
@@ -124,14 +124,14 @@ different model parameters. The list of networks is assigned to the
 
 .. _functions-in-the-pygadtorchga-module:
 
-Functions in the ``pygad.torchga`` Module
+Functions in the ``pygad.pygad.torchga`` Module
 =========================================
 
-This section discusses the functions in the ``pygad.torchga`` module.
+This section discusses the functions in the ``pygad.pygad.torchga`` module.
 
 .. _pygadtorchgamodelweightsasvector:
 
-``pygad.torchga.model_weights_as_vector()`` 
+``pygad.pygad.torchga.model_weights_as_vector()`` 
 --------------------------------------------
 
 The ``model_weights_as_vector()`` function accepts a single parameter
@@ -148,7 +148,7 @@ It returns a 1D vector holding the model weights.
 
 .. _pygadtorchmodelweightsasdict:
 
-``pygad.torch.model_weights_as_dict()``
+``pygad.pygad.torch.model_weights_as_dict()``
 ---------------------------------------
 
 The ``model_weights_as_dict()`` function accepts the following
@@ -165,7 +165,7 @@ parameters.
 
 .. _pygadtorchgapredict:
 
-``pygad.torchga.predict()``
+``pygad.pygad.torchga.predict()``
 ---------------------------
 
 The ``predict()`` function makes a prediction based on a solution. It
@@ -196,12 +196,12 @@ subsections discuss each part in the code.
 
    import torch
    import torchga
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, torch_ga, model, loss_function
 
-       predictions = pygad.torchga.predict(model=model, 
+       predictions = pygad.pygad.torchga.predict(model=model, 
                                            solution=solution, 
                                            data=data_inputs)
 
@@ -225,7 +225,7 @@ subsections discuss each part in the code.
                                output_layer)
    # print(model)
 
-   # Create an instance of the pygad.torchga.TorchGA class to build the initial population.
+   # Create an instance of the pygad.pygad.torchga.TorchGA class to build the initial population.
    torch_ga = torchga.TorchGA(model=model,
                               num_solutions=10)
 
@@ -243,12 +243,12 @@ subsections discuss each part in the code.
                                 [1.3],
                                 [2.5]])
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 250 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = torch_ga.population_weights # Initial population of network weights
 
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -265,7 +265,7 @@ subsections discuss each part in the code.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make predictions based on the best solution.
-   predictions = pygad.torchga.predict(model=model, 
+   predictions = pygad.pygad.torchga.predict(model=model, 
                                        solution=solution, 
                                        data=data_inputs)
    print("Predictions : \n", predictions.detach().numpy())
@@ -294,16 +294,16 @@ Functional API.
 
 .. _create-an-instance-of-the-pygadtorchgatorchga-class:
 
-Create an Instance of the ``pygad.torchga.TorchGA`` Class
+Create an Instance of the ``pygad.pygad.torchga.TorchGA`` Class
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The second step is to create an instance of the
-``pygad.torchga.TorchGA`` class. There are 10 solutions per population.
+``pygad.pygad.torchga.TorchGA`` class. There are 10 solutions per population.
 Change this number according to your needs.
 
 .. code:: python
 
-   import pygad.torchga
+   import pygad.pygad.torchga
 
    torch_ga = torchga.TorchGA(model=model,
                               num_solutions=10)
@@ -350,7 +350,7 @@ other loss function to calculate the fitness value.
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, torch_ga, model, loss_function
 
-       predictions = pygad.torchga.predict(model=model, 
+       predictions = pygad.pygad.torchga.predict(model=model, 
                                            solution=solution, 
                                            data=data_inputs)
 
@@ -362,24 +362,24 @@ other loss function to calculate the fitness value.
 
 .. _create-an-instance-of-the-pygadga-class:
 
-Create an Instance of the ``pygad.GA`` Class
+Create an Instance of the ``pygad.pygad.GA`` Class
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The fifth step is to instantiate the ``pygad.GA`` class. Note how the
+The fifth step is to instantiate the ``pygad.pygad.GA`` class. Note how the
 ``initial_population`` parameter is assigned to the initial weights of
 the PyTorch models.
 
 For more information, please check the `parameters this class
-accepts <https://pygad.readthedocs.io/en/latest/pygad.html#init>`__.
+accepts <https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#init>`__.
 
 .. code:: python
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 250 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = torch_ga.population_weights # Initial population of network weights
 
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -429,7 +429,7 @@ calculate the predicted values.
 
 .. code:: python
 
-   predictions = pygad.torchga.predict(model=model, 
+   predictions = pygad.pygad.torchga.predict(model=model, 
                                        solution=solution, 
                                        data=data_inputs)
    print("Predictions : \n", predictions.detach().numpy())
@@ -464,12 +464,12 @@ previous example.
 
    import torch
    import torchga
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, torch_ga, model, loss_function
 
-       predictions = pygad.torchga.predict(model=model, 
+       predictions = pygad.pygad.torchga.predict(model=model, 
                                            solution=solution, 
                                            data=data_inputs)
 
@@ -493,7 +493,7 @@ previous example.
                                output_layer)
    # print(model)
 
-   # Create an instance of the pygad.torchga.TorchGA class to build the initial population.
+   # Create an instance of the pygad.pygad.torchga.TorchGA class to build the initial population.
    torch_ga = torchga.TorchGA(model=model,
                               num_solutions=10)
 
@@ -511,13 +511,13 @@ previous example.
                                 [0.0, 1.0],
                                 [1.0, 0.0]])
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 250 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = torch_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -535,7 +535,7 @@ previous example.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make predictions based on the best solution.
-   predictions = pygad.torchga.predict(model=model, 
+   predictions = pygad.pygad.torchga.predict(model=model, 
                                        solution=solution, 
                                        data=data_inputs)
    print("Predictions : \n", predictions.detach().numpy())
@@ -624,13 +624,13 @@ Here is the code.
 
    import torch
    import torchga
-   import pygad
+   import pygad.pygad
    import numpy
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, torch_ga, model, loss_function
 
-       predictions = pygad.torchga.predict(model=model, 
+       predictions = pygad.pygad.torchga.predict(model=model, 
                                            solution=solution, 
                                            data=data_inputs)
 
@@ -653,7 +653,7 @@ Here is the code.
                                dense_layer,
                                output_layer)
 
-   # Create an instance of the pygad.torchga.TorchGA class to build the initial population.
+   # Create an instance of the pygad.pygad.torchga.TorchGA class to build the initial population.
    torch_ga = torchga.TorchGA(model=model,
                               num_solutions=10)
 
@@ -668,13 +668,13 @@ Here is the code.
    # temp_outs = numpy.zeros((data_outputs.shape[0], numpy.unique(data_outputs).size), dtype=numpy.uint8)
    # temp_outs[numpy.arange(data_outputs.shape[0]), numpy.uint8(data_outputs)] = 1
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 200 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = torch_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -769,13 +769,13 @@ Here is the complete code.
 
    import torch
    import torchga
-   import pygad
+   import pygad.pygad
    import numpy
 
    def fitness_func(ga_instance, solution, sol_idx):
        global data_inputs, data_outputs, torch_ga, model, loss_function
 
-       predictions = pygad.torchga.predict(model=model, 
+       predictions = pygad.pygad.torchga.predict(model=model, 
                                            solution=solution, 
                                            data=data_inputs)
 
@@ -814,7 +814,7 @@ Here is the complete code.
                                dense_layer2,
                                output_layer)
 
-   # Create an instance of the pygad.torchga.TorchGA class to build the initial population.
+   # Create an instance of the pygad.pygad.torchga.TorchGA class to build the initial population.
    torch_ga = torchga.TorchGA(model=model,
                               num_solutions=10)
 
@@ -827,13 +827,13 @@ Here is the complete code.
    # Data outputs
    data_outputs = torch.from_numpy(numpy.load("dataset_outputs.npy")).long()
 
-   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.readthedocs.io/en/latest/pygad.html#pygad-ga-class
+   # Prepare the PyGAD parameters. Check the documentation for more information: https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#pygad.pygad-ga-class
    num_generations = 200 # Number of generations.
    num_parents_mating = 5 # Number of solutions to be selected as parents in the mating pool.
    initial_population = torch_ga.population_weights # Initial population of network weights.
 
-   # Create an instance of the pygad.GA class
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   # Create an instance of the pygad.pygad.GA class
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -851,7 +851,7 @@ Here is the complete code.
    print(f"Index of the best solution : {solution_idx}")
 
    # Make predictions based on the best solution.
-   predictions = pygad.torchga.predict(model=model, 
+   predictions = pygad.pygad.torchga.predict(model=model, 
                                        solution=solution, 
                                        data=data_inputs)
    # print("Predictions : \n", predictions)
@@ -914,8 +914,8 @@ The data consists of 4 classes of images. The image shape is
 ``(100, 100, 3)`` and there are 20 images per class for a total of 80
 training samples. For more information about the dataset, check the
 `Reading the
-Data <https://pygad.readthedocs.io/en/latest/cnn.html#reading-the-data>`__
-section of the ``pygad.cnn`` module.
+Data <https://pygad.pygad.readthedocs.io/en/latest/cnn.html#reading-the-data>`__
+section of the ``pygad.pygad.cnn`` module.
 
 Simply download these 2 files and read them according to the next code.
 

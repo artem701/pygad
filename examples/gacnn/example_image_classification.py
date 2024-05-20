@@ -1,7 +1,7 @@
 import numpy
-import pygad.cnn
-import pygad.gacnn
-import pygad
+import pygad.pygad.cnn
+import pygad.pygad.gacnn
+import pygad.pygad
 
 """
 Convolutional neural network implementation using NumPy
@@ -24,7 +24,7 @@ def fitness_func(ga_instance, solution, sol_idx):
 def callback_generation(ga_instance):
     global GACNN_instance, last_fitness
 
-    population_matrices = pygad.gacnn.population_as_matrices(population_networks=GACNN_instance.population_networks, 
+    population_matrices = pygad.pygad.gacnn.population_as_matrices(population_networks=GACNN_instance.population_networks, 
                                                        population_vectors=ga_instance.population)
 
     GACNN_instance.update_population_trained_weights(population_trained_weights=population_matrices)
@@ -41,35 +41,35 @@ num_classes = 4
 data_inputs = data_inputs
 data_outputs = data_outputs
 
-input_layer = pygad.cnn.Input2D(input_shape=sample_shape)
-conv_layer1 = pygad.cnn.Conv2D(num_filters=2,
+input_layer = pygad.pygad.cnn.Input2D(input_shape=sample_shape)
+conv_layer1 = pygad.pygad.cnn.Conv2D(num_filters=2,
                                kernel_size=3,
                                previous_layer=input_layer,
                                activation_function="relu")
-average_pooling_layer = pygad.cnn.AveragePooling2D(pool_size=5, 
+average_pooling_layer = pygad.pygad.cnn.AveragePooling2D(pool_size=5, 
                                                    previous_layer=conv_layer1,
                                                    stride=3)
 
-flatten_layer = pygad.cnn.Flatten(previous_layer=average_pooling_layer)
-dense_layer2 = pygad.cnn.Dense(num_neurons=num_classes, 
+flatten_layer = pygad.pygad.cnn.Flatten(previous_layer=average_pooling_layer)
+dense_layer2 = pygad.pygad.cnn.Dense(num_neurons=num_classes, 
                                previous_layer=flatten_layer,
                                activation_function="softmax")
 
-model = pygad.cnn.Model(last_layer=dense_layer2,
+model = pygad.pygad.cnn.Model(last_layer=dense_layer2,
                         epochs=1,
                         learning_rate=0.01)
 
 model.summary()
 
 
-GACNN_instance = pygad.gacnn.GACNN(model=model,
+GACNN_instance = pygad.pygad.gacnn.GACNN(model=model,
                              num_solutions=4)
 
 # GACNN_instance.update_population_trained_weights(population_trained_weights=population_matrices)
 
 # population does not hold the numerical weights of the network instead it holds a list of references to each last layer of each network (i.e. solution) in the population. A solution or a network can be used interchangeably.
 # If there is a population with 3 solutions (i.e. networks), then the population is a list with 3 elements. Each element is a reference to the last layer of each network. Using such a reference, all details of the network can be accessed.
-population_vectors = pygad.gacnn.population_as_vectors(population_networks=GACNN_instance.population_networks)
+population_vectors = pygad.pygad.gacnn.population_as_vectors(population_networks=GACNN_instance.population_networks)
 
 # To prepare the initial population, there are 2 ways:
 # 1) Prepare it yourself and pass it to the initial_population parameter. This way is useful when the user wants to start the genetic algorithm with a custom initial population.
@@ -90,7 +90,7 @@ mutation_type = "random" # Type of the mutation operator.
 
 keep_parents = -1 # Number of parents to keep in the next population. -1 means keep all parents and 0 means keep nothing.
 
-ga_instance = pygad.GA(num_generations=num_generations, 
+ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                        num_parents_mating=num_parents_mating, 
                        initial_population=initial_population,
                        fitness_func=fitness_func,

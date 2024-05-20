@@ -1,6 +1,6 @@
 import numpy
 import matplotlib.pyplot
-import pygad
+import pygad.pygad
 
 cluster1_num_samples = 20
 cluster1_x1_start = 0
@@ -106,7 +106,7 @@ num_clusters = 3
 feature_vector_length = data.shape[1]
 num_genes = num_clusters * feature_vector_length
 
-ga_instance = pygad.GA(num_generations=100,
+ga_instance = pygad.pygad.GA(num_generations=100,
                        sol_per_pop=10,
                        init_range_low=0,
                        init_range_high=20,

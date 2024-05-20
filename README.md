@@ -1,53 +1,53 @@
 # PyGAD:  Genetic Algorithm in Python
 
-[PyGAD](https://pypi.org/project/pygad) is an open-source easy-to-use Python 3 library for building the genetic algorithm and optimizing machine learning algorithms. It supports Keras and PyTorch. PyGAD supports optimizing both single-objective and multi-objective problems.
+[PyGAD](https://pypi.org/project/pygad.pygad) is an open-source easy-to-use Python 3 library for building the genetic algorithm and optimizing machine learning algorithms. It supports Keras and PyTorch. PyGAD supports optimizing both single-objective and multi-objective problems.
 
-Check documentation of the [PyGAD](https://pygad.readthedocs.io/en/latest).
+Check documentation of the [PyGAD](https://pygad.pygad.readthedocs.io/en/latest).
 
-[![Downloads](https://pepy.tech/badge/pygad)](https://pepy.tech/project/pygad) ![Docs](https://readthedocs.org/projects/pygad/badge)
+[![Downloads](https://pepy.tech/badge/pygad.pygad)](https://pepy.tech/project/pygad.pygad) ![Docs](https://readthedocs.org/projects/pygad.pygad/badge)
 
 ![PYGAD-LOGO](https://user-images.githubusercontent.com/16560492/101267295-c74c0180-375f-11eb-9ad0-f8e37bd796ce.png)
 
-[PyGAD](https://pypi.org/project/pygad) supports different types of crossover, mutation, and parent selection. [PyGAD](https://pypi.org/project/pygad) allows different types of problems to be optimized using the genetic algorithm by customizing the fitness function. 
+[PyGAD](https://pypi.org/project/pygad.pygad) supports different types of crossover, mutation, and parent selection. [PyGAD](https://pypi.org/project/pygad.pygad) allows different types of problems to be optimized using the genetic algorithm by customizing the fitness function. 
 
 The library is under active development and more features are added regularly. If you want a feature to be supported, please check the **Contact Us** section to send a request.
 
 # Donation
 
 * [Credit/Debit Card](https://donate.stripe.com/eVa5kO866elKgM0144): https://donate.stripe.com/eVa5kO866elKgM0144
-* [Open Collective](https://opencollective.com/pygad): [opencollective.com/pygad](https://opencollective.com/pygad)
+* [Open Collective](https://opencollective.com/pygad.pygad): [opencollective.com/pygad.pygad](https://opencollective.com/pygad.pygad)
 * PayPal: Use either this link: [paypal.me/ahmedfgad](https://paypal.me/ahmedfgad) or the e-mail address ahmed.f.gad@gmail.com
 * Interac e-Transfer: Use e-mail address ahmed.f.gad@gmail.com
 
 # Installation
 
-To install [PyGAD](https://pypi.org/project/pygad), simply use pip to download and install the library from [PyPI](https://pypi.org/project/pygad) (Python Package Index). The library is at PyPI at this page https://pypi.org/project/pygad.
+To install [PyGAD](https://pypi.org/project/pygad.pygad), simply use pip to download and install the library from [PyPI](https://pypi.org/project/pygad.pygad) (Python Package Index). The library is at PyPI at this page https://pypi.org/project/pygad.pygad.
 
 Install PyGAD with the following command:
 
 ```python
-pip install pygad
+pip install pygad.pygad
 ```
 
-To get started with PyGAD, please read the documentation at [Read The Docs](https://pygad.readthedocs.io/) https://pygad.readthedocs.io.
+To get started with PyGAD, please read the documentation at [Read The Docs](https://pygad.pygad.readthedocs.io/) https://pygad.pygad.readthedocs.io.
 
 # PyGAD Source Code
 
 The source code of the PyGAD' modules is found in the following GitHub projects:
 
-- [pygad](https://github.com/ahmedfgad/GeneticAlgorithmPython): (https://github.com/ahmedfgad/GeneticAlgorithmPython)
-- [pygad.nn](https://github.com/ahmedfgad/NumPyANN): https://github.com/ahmedfgad/NumPyANN
-- [pygad.gann](https://github.com/ahmedfgad/NeuralGenetic): https://github.com/ahmedfgad/NeuralGenetic
-- [pygad.cnn](https://github.com/ahmedfgad/NumPyCNN): https://github.com/ahmedfgad/NumPyCNN
-- [pygad.gacnn](https://github.com/ahmedfgad/CNNGenetic): https://github.com/ahmedfgad/CNNGenetic
-- [pygad.kerasga](https://github.com/ahmedfgad/KerasGA): https://github.com/ahmedfgad/KerasGA
-- [pygad.torchga](https://github.com/ahmedfgad/TorchGA): https://github.com/ahmedfgad/TorchGA
+- [pygad.pygad](https://github.com/ahmedfgad/GeneticAlgorithmPython): (https://github.com/ahmedfgad/GeneticAlgorithmPython)
+- [pygad.pygad.nn](https://github.com/ahmedfgad/NumPyANN): https://github.com/ahmedfgad/NumPyANN
+- [pygad.pygad.gann](https://github.com/ahmedfgad/NeuralGenetic): https://github.com/ahmedfgad/NeuralGenetic
+- [pygad.pygad.cnn](https://github.com/ahmedfgad/NumPyCNN): https://github.com/ahmedfgad/NumPyCNN
+- [pygad.pygad.gacnn](https://github.com/ahmedfgad/CNNGenetic): https://github.com/ahmedfgad/CNNGenetic
+- [pygad.pygad.kerasga](https://github.com/ahmedfgad/KerasGA): https://github.com/ahmedfgad/KerasGA
+- [pygad.pygad.torchga](https://github.com/ahmedfgad/TorchGA): https://github.com/ahmedfgad/TorchGA
 
-The documentation of PyGAD is available at [Read The Docs](https://pygad.readthedocs.io/) https://pygad.readthedocs.io.
+The documentation of PyGAD is available at [Read The Docs](https://pygad.pygad.readthedocs.io/) https://pygad.pygad.readthedocs.io.
 
 # PyGAD Documentation
 
-The documentation of the PyGAD library is available at [Read The Docs](https://pygad.readthedocs.io) at this link: https://pygad.readthedocs.io. It discusses the modules supported by PyGAD, all its classes, methods, attribute, and functions. For each module, a number of examples are given.
+The documentation of the PyGAD library is available at [Read The Docs](https://pygad.pygad.readthedocs.io) at this link: https://pygad.pygad.readthedocs.io. It discusses the modules supported by PyGAD, all its classes, methods, attribute, and functions. For each module, a number of examples are given.
 
 If there is an issue using PyGAD, feel free to post at issue in this [GitHub repository](https://github.com/ahmedfgad/GeneticAlgorithmPython) https://github.com/ahmedfgad/GeneticAlgorithmPython or by sending an e-mail to ahmed.f.gad@gmail.com. 
 
@@ -61,14 +61,14 @@ Please check the **Contact Us** section for more contact details.
 
 # Life Cycle of PyGAD
 
-The next figure lists the different stages in the lifecycle of an instance of the `pygad.GA` class. Note that PyGAD stops when either all generations are completed or when the function passed to the `on_generation` parameter returns the string `stop`.
+The next figure lists the different stages in the lifecycle of an instance of the `pygad.pygad.GA` class. Note that PyGAD stops when either all generations are completed or when the function passed to the `on_generation` parameter returns the string `stop`.
 
 ![PyGAD Lifecycle](https://user-images.githubusercontent.com/16560492/220486073-c5b6089d-81e4-44d9-a53c-385f479a7273.jpg)
 
 The next code implements all the callback functions to trace the execution of the genetic algorithm. Each callback function prints its name.
 
 ```python
-import pygad
+import pygad.pygad
 import numpy
 
 function_inputs = [4,-2,3.5,5,-11,-4.7]
@@ -102,7 +102,7 @@ def on_generation(ga_instance):
 def on_stop(ga_instance, last_population_fitness):
     print("on_stop()")
 
-ga_instance = pygad.GA(num_generations=3,
+ga_instance = pygad.pygad.GA(num_generations=3,
                        num_parents_mating=5,
                        fitness_func=fitness_function,
                        sol_per_pop=10,
@@ -146,10 +146,10 @@ on_stop()
 
 # Example
 
-Check the [PyGAD's documentation](https://pygad.readthedocs.io/en/latest/pygad.html) for information about the implementation of this example. It solves a single-objective problem.
+Check the [PyGAD's documentation](https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html) for information about the implementation of this example. It solves a single-objective problem.
 
 ```python
-import pygad
+import pygad.pygad
 import numpy
 
 """
@@ -189,7 +189,7 @@ def callback_generation(ga_instance):
     last_fitness = ga_instance.best_solution()[1]
 
 # Creating an instance of the GA class inside the ga module. Some parameters are initialized within the constructor.
-ga_instance = pygad.GA(num_generations=num_generations,
+ga_instance = pygad.pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating, 
                        fitness_func=fitness_function,
                        sol_per_pop=sol_per_pop, 
@@ -219,7 +219,7 @@ filename = 'genetic' # The filename to which the instance is saved. The name is 
 ga_instance.save(filename=filename)
 
 # Loading the saved GA instance.
-loaded_ga_instance = pygad.load(filename=filename)
+loaded_ga_instance = pygad.pygad.load(filename=filename)
 loaded_ga_instance.plot_fitness()
 ```
 

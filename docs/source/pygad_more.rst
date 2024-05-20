@@ -5,7 +5,7 @@ Multi-Objective Optimization
 ============================
 
 In `PyGAD
-3.2.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-3-2-0>`__,
+3.2.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-3-2-0>`__,
 the library supports multi-objective optimization using the
 non-dominated sorting genetic algorithm II (NSGA-II). The code is
 exactly similar to the regular code used for single-objective
@@ -74,7 +74,7 @@ that satisfy the 2 functions ``y1`` and ``y2``.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    """
@@ -110,7 +110,7 @@ that satisfy the 2 functions ``y1`` and ``y2``.
    sol_per_pop = 20
    num_genes = len(function_inputs1)
 
-   ga_instance = pygad.GA(num_generations=num_generations,
+   ga_instance = pygad.pygad.GA(num_generations=num_generations,
                           num_parents_mating=num_parents_mating,
                           sol_per_pop=sol_per_pop,
                           num_genes=num_genes,
@@ -153,7 +153,7 @@ Limit the Gene Value Range using the ``gene_space`` Parameter
 =============================================================
 
 In `PyGAD
-2.11.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-11-0>`__,
+2.11.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-11-0>`__,
 the ``gene_space`` parameter supported a new feature to allow
 customizing the range of accepted values for each gene. Let's take a
 quick review of the ``gene_space`` parameter to build over it.
@@ -195,7 +195,7 @@ are ``1, 2, 3, 4, 5, and 6``. You can also use the ``numpy.arange()`` or
 
 The previous discussion only works with a range of discrete values not
 continuous values. In `PyGAD
-2.11.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-11-0>`__,
+2.11.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-11-0>`__,
 the ``gene_space`` parameter can be assigned a dictionary that allows
 the gene to have values from a continuous range.
 
@@ -325,7 +325,7 @@ is used.
 
 If a ``None`` is assigned to only a single gene, then its value will be
 randomly generated initially using the ``init_range_low`` and
-``init_range_high`` parameters in the ``pygad.GA`` class's constructor.
+``init_range_high`` parameters in the ``pygad.pygad.GA`` class's constructor.
 During mutation, the value are sampled from the range defined by the 2
 parameters ``random_mutation_min_val`` and ``random_mutation_max_val``.
 This is an example where the second gene is given a ``None`` value.
@@ -381,17 +381,17 @@ Stop at Any Generation
 ======================
 
 In `PyGAD
-2.4.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-4-0>`__,
+2.4.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-4-0>`__,
 it is possible to stop the genetic algorithm after any generation. All
 you need to do it to return the string ``"stop"`` in the callback
 function ``on_generation``. When this callback function is implemented
 and assigned to the ``on_generation`` parameter in the constructor of
-the ``pygad.GA`` class, then the algorithm immediately stops after
+the ``pygad.pygad.GA`` class, then the algorithm immediately stops after
 completing its current generation. Let's discuss an example.
 
 Assume that the user wants to stop algorithm either after the 100
 generations or if a condition is met. The user may assign a value of 100
-to the ``num_generations`` parameter of the ``pygad.GA`` class
+to the ``num_generations`` parameter of the ``pygad.pygad.GA`` class
 constructor.
 
 The condition that stops the algorithm is written in a callback function
@@ -408,9 +408,9 @@ Stop Criteria
 =============
 
 In `PyGAD
-2.15.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-15-0>`__,
+2.15.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-15-0>`__,
 a new parameter named ``stop_criteria`` is added to the constructor of
-the ``pygad.GA`` class. It helps to stop the evolution based on some
+the ``pygad.pygad.GA`` class. It helps to stop the evolution based on some
 criteria. It can be assigned to one or more criterion.
 
 Each criterion is passed as ``str`` that consists of 2 parts:
@@ -441,7 +441,7 @@ reached ``127.4`` or if the fitness saturates for ``15`` generations.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4, -2, 3.5, 8, 9, 4]
@@ -454,7 +454,7 @@ reached ``127.4`` or if the fitness saturates for ``15`` generations.
 
        return fitness
 
-   ga_instance = pygad.GA(num_generations=200,
+   ga_instance = pygad.pygad.GA(num_generations=200,
                           sol_per_pop=10,
                           num_parents_mating=4,
                           num_genes=len(equation_inputs),
@@ -468,20 +468,20 @@ Elitism Selection
 =================
 
 In `PyGAD
-2.18.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-18-0>`__,
+2.18.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-18-0>`__,
 a new parameter called ``keep_elitism`` is supported. It accepts an
 integer to define the number of elitism (i.e. best solutions) to keep in
 the next generation. This parameter defaults to ``1`` which means only
 the best solution is kept in the next generation.
 
 In the next example, the ``keep_elitism`` parameter in the constructor
-of the ``pygad.GA`` class is set to 2. Thus, the best 2 solutions in
+of the ``pygad.pygad.GA`` class is set to 2. Thus, the best 2 solutions in
 each generation are kept in the next generation.
 
 .. code:: python
 
    import numpy
-   import pygad
+   import pygad.pygad
 
    function_inputs = [4,-2,3.5,5,-11,-4.7]
    desired_output = 44
@@ -491,7 +491,7 @@ each generation are kept in the next generation.
        fitness = 1.0 / numpy.abs(output - desired_output)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=2,
+   ga_instance = pygad.pygad.GA(num_generations=2,
                           num_parents_mating=3,
                           fitness_func=fitness_func,
                           num_genes=6,
@@ -518,7 +518,7 @@ offspring will be created.
 
    ...
 
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           sol_per_pop=5,
                           keep_elitism=5)
 
@@ -538,7 +538,7 @@ Random Seed
 ===========
 
 In `PyGAD
-2.18.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-18-0>`__,
+2.18.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-18-0>`__,
 a new parameter called ``random_seed`` is supported. Its value is used
 as a seed for the random function generators.
 
@@ -559,7 +559,7 @@ seed.
 .. code:: python
 
    import numpy
-   import pygad
+   import pygad.pygad
 
    function_inputs = [4,-2,3.5,5,-11,-4.7]
    desired_output = 44
@@ -569,7 +569,7 @@ seed.
        fitness = 1.0 / numpy.abs(output - desired_output)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=2,
+   ga_instance = pygad.pygad.GA(num_generations=2,
                           num_parents_mating=3,
                           fitness_func=fitness_func,
                           sol_per_pop=5,
@@ -599,7 +599,7 @@ Continue without Loosing Progress
 =================================
 
 In `PyGAD
-2.18.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-18-0>`__,
+2.18.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-18-0>`__,
 and thanks for `Felix Bernhard <https://github.com/FeBe95>`__ for
 opening `this GitHub
 issue <https://github.com/ahmedfgad/GeneticAlgorithmPython/issues/123#issuecomment-1203035106>`__,
@@ -621,13 +621,13 @@ Now, the user can save the model by calling the ``save()`` method.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, solution_idx):
        ...
        return fitness
 
-   ga_instance = pygad.GA(...)
+   ga_instance = pygad.pygad.GA(...)
 
    ga_instance.run()
 
@@ -642,13 +642,13 @@ data.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, solution_idx):
        ...
        return fitness
 
-   loaded_ga_instance = pygad.load("pygad_GA")
+   loaded_ga_instance = pygad.pygad.load("pygad_GA")
 
    loaded_ga_instance.run()
 
@@ -667,7 +667,7 @@ Prevent Duplicates in Gene Values
 =================================
 
 In `PyGAD
-2.13.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-13-0>`__,
+2.13.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-13-0>`__,
 a new bool parameter called ``allow_duplicate_genes`` is supported to
 control whether duplicates are supported in the chromosome or not. In
 other words, whether 2 or more genes might have the same exact value.
@@ -683,7 +683,7 @@ population after each generation.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, solution_idx):
        return 0
@@ -692,7 +692,7 @@ population after each generation.
        print("Generation", ga.generations_completed)
        print(ga.population)
 
-   ga_instance = pygad.GA(num_generations=5,
+   ga_instance = pygad.pygad.GA(num_generations=5,
                           sol_per_pop=5,
                           num_genes=4,
                           mutation_num_genes=3,
@@ -747,7 +747,7 @@ has the same space of values that consists of 4 values (1, 2, 3, and 4).
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
 
    def fitness_func(ga_instance, solution, solution_idx):
        return 0
@@ -756,7 +756,7 @@ has the same space of values that consists of 4 values (1, 2, 3, and 4).
        print("Generation", ga.generations_completed)
        print(ga.population)
 
-   ga_instance = pygad.GA(num_generations=1,
+   ga_instance = pygad.pygad.GA(num_generations=1,
                           sol_per_pop=5,
                           num_genes=4,
                           num_parents_mating=2,
@@ -828,7 +828,7 @@ When ``allow_duplicate_genes=False`` and a user-defined ``gene_space``
 is used, it sometimes happen that there is no room to solve the
 duplicates between the 2 genes by simply replacing the value of one gene
 by another gene. In `PyGAD
-3.1.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-3-0-1>`__,
+3.1.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-3-0-1>`__,
 the duplicates are solved by looking for a third gene that will help in
 solving the duplicates. The following examples explain how it works.
 
@@ -940,7 +940,7 @@ More about the ``gene_type`` Parameter
 
 The ``gene_type`` parameter allows the user to control the data type for
 all genes at once or each individual gene. In `PyGAD
-2.15.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-15-0>`__,
+2.15.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-15-0>`__,
 the ``gene_type`` parameter also supports customizing the precision for
 ``float`` data types. As a result, the ``gene_type`` parameter helps to:
 
@@ -974,7 +974,7 @@ the initial and final population are only integers.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4, -2, 3.5, 8, -2]
@@ -985,7 +985,7 @@ the initial and final population are only integers.
        fitness = 1.0 / (numpy.abs(output - desired_output) + 0.000001)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -1033,7 +1033,7 @@ genes are of type ``float`` with precision 3.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4, -2, 3.5, 8, -2]
@@ -1045,7 +1045,7 @@ genes are of type ``float`` with precision 3.
 
        return fitness
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -1080,7 +1080,7 @@ Data Type for each Individual Gene without Precision
 ----------------------------------------------------
 
 In `PyGAD
-2.14.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-14-0>`__,
+2.14.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-14-0>`__,
 the ``gene_type`` parameter allows customizing the gene type for each
 individual gene. This is by using a ``list``/``tuple``/``numpy.ndarray``
 with number of elements equal to the number of genes. For each element,
@@ -1098,7 +1098,7 @@ a custom-gene data type.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4, -2, 3.5, 8, -2]
@@ -1109,7 +1109,7 @@ a custom-gene data type.
        fitness = 1.0 / (numpy.abs(output - desired_output) + 0.000001)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -1157,7 +1157,7 @@ specified.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    equation_inputs = [4, -2, 3.5, 8, -2]
@@ -1168,7 +1168,7 @@ specified.
        fitness = 1.0 / (numpy.abs(output - desired_output) + 0.000001)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=5,
                           num_parents_mating=2,
                           num_genes=len(equation_inputs),
@@ -1203,12 +1203,12 @@ Parallel Processing in PyGAD
 ============================
 
 Starting from `PyGAD
-2.17.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-17-0>`__,
+2.17.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-17-0>`__,
 parallel processing becomes supported. This section explains how to use
 parallel processing in PyGAD.
 
 According to the `PyGAD
-lifecycle <https://pygad.readthedocs.io/en/latest/pygad.html#life-cycle-of-pygad>`__,
+lifecycle <https://pygad.pygad.readthedocs.io/en/latest/pygad.pygad.html#life-cycle-of-pygad.pygad>`__,
 parallel processing can be parallelized in only 2 operations:
 
 1. Population fitness calculation.
@@ -1243,15 +1243,15 @@ How to Use Parallel Processing in PyGAD
 ---------------------------------------
 
 Starting from `PyGAD
-2.17.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-17-0>`__,
+2.17.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-17-0>`__,
 a new parameter called ``parallel_processing`` added to the constructor
-of the ``pygad.GA`` class.
+of the ``pygad.pygad.GA`` class.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    ...
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           parallel_processing=...)
    ...
 
@@ -1316,12 +1316,12 @@ where the fitness function is made to always return 0.
 The first example uses 10 genes, 5 solutions in the population where
 only 3 solutions mate, and 9999 generations. The fitness function uses a
 ``for`` loop with 100 iterations just to have some calculations. In the
-constructor of the ``pygad.GA`` class, ``parallel_processing=None``
+constructor of the ``pygad.pygad.GA`` class, ``parallel_processing=None``
 means no parallel processing is used.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import time
 
    def fitness_func(ga_instance, solution, solution_idx):
@@ -1329,7 +1329,7 @@ means no parallel processing is used.
            pass
        return 0
 
-   ga_instance = pygad.GA(num_generations=9999,
+   ga_instance = pygad.pygad.GA(num_generations=9999,
                           num_parents_mating=3,
                           sol_per_pop=5,
                           num_genes=10,
@@ -1354,7 +1354,7 @@ processing is used with 5 threads. In this case, it take ``5`` seconds.
 .. code:: python
 
    ...
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           parallel_processing=5)
    ...
 
@@ -1365,7 +1365,7 @@ only 99 generations are used instead of 9999. The time it takes is
 .. code:: python
 
    ...
-   ga_instance = pygad.GA(num_generations=99,
+   ga_instance = pygad.pygad.GA(num_generations=99,
                           ...,
                           parallel_processing=["process", 5])
    ...
@@ -1389,7 +1389,7 @@ generations are used. With no parallelization, it takes 22 seconds.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import time
 
    def fitness_func(ga_instance, solution, solution_idx):
@@ -1397,7 +1397,7 @@ generations are used. With no parallelization, it takes 22 seconds.
            pass
        return 0
 
-   ga_instance = pygad.GA(num_generations=5,
+   ga_instance = pygad.pygad.GA(num_generations=5,
                           num_parents_mating=3,
                           sol_per_pop=5,
                           num_genes=10,
@@ -1416,7 +1416,7 @@ It takes 15 seconds when 10 processes are used.
 .. code:: python
 
    ...
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           parallel_processing=["process", 10])
    ...
 
@@ -1425,7 +1425,7 @@ This is compared to 20 seconds when 10 threads are used.
 .. code:: python
 
    ...
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           parallel_processing=["thread", 10])
    ...
 
@@ -1436,7 +1436,7 @@ CPU. Threads are preferred over processes in some situations like doing
 input/output operations.
 
 *Before releasing* `PyGAD
-2.17.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-17-0>`__\ *,*
+2.17.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-17-0>`__\ *,*
 `László
 Fazekas <https://www.linkedin.com/in/l%C3%A1szl%C3%B3-fazekas-2429a912>`__
 *wrote an article to parallelize the fitness function with PyGAD. Check
@@ -1447,7 +1447,7 @@ Print Lifecycle Summary
 =======================
 
 In `PyGAD
-2.19.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-19-0>`__,
+2.19.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-19-0>`__,
 a new method called ``summary()`` is supported. It prints a Keras-like
 summary of the PyGAD lifecycle showing the steps, callback functions,
 parameters, etc.
@@ -1481,7 +1481,7 @@ This is a quick example to create a PyGAD example.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    function_inputs = [4,-2,3.5,5,-11,-4.7]
@@ -1498,7 +1498,7 @@ This is a quick example to create a PyGAD example.
    def on_crossover_callback(a, b):
        pass
 
-   ga_instance = pygad.GA(num_generations=100,
+   ga_instance = pygad.pygad.GA(num_generations=100,
                           num_parents_mating=10,
                           sol_per_pop=20,
                           num_genes=len(function_inputs),
@@ -1591,7 +1591,7 @@ Logging Outputs
 ===============
 
 In `PyGAD
-3.0.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-3-0-0>`__,
+3.0.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-3-0-0>`__,
 the ``print()`` statement is no longer used and the outputs are printed
 using the `logging <https://docs.python.org/3/library/logging.html>`__
 module. A a new parameter called ``logger`` is supported to accept the
@@ -1603,7 +1603,7 @@ user-defined logger.
 
    logger = ...
 
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           logger=logger,
                           ...)
 
@@ -1806,7 +1806,7 @@ to the ``logger`` parameter.
 .. code:: python
 
    import logging
-   import pygad
+   import pygad.pygad
    import numpy
 
    level = logging.DEBUG
@@ -1839,7 +1839,7 @@ to the ``logger`` parameter.
        ga_instance.logger.info(f"Generation = {ga_instance.generations_completed}")
        ga_instance.logger.info(f"Fitness    = {ga_instance.best_solution(pop_fitness=ga_instance.last_generation_fitness)[1]}")
 
-   ga_instance = pygad.GA(num_generations=10,
+   ga_instance = pygad.pygad.GA(num_generations=10,
                           sol_per_pop=40,
                           num_parents_mating=2,
                           keep_parents=2,
@@ -1911,9 +1911,9 @@ saving the previous solutions. This is by setting these parameters:
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    ...
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           keep_elitism=0,
                           keep_parents=0,
                           save_solutions=False,
@@ -1936,9 +1936,9 @@ of the old solution. PyGAD supports some options to help you save time
 calling the fitness function for a previously explored solution.
 
 The parameters explored in this section can be set in the constructor of
-the ``pygad.GA`` class.
+the ``pygad.pygad.GA`` class.
 
-The ``cal_pop_fitness()`` method of the ``pygad.GA`` class checks these
+The ``cal_pop_fitness()`` method of the ``pygad.pygad.GA`` class checks these
 parameters to see if there is a possibility of reusing the fitness
 instead of calling the fitness function.
 
@@ -1949,7 +1949,7 @@ instead of calling the fitness function.
 
 It defaults to ``False``. If set to ``True``, then the population of
 each generation is saved into the ``solutions`` attribute of the
-``pygad.GA`` instance. In other words, every single solution is saved in
+``pygad.pygad.GA`` instance. In other words, every single solution is saved in
 the ``solutions`` attribute.
 
 .. _2-savebestsolutions:
@@ -1988,7 +1988,7 @@ from generation **X** to generation **X+1** without making any change.
 
 .. code:: python
 
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           keep_elitism=1,
                           ...)
 
@@ -2013,7 +2013,7 @@ Moreover, keep the 2 parameters ``save_solutions`` and
 
 .. code:: python
 
-   ga_instance = pygad.GA(...,
+   ga_instance = pygad.pygad.GA(...,
                           keep_elitism=0,
                           keep_parents=0,
                           save_solutions=False,
@@ -2024,7 +2024,7 @@ Batch Fitness Calculation
 =========================
 
 In `PyGAD
-2.19.0 <https://pygad.readthedocs.io/en/latest/releases.html#pygad-2-19-0>`__,
+2.19.0 <https://pygad.pygad.readthedocs.io/en/latest/releases.html#pygad.pygad-2-19-0>`__,
 a new optional parameter called ``fitness_batch_size`` is supported. A
 new optional parameter called ``fitness_batch_size`` is supported to
 calculate the fitness function in batches. Thanks to `Linan
@@ -2080,7 +2080,7 @@ the fitness function for each individual solution.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    function_inputs = [4,-2,3.5,5,-11,-4.7]
@@ -2095,7 +2095,7 @@ the fitness function for each individual solution.
        fitness = 1.0 / (numpy.abs(output - desired_output) + 0.000001)
        return fitness
 
-   ga_instance = pygad.GA(num_generations=5,
+   ga_instance = pygad.pygad.GA(num_generations=5,
                           num_parents_mating=10,
                           sol_per_pop=20,
                           fitness_func=fitness_func,
@@ -2145,7 +2145,7 @@ then the total number of calls is ``5*5 + 5 = 30``.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    function_inputs = [4,-2,3.5,5,-11,-4.7]
@@ -2163,7 +2163,7 @@ then the total number of calls is ``5*5 + 5 = 30``.
            batch_fitness.append(fitness)
        return batch_fitness
 
-   ga_instance = pygad.GA(num_generations=5,
+   ga_instance = pygad.pygad.GA(num_generations=5,
                           num_parents_mating=10,
                           sol_per_pop=20,
                           fitness_func=fitness_func_batch,
@@ -2214,12 +2214,12 @@ Assign Functions
 ----------------
 
 This is a dummy example where the fitness function returns a random
-value. Note that the instance of the ``pygad.GA`` class is passed as the
+value. Note that the instance of the ``pygad.pygad.GA`` class is passed as the
 last parameter of all functions.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    def fitness_func(ga_instanse, solution, solution_idx):
@@ -2246,7 +2246,7 @@ last parameter of all functions.
    def on_stop(ga_instanse, last_gen_fitness):
        print("on_stop")
 
-   ga_instance = pygad.GA(num_generations=5,
+   ga_instance = pygad.pygad.GA(num_generations=5,
                           num_parents_mating=4,
                           sol_per_pop=10,
                           num_genes=2,
@@ -2269,11 +2269,11 @@ All of the methods accept an additional parameter representing the
 method's object of the class ``Test``.
 
 All methods accept ``self`` as the first parameter and the instance of
-the ``pygad.GA`` class as the last parameter.
+the ``pygad.pygad.GA`` class as the last parameter.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
    import numpy
 
    class Test:
@@ -2301,7 +2301,7 @@ the ``pygad.GA`` class as the last parameter.
        def on_stop(self, ga_instanse, last_gen_fitness):
            print("on_stop")
 
-   ga_instance = pygad.GA(num_generations=5,
+   ga_instance = pygad.pygad.GA(num_generations=5,
                           num_parents_mating=4,
                           sol_per_pop=10,
                           num_genes=2,

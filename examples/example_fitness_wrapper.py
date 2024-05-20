@@ -1,10 +1,10 @@
-import pygad
+import pygad.pygad
 import numpy
 
 """
 All the callback functions/methods in PyGAD have limits in the number of arguments passed.
 For example, the fitness function accepts only 3 arguments:
-    1. The pygad.GA instance.
+    1. The pygad.pygad.GA instance.
     2. The solution(s).
     3. The index (indices) of the passed solution(s).
 If it is necessary to pass extra arguments to the fitness function, for example, then follow these steps:
@@ -30,7 +30,7 @@ def fitness_func_wrapper(ga_instanse, solution, solution_idx):
     fitness = fitness_func(ga_instanse, solution, solution_idx, *args)
     return fitness
 
-ga_instance = pygad.GA(num_generations=3,
+ga_instance = pygad.pygad.GA(num_generations=3,
                        num_parents_mating=5,
                        fitness_func=fitness_func_wrapper,
                        sol_per_pop=10,

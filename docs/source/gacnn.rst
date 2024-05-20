@@ -1,21 +1,21 @@
 .. _pygadgacnn-module:
 
-``pygad.gacnn`` Module
+``pygad.pygad.gacnn`` Module
 ======================
 
 This section of the PyGAD's library documentation discusses the
-**pygad.gacnn** module.
+**pygad.pygad.gacnn** module.
 
-The ``pygad.gacnn`` module trains convolutional neural networks using
-the genetic algorithm. It makes use of the 2 modules ``pygad`` and
-``pygad.cnn``.
+The ``pygad.pygad.gacnn`` module trains convolutional neural networks using
+the genetic algorithm. It makes use of the 2 modules ``pygad.pygad`` and
+``pygad.pygad.cnn``.
 
 .. _pygadgacnngacnn-class:
 
-``pygad.gacnn.GACNN`` Class
+``pygad.pygad.gacnn.GACNN`` Class
 ===========================
 
-The ``pygad.gacnn`` module has a class named ``pygad.gacnn.GACNN`` for
+The ``pygad.pygad.gacnn`` module has a class named ``pygad.pygad.gacnn.GACNN`` for
 training convolutional neural networks (CNNs) using the genetic
 algorithm. The constructor, methods, function, and attributes within the
 class are discussed in this section.
@@ -26,12 +26,12 @@ class are discussed in this section.
 --------------
 
 In order to train a CNN using the genetic algorithm, the first thing to
-do is to create an instance of the ``pygad.gacnn.GACNN`` class.
+do is to create an instance of the ``pygad.pygad.gacnn.GACNN`` class.
 
-The ``pygad.gacnn.GACNN`` class constructor accepts the following
+The ``pygad.pygad.gacnn.GACNN`` class constructor accepts the following
 parameters:
 
--  ``model``: model: An instance of the pygad.cnn.Model class
+-  ``model``: model: An instance of the pygad.pygad.cnn.Model class
    representing the architecture of all solutions in the population.
 
 -  ``num_solutions``: Number of CNNs (i.e. solutions) in the population.
@@ -42,9 +42,9 @@ parameters:
 Instance Attributes
 -------------------
 
-All the parameters in the ``pygad.gacnn.GACNN`` class constructor are
+All the parameters in the ``pygad.pygad.gacnn.GACNN`` class constructor are
 used as instance attributes. Besides such attributes, there is an extra
-attribute added to the instances from the ``pygad.gacnn.GACNN`` class
+attribute added to the instances from the ``pygad.pygad.gacnn.GACNN`` class
 which is:
 
 -  ``population_networks``: A list holding references to all the
@@ -54,7 +54,7 @@ Methods in the GACNN Class
 --------------------------
 
 This section discusses the methods available for instances of the
-``pygad.gacnn.GACNN`` class.
+``pygad.pygad.gacnn.GACNN`` class.
 
 .. _createpopulation:
 
@@ -75,7 +75,7 @@ attribute of the instance.
 
 The ``update_population_trained_weights()`` method updates the
 ``trained_weights`` attribute of the layers of each network (check the
-documentation of the ``pygad.cnn`` module) for more information)
+documentation of the ``pygad.pygad.cnn`` module) for more information)
 according to the weights passed in the ``population_trained_weights``
 parameter.
 
@@ -87,18 +87,18 @@ Accepts the following parameters:
 
 .. _functions-in-the-pygadgacnn-module:
 
-Functions in the ``pygad.gacnn`` Module
+Functions in the ``pygad.pygad.gacnn`` Module
 =======================================
 
-This section discusses the functions in the ``pygad.gacnn`` module.
+This section discusses the functions in the ``pygad.pygad.gacnn`` module.
 
 .. _pygadgacnnpopulationasvectors:
 
-``pygad.gacnn.population_as_vectors()`` 
+``pygad.pygad.gacnn.population_as_vectors()`` 
 ----------------------------------------
 
 Accepts the population as a list of references to the
-``pygad.cnn.Model`` class and returns a list holding all weights of the
+``pygad.pygad.cnn.Model`` class and returns a list holding all weights of the
 layers of each solution (i.e. network) in the population as a vector.
 
 For example, if the population has 6 solutions (i.e. networks), this
@@ -109,14 +109,14 @@ weights for all layers for a single network.
 Accepts the following parameters:
 
 -  ``population_networks``: A list holding references to the
-   ``pygad.cnn.Model`` class of the networks used in the population.
+   ``pygad.pygad.cnn.Model`` class of the networks used in the population.
 
 Returns a list holding the weights vectors for all solutions (i.e.
 networks).
 
 .. _pygadgacnnpopulationasmatrices:
 
-``pygad.gacnn.population_as_matrices()``
+``pygad.pygad.gacnn.population_as_matrices()``
 ----------------------------------------
 
 Accepts the population as both networks and weights vectors and returns
@@ -130,7 +130,7 @@ its weights for all layers.
 Accepts the following parameters:
 
 -  ``population_networks``: A list holding references to the
-   ``pygad.cnn.Model`` class of the networks used in the population.
+   ``pygad.pygad.cnn.Model`` class of the networks used in the population.
 
 -  ``population_vectors``: A list holding the weights of all networks as
    vectors. Such vectors are to be converted into matrices.
@@ -146,7 +146,7 @@ using the genetic algorithm are as follows:
 
 -  Prepare the training data.
 
--  Create an instance of the ``pygad.gacnn.GACNN`` class.
+-  Create an instance of the ``pygad.pygad.gacnn.GACNN`` class.
 
 -  Fetch the population weights as vectors.
 
@@ -154,9 +154,9 @@ using the genetic algorithm are as follows:
 
 -  Prepare the generation callback function.
 
--  Create an instance of the ``pygad.GA`` class.
+-  Create an instance of the ``pygad.pygad.GA`` class.
 
--  Run the created instance of the ``pygad.GA`` class.
+-  Run the created instance of the ``pygad.pygad.GA`` class.
 
 -  Plot the Fitness Values
 
@@ -188,7 +188,7 @@ The data used in this example is available as 2 files:
 The data consists of 4 classes of images. The image shape is
 ``(100, 100, 3)`` and there are 20 images per class. For more
 information about the dataset, check the **Reading the Data** section of
-the ``pygad.cnn`` module.
+the ``pygad.pygad.cnn`` module.
 
 Simply download these 2 files and read them according to the next code.
 
@@ -217,19 +217,19 @@ Here is an example for a CNN architecture.
 
 .. code:: python
 
-   import pygad.cnn
+   import pygad.pygad.cnn
 
-   input_layer = pygad.cnn.Input2D(input_shape=(80, 80, 3))
-   conv_layer = pygad.cnn.Conv2D(num_filters=2,
+   input_layer = pygad.pygad.cnn.Input2D(input_shape=(80, 80, 3))
+   conv_layer = pygad.pygad.cnn.Conv2D(num_filters=2,
                                  kernel_size=3,
                                  previous_layer=input_layer,
                                  activation_function="relu")
-   average_pooling_layer = pygad.cnn.AveragePooling2D(pool_size=5, 
+   average_pooling_layer = pygad.pygad.cnn.AveragePooling2D(pool_size=5, 
                                                       previous_layer=conv_layer,
                                                       stride=3)
 
-   flatten_layer = pygad.cnn.Flatten(previous_layer=average_pooling_layer)
-   dense_layer = pygad.cnn.Dense(num_neurons=4, 
+   flatten_layer = pygad.pygad.cnn.Flatten(previous_layer=average_pooling_layer)
+   dense_layer = pygad.pygad.cnn.Dense(num_neurons=4, 
                                  previous_layer=flatten_layer,
                                  activation_function="softmax")
 
@@ -239,12 +239,12 @@ CNN model.
 Building Model
 --------------
 
-The CNN model is created as an instance of the ``pygad.cnn.Model``
+The CNN model is created as an instance of the ``pygad.pygad.cnn.Model``
 class. Here is an example.
 
 .. code:: python
 
-   model = pygad.cnn.Model(last_layer=dense_layer,
+   model = pygad.pygad.cnn.Model(last_layer=dense_layer,
                            epochs=5,
                            learning_rate=0.01)
 
@@ -254,7 +254,7 @@ printed.
 Model Summary
 -------------
 
-The ``summary()`` method in the ``pygad.cnn.Model`` class prints a
+The ``summary()`` method in the ``pygad.pygad.cnn.Model`` class prints a
 summary of the CNN model.
 
 .. code:: python
@@ -270,16 +270,16 @@ summary of the CNN model.
    <class 'cnn.Dense'>
    ----------------------------------------
 
-The next step is to create an instance of the ``pygad.gacnn.GACNN``
+The next step is to create an instance of the ``pygad.pygad.gacnn.GACNN``
 class.
 
 .. _create-an-instance-of-the-pygadgacnngacnn-class:
 
-Create an Instance of the ``pygad.gacnn.GACNN`` Class
+Create an Instance of the ``pygad.pygad.gacnn.GACNN`` Class
 -----------------------------------------------------
 
 After preparing the input data and building the CNN model, an instance
-of the ``pygad.gacnn.GACNN`` class is created by passing the appropriate
+of the ``pygad.pygad.gacnn.GACNN`` class is created by passing the appropriate
 parameters.
 
 Here is an example where the ``num_solutions`` parameter is set to 4
@@ -289,12 +289,12 @@ specified by the ``model`` parameter.
 
 .. code:: python
 
-   import pygad.gacnn
+   import pygad.pygad.gacnn
 
-   GACNN_instance = pygad.gacnn.GACNN(model=model,
+   GACNN_instance = pygad.pygad.gacnn.GACNN(model=model,
                                       num_solutions=4)
 
-After creating the instance of the ``pygad.gacnn.GACNN`` class, next is
+After creating the instance of the ``pygad.pygad.gacnn.GACNN`` class, next is
 to fetch the weights of the population as a list of vectors.
 
 Fetch the Population Weights as Vectors
@@ -308,7 +308,7 @@ vector. In other words, the weights of all layers of a CNN must be
 grouped into a vector.
 
 To create a list holding the population weights as vectors, one for each
-network, the ``pygad.gacnn.population_as_vectors()`` function is used.
+network, the ``pygad.pygad.gacnn.population_as_vectors()`` function is used.
 
 .. code:: python
 
@@ -345,8 +345,8 @@ fitness. The higher the fitness value, the better the solution.
 
 Here is the implementation of the fitness function for training a CNN.
 
-It uses the ``pygad.cnn.predict()`` function to predict the class labels
-based on the current solution's weights. The ``pygad.cnn.predict()``
+It uses the ``pygad.pygad.cnn.predict()`` function to predict the class labels
+based on the current solution's weights. The ``pygad.pygad.cnn.predict()``
 function uses the trained weights available in the ``trained_weights``
 attribute of each layer of the network for making predictions.
 
@@ -370,16 +370,16 @@ Prepare the Generation Callback Function
 
 After each generation of the genetic algorithm, the fitness function
 will be called to calculate the fitness value of each solution. Within
-the fitness function, the ``pygad.cnn.predict()`` function is used for
+the fitness function, the ``pygad.pygad.cnn.predict()`` function is used for
 predicting the outputs based on the current solution's
 ``trained_weights`` attribute. Thus, it is required that such an
 attribute is updated by weights evolved by the genetic algorithm after
 each generation.
 
-PyGAD has a parameter accepted by the ``pygad.GA`` class constructor
+PyGAD has a parameter accepted by the ``pygad.pygad.GA`` class constructor
 named ``on_generation``. It could be assigned to a function that is
 called after each generation. The function must accept a single
-parameter representing the instance of the ``pygad.GA`` class.
+parameter representing the instance of the ``pygad.pygad.GA`` class.
 
 This callback function can be used to update the ``trained_weights``
 attribute of layers of each network in the population.
@@ -388,12 +388,12 @@ Here is the implementation for a function that updates the
 ``trained_weights`` attribute of the layers of the population networks.
 
 It works by converting the current population from the vector form to
-the matric form using the ``pygad.gacnn.population_as_matrices()``
+the matric form using the ``pygad.pygad.gacnn.population_as_matrices()``
 function. It accepts the population as vectors and returns it as
 matrices.
 
 The population matrices are then passed to the
-``update_population_trained_weights()`` method in the ``pygad.gacnn``
+``update_population_trained_weights()`` method in the ``pygad.pygad.gacnn``
 module to update the ``trained_weights`` attribute of all layers for all
 solutions within the population.
 
@@ -408,20 +408,20 @@ solutions within the population.
        print(f"Generation = {ga_instance.generations_completed}")
 
 After preparing the fitness and callback function, next is to create an
-instance of the ``pygad.GA`` class.
+instance of the ``pygad.pygad.GA`` class.
 
 .. _create-an-instance-of-the-pygadga-class:
 
-Create an Instance of the ``pygad.GA`` Class
+Create an Instance of the ``pygad.pygad.GA`` Class
 --------------------------------------------
 
 Once the parameters of the genetic algorithm are prepared, an instance
-of the ``pygad.GA`` class can be created. Here is an example where the
+of the ``pygad.pygad.GA`` class can be created. Here is an example where the
 number of generations is 10.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
 
    num_parents_mating = 4 
 
@@ -429,7 +429,7 @@ number of generations is 10.
 
    mutation_percent_genes = 5
 
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,
@@ -441,10 +441,10 @@ algorithm is calling the ``run()`` method.
 
 .. _run-the-created-instance-of-the-pygadga-class:
 
-Run the Created Instance of the ``pygad.GA`` Class
+Run the Created Instance of the ``pygad.pygad.GA`` Class
 --------------------------------------------------
 
-By calling the ``run()`` method from the ``pygad.GA`` instance, the
+By calling the ``run()`` method from the ``pygad.pygad.GA`` instance, the
 genetic algorithm will iterate through the number of generations
 specified in its ``num_generations`` parameter.
 
@@ -469,7 +469,7 @@ Information about the Best Solution
 -----------------------------------
 
 The following information about the best solution in the last population
-is returned using the ``best_solution()`` method in the ``pygad.GA``
+is returned using the ``best_solution()`` method in the ``pygad.pygad.GA``
 class.
 
 -  Solution
@@ -497,13 +497,13 @@ Here is how such information is returned.
 Making Predictions using the Trained Weights
 --------------------------------------------
 
-The ``pygad.cnn.predict()`` function can be used to make predictions
+The ``pygad.pygad.cnn.predict()`` function can be used to make predictions
 using the trained network. As printed, the network is able to predict
 the labels correctly.
 
 .. code:: python
 
-   predictions = pygad.cnn.predict(last_layer=GANN_instance.population_networks[solution_idx], data_inputs=data_inputs)
+   predictions = pygad.pygad.cnn.predict(last_layer=GANN_instance.population_networks[solution_idx], data_inputs=data_inputs)
    print(f"Predictions of the trained network : {predictions}")
 
 Calculating Some Statistics
@@ -545,9 +545,9 @@ complete code is listed below.
 .. code:: python
 
    import numpy
-   import pygad.cnn
-   import pygad.gacnn
-   import pygad
+   import pygad.pygad.cnn
+   import pygad.pygad.gacnn
+   import pygad.pygad
 
    """
    Convolutional neural network implementation using NumPy
@@ -570,7 +570,7 @@ complete code is listed below.
    def callback_generation(ga_instance):
        global GACNN_instance, last_fitness
 
-       population_matrices = pygad.gacnn.population_as_matrices(population_networks=GACNN_instance.population_networks, 
+       population_matrices = pygad.pygad.gacnn.population_as_matrices(population_networks=GACNN_instance.population_networks, 
                                                           population_vectors=ga_instance.population)
 
        GACNN_instance.update_population_trained_weights(population_trained_weights=population_matrices)
@@ -587,35 +587,35 @@ complete code is listed below.
    data_inputs = data_inputs
    data_outputs = data_outputs
 
-   input_layer = pygad.cnn.Input2D(input_shape=sample_shape)
-   conv_layer1 = pygad.cnn.Conv2D(num_filters=2,
+   input_layer = pygad.pygad.cnn.Input2D(input_shape=sample_shape)
+   conv_layer1 = pygad.pygad.cnn.Conv2D(num_filters=2,
                                   kernel_size=3,
                                   previous_layer=input_layer,
                                   activation_function="relu")
-   average_pooling_layer = pygad.cnn.AveragePooling2D(pool_size=5, 
+   average_pooling_layer = pygad.pygad.cnn.AveragePooling2D(pool_size=5, 
                                                       previous_layer=conv_layer1,
                                                       stride=3)
 
-   flatten_layer = pygad.cnn.Flatten(previous_layer=average_pooling_layer)
-   dense_layer2 = pygad.cnn.Dense(num_neurons=num_classes, 
+   flatten_layer = pygad.pygad.cnn.Flatten(previous_layer=average_pooling_layer)
+   dense_layer2 = pygad.pygad.cnn.Dense(num_neurons=num_classes, 
                                   previous_layer=flatten_layer,
                                   activation_function="softmax")
 
-   model = pygad.cnn.Model(last_layer=dense_layer2,
+   model = pygad.pygad.cnn.Model(last_layer=dense_layer2,
                            epochs=1,
                            learning_rate=0.01)
 
    model.summary()
 
 
-   GACNN_instance = pygad.gacnn.GACNN(model=model,
+   GACNN_instance = pygad.pygad.gacnn.GACNN(model=model,
                                 num_solutions=4)
 
    # GACNN_instance.update_population_trained_weights(population_trained_weights=population_matrices)
 
    # population does not hold the numerical weights of the network instead it holds a list of references to each last layer of each network (i.e. solution) in the population. A solution or a network can be used interchangeably.
    # If there is a population with 3 solutions (i.e. networks), then the population is a list with 3 elements. Each element is a reference to the last layer of each network. Using such a reference, all details of the network can be accessed.
-   population_vectors = pygad.gacnn.population_as_vectors(population_networks=GACNN_instance.population_networks)
+   population_vectors = pygad.pygad.gacnn.population_as_vectors(population_networks=GACNN_instance.population_networks)
 
    # To prepare the initial population, there are 2 ways:
    # 1) Prepare it yourself and pass it to the initial_population parameter. This way is useful when the user wants to start the genetic algorithm with a custom initial population.
@@ -628,7 +628,7 @@ complete code is listed below.
 
    mutation_percent_genes = 0.1 # Percentage of genes to mutate. This parameter has no action if the parameter mutation_num_genes exists.
 
-   ga_instance = pygad.GA(num_generations=num_generations, 
+   ga_instance = pygad.pygad.GA(num_generations=num_generations, 
                           num_parents_mating=num_parents_mating, 
                           initial_population=initial_population,
                           fitness_func=fitness_func,

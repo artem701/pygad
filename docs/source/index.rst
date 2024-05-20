@@ -30,7 +30,7 @@ Kabil <https://www.linkedin.com/in/asmaa-kabil-9901b7b6>`__
 
 Besides building the genetic algorithm, it builds and optimizes machine
 learning algorithms. Currently,
-`PyGAD <https://pypi.org/project/pygad>`__ supports building and
+`PyGAD <https://pypi.org/project/pygad.pygad>`__ supports building and
 training (using genetic algorithm) artificial neural networks for
 classification problems.
 
@@ -47,8 +47,8 @@ You can donate to PyGAD via:
 -  `Credit/Debit Card <https://donate.stripe.com/eVa5kO866elKgM0144>`__:
    https://donate.stripe.com/eVa5kO866elKgM0144
 
--  `Open Collective <https://opencollective.com/pygad>`__:
-   `opencollective.com/pygad <https://opencollective.com/pygad>`__
+-  `Open Collective <https://opencollective.com/pygad.pygad>`__:
+   `opencollective.com/pygad.pygad <https://opencollective.com/pygad.pygad>`__
 
 -  PayPal: Use either this link:
    `paypal.me/ahmedfgad <https://paypal.me/ahmedfgad>`__ or the e-mail
@@ -56,22 +56,22 @@ You can donate to PyGAD via:
 
 -  Interac e-Transfer: Use e-mail address ahmed.f.gad@gmail.com
 
--  Buy a product at `Teespring <https://pygad.creator-spring.com/>`__:
-   `pygad.creator-spring.com <https://pygad.creator-spring.com>`__
+-  Buy a product at `Teespring <https://pygad.pygad.creator-spring.com/>`__:
+   `pygad.pygad.creator-spring.com <https://pygad.pygad.creator-spring.com>`__
 
 Installation
 ============
 
-To install `PyGAD <https://pypi.org/project/pygad>`__, simply use pip to
+To install `PyGAD <https://pypi.org/project/pygad.pygad>`__, simply use pip to
 download and install the library from
-`PyPI <https://pypi.org/project/pygad>`__ (Python Package Index). The
-library lives a PyPI at this page https://pypi.org/project/pygad.
+`PyPI <https://pypi.org/project/pygad.pygad>`__ (Python Package Index). The
+library lives a PyPI at this page https://pypi.org/project/pygad.pygad.
 
 Install PyGAD with the following command:
 
 .. code:: python
 
-   pip3 install pygad
+   pip3 install pygad.pygad
 
 PyGAD is developed in Python 3.7.3 and depends on NumPy for creating and
 manipulating arrays and Matplotlib for creating figures. The exact NumPy
@@ -81,16 +81,16 @@ is 3.1.0.
 Quick Start
 ===========
 
-To get started with `PyGAD <https://pypi.org/project/pygad>`__, simply
+To get started with `PyGAD <https://pypi.org/project/pygad.pygad>`__, simply
 import it.
 
 .. code:: python
 
-   import pygad
+   import pygad.pygad
 
-Using `PyGAD <https://pypi.org/project/pygad>`__, a wide range of
+Using `PyGAD <https://pypi.org/project/pygad.pygad>`__, a wide range of
 problems can be optimized. A quick and simple problem to be optimized
-using the `PyGAD <https://pypi.org/project/pygad>`__ is finding the best
+using the `PyGAD <https://pypi.org/project/pygad.pygad>`__ is finding the best
 set of weights that satisfy the following function:
 
 .. code:: 
@@ -122,7 +122,7 @@ single element exists).
        return fitness
 
 Next is to prepare the parameters of
-`PyGAD <https://pypi.org/project/pygad>`__. Here is an example for a set
+`PyGAD <https://pypi.org/project/pygad.pygad>`__. Here is an example for a set
 of parameters.
 
 .. code:: python
@@ -146,12 +146,12 @@ of parameters.
    mutation_type = "random"
    mutation_percent_genes = 10
 
-After the parameters are prepared, an instance of the **pygad.GA** class
+After the parameters are prepared, an instance of the **pygad.pygad.GA** class
 is created.
 
 .. code:: python
 
-   ga_instance = pygad.GA(num_generations=num_generations,
+   ga_instance = pygad.pygad.GA(num_generations=num_generations,
                           num_parents_mating=num_parents_mating, 
                           fitness_func=fitness_function,
                           sol_per_pop=sol_per_pop, 
@@ -195,9 +195,9 @@ features of PyGAD.
 PyGAD's Modules
 ===============
 
-`PyGAD <https://pypi.org/project/pygad>`__ has the following modules:
+`PyGAD <https://pypi.org/project/pygad.pygad>`__ has the following modules:
 
-1.  The main module has the same name as the library ``pygad`` which is
+1.  The main module has the same name as the library ``pygad.pygad`` which is
     the main interface to build the genetic algorithm.
 
 2.  The ``nn`` module builds artificial neural networks.
@@ -245,27 +245,27 @@ details:
 
 .. _header-n4:
 
-pygad Module
+pygad.pygad Module
 ===============
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad Module TOC
+   :caption: pygad.pygad Module TOC
 
-   pygad.rst
+   pygad.pygad.rst
 
 
 
 .. _header-n5:
 
-More About pygad Module
+More About pygad.pygad Module
 ===============
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: More About pygad Module TOC
+   :caption: More About pygad.pygad Module TOC
 
    pygad_more.rst
 
@@ -317,13 +317,13 @@ helper Module
 
 .. _header-n9:
 
-pygad.nn Module
+pygad.pygad.nn Module
 ===============
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad.nn Module TOC
+   :caption: pygad.pygad.nn Module TOC
 
    nn.rst
 
@@ -333,13 +333,13 @@ pygad.nn Module
 
 .. _header-n10:
 
-pygad.gann Module
+pygad.pygad.gann Module
 =================
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad.gann Module TOC
+   :caption: pygad.pygad.gann Module TOC
 
    gann.rst
 
@@ -353,13 +353,13 @@ pygad.gann Module
 
 .. _header-n11:
 
-pygad.cnn Module
+pygad.pygad.cnn Module
 =================
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad.cnn Module TOC
+   :caption: pygad.pygad.cnn Module TOC
 
    cnn.rst
 
@@ -367,13 +367,13 @@ pygad.cnn Module
 
 .. _header-n12:
 
-pygad.gacnn Module
+pygad.pygad.gacnn Module
 =================
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad.gacnn Module TOC
+   :caption: pygad.pygad.gacnn Module TOC
 
    gacnn.rst
 
@@ -382,13 +382,13 @@ pygad.gacnn Module
 
 .. _header-n13:
 
-pygad.kerasga Module
+pygad.pygad.kerasga Module
 =================
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad.kerasga Module TOC
+   :caption: pygad.pygad.kerasga Module TOC
 
    kerasga.rst
 
@@ -397,13 +397,13 @@ pygad.kerasga Module
 
 .. _header-n14:
 
-pygad.torchga Module
+pygad.pygad.torchga Module
 =================
 
 
 .. toctree::
    :maxdepth: 4
-   :caption: pygad.torchga Module TOC
+   :caption: pygad.pygad.torchga Module TOC
 
    torchga.rst
 
