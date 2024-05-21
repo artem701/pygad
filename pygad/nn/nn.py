@@ -305,9 +305,9 @@ def predict(last_layer, data_inputs, problem_type="classification"):
 
     predictions = []
     for sample_idx in range(data_inputs.shape[0]):
-        r1 = numpy.concatenate((data_inputs[sample_idx, :], [1]))
+        r1 = numpy.concatenate((data_inputs[sample_idx, :], [1])).T
         for curr_weights, activation in zip(weights, activations):
-            r1 = numpy.matmul(r1, curr_weights)
+            r1 = numpy.concatenate((numpy.matmul(r1, curr_weights), [1]))
             if activation == "relu":
                 r1 = relu(r1)
             elif activation == "sigmoid":
